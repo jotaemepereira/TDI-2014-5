@@ -1,0 +1,10 @@
+{
+  "name": "heatMe",
+  "description": "heatMe server",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "body-parser": "1.6.5"
+  }
+}
