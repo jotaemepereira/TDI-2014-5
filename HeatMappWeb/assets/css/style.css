@@ -15,7 +15,7 @@ html, body
 	height: 3em;
 	width: 100%;
 	padding-bottom: 5px; 
-	background-color: #256EB8;
+	background-color: rgba(37,110,184,0.8);
 }
 	#header h1
 	{
@@ -63,11 +63,58 @@ html, body
 		}
 		#date_picker #left_date_picker #minutes_field, #hours_field
 		{
-			width: 50px;
+			width: 40px;
 		}
 
 .map
 {
 	width: 100%;
-	height: 60%;
+	height: 70%;
 }
+
+#controls
+{
+	height: 12%;
+	width: 100%;
+	margin: 0;
+	padding-top: 1em;
+	background-color: rgba(242,244,245,0.6);
+}
+	#controls #play
+	{
+		height: 2em;
+	
+	}
+	#controls #prev, #next
+	{
+		height: 1.5em;
+	
+	}
+	#controls #play:hover
+	{
+		content: url('../images/play-hover.png');
+	}
+	#controls #prev:hover
+	{
+		content: url('../images/prev-hover.png');
+	}
+	#controls #next:hover
+	{
+		content: url('../images/next-hover.png');
+	}
+	#controls ul
+	{
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		list-style-type: none;
+		text-align: center;
+		display: inline-flex; 
+	}
+
+	#controls li 
+	{ 
+		display: inline; 
+		width: 20%;
+	}
+
