@@ -3,11 +3,13 @@
 	<head>
 		<title>Simple Map</title>
 		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="stylesheet" href="assets/css/jquery-ui.css" />
 		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Indie+Flower'>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 		<meta charset="utf-8">
 		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false"></script>
 		<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+		<script src="jquery-ui.min.js"></script>
 		<script>
 			var map;
 			var heatmap = null;
@@ -56,7 +58,23 @@
 	<body>
 	<div id="header">
 		<h1>HeatMapp</h1>
+		<img id="google_sign_in" src="assets/images/Red-signin_Long_base_44dp.png">
+	</div>
+	<div id="date_picker">
+		<div id="left_date_picker">
+			<img border="0" src="assets/images/calendar2.png" alt="Enter Date" id="date_calendar" align="absmiddle" />
+			<input type='text' name='date_field' id='date_field' value='' >
+			<script type="text/javascript">
+				$(function() {
+				    $( "#date_field" ).datepicker();
+				});
+			</script>
+			<img border="0" src="assets/images/reloj.png" alt="Enter Time" id="time" align="absmiddle" />
+			<input type='text' name='hours' id='hours_field' value='' > :
+			<input type='text' name='minutes' id='minutes_field' value='' >
+		</div>
 	</div>
 		<div id="map_canvas" class="map"></div>
+		<div id=""></div>
 	</body>
 </html>

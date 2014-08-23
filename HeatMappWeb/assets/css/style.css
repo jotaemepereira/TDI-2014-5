@@ -12,14 +12,59 @@ html, body
 
 #header
 {
-	height: 5em;
+	height: 3em;
+	width: 100%;
+	padding-bottom: 5px; 
+	background-color: #256EB8;
 }
-#header h1
+	#header h1
+	{
+		font-family: 'Indie Flower', cursive;
+		font-size: 2.2em;
+		color:	#F2F4F5;
+		margin: 0 0 0 2em;
+		float: left;
+	}
+	#header #google_sign_in
+	{
+		float: right;
+		margin-top: 0.5em;
+		margin-right: 0.5em;
+		height: 2.3em;
+	}
+		#header #google_sign_in:hover
+		{
+			content: url('../images/Red-signin_Long_hover_44dp.png');
+		}
+		#header #google_sign_in:active
+		{
+			content: url('../images/Red-signin_Long_press_44dp.png');
+		}
+
+#date_picker
 {
-	font-family: 'Indie Flower', cursive;
-	font-size: 3em;
-	margin-left: 2em;
+	height: 3em;
+	width: 100%;
+	margin: 0;
+	background-color: #F2F4F5;
 }
+	#date_picker #left_date_picker
+	{
+		float: right;
+		padding-top: 0.77em;	
+	}
+		#date_picker #left_date_picker #date_calendar, #time
+		{
+			height: 1em;
+		}
+		#date_picker #left_date_picker #minutes_field
+		{
+			margin-right: 1em;
+		}
+		#date_picker #left_date_picker #minutes_field, #hours_field
+		{
+			width: 50px;
+		}
 
 .map
 {
