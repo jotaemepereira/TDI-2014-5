@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simple Map</title>
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="stylesheet" href="assets/css/jquery-ui.css" />
+		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Indie+Flower'>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+		<meta charset="utf-8">
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false"></script>
+		<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="jquery-ui.min.js"></script>
+		<script type="text/javascript" src="heatmapp.js"></script>
+	</head>
+	<body>
+	<div id="header">
+		<h1>HeatMapp</h1>
+		<img id="google_sign_in" src="assets/images/Red-signin_Long_base_44dp.png">
+		<!--<span id="signinButton">
+		  <span
+		    class="g-signin"
+		    data-callback="signinCallback"
+		    data-clientid="454438352625-d0ko36vk87kprmqfergcqvoismmas1ko.apps.googleusercontent.com"
+		    data-cookiepolicy="single_host_origin"
+		    data-requestvisibleactions="http://schemas.google.com/AddActivity"
+		    data-scope="https://www.googleapis.com/auth/plus.login">
+		  </span>
+		</span>-->
+	</div>
+	<div id="date_picker">
+		<div id="left_date_picker">
+			<img border="0" src="assets/images/calendar.png" alt="Enter Date" id="date_calendar" align="absmiddle" />
+			<input type='text' name='date_field' id='date_field' value='' >
+			<img border="0" src="assets/images/reloj.png" alt="Enter Time" id="time" align="absmiddle" />
+			<input type='number' name='hours' id='hours_field' max='23' min='0'> :
+			<input type='number' name='minutes' id='minutes_field' max='59' min='0'>
+		</div>
+	</div>
+	<div id="map_canvas" class="map"></div>
+	<div id="controls">
+		<ul>
+			<li></li>
+			<li><img border="0" src="assets/images/prev.png" alt="Previous Day" id="prev" align="absmiddle" /></li>
+			<li><img border="0" src="assets/images/play.png" alt="See Day Movement" id="play" align="absmiddle" /></li>
+			<li><img border="0" src="assets/images/next.png" alt="Next Day" id="next" align="absmiddle" /></li>
+			<li></li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		/*(function() {
+	       var po = document.createElement('script'); 
+	       po.type = 'text/javascript'; po.async = true;
+	       po.src = 'https://apis.google.com/js/client:plusone.js';
+	       var s = document.getElementsByTagName('script')[0]; 
+	       s.parentNode.insertBefore(po, s);
+		})();*/
+		(function() {
+			var po = document.createElement('script');
+			po.type = 'text/javascript'; po.async = true;
+			po.src = 'https://apis.google.com/js/client:plusone.js?onload=render';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(po, s);
+		})();
+
+		function render() {
+			gapi.signin.render('google_sign_in', {
+				//'callback': 'signinCallback',
+				'clientid': '8454438352625-d0ko36vk87kprmqfergcqvoismmas1ko.apps.googleusercontent.com',
+				'cookiepolicy': 'single_host_origin',
+				'requestvisibleactions': 'http://schemas.google.com/AddActivity',
+				'scope': 'https://www.googleapis.com/auth/plus.login'
+			});
+		}
+    </script>
+	</body>
+</html>

@@ -52,5 +52,43 @@ $(document).ready(function()
 })
 
 $(function() {
-    $( "#date_field" ).datepicker();
+    $("#date_field").datepicker();
+    $("#date_field").change(obtenerPuntosDeCalor);
+    $("#hours_field").change(obtenerPuntosDeCalor);
+    $("#minutes_field").change(obtenerPuntosDeCalor);
 });
+
+function obtenerPuntosDeCalor() 
+{
+	alert($('#hours_field').val() + ' : ' + $('#minutes_field').val());
+
+	$.ajax({
+        url: 'http://localhost:8080/getHeatMap',
+        //dataType: "jsonp",
+        data: {timestamp: "TEST", latitud: '123', longitud: '456'},
+        type: 'GET',
+        //jsonpCallback: 'callback', // this is not relevant to the POST anymore
+        success: function (data) {
+            console.log('Success: ' + JSON.stringify(data));
+        },
+        error: function (xhr, status, error) {
+            console.log('Error: ' + error.message);
+        },
+    });
+}
+
+function signinCallback(authResult) {
+	if (authResult['access_token']) {
+		// Autorizado correctamente
+		// Oculta el botón de inicio de sesión ahora que el usuario está autorizado, por ejemplo:
+		document.getElementById('google_sign_in').setAttribute('style', 'display: none');
+	} 
+	else if (authResult['error']) {
+		// Se ha producido un error.
+		// Posibles códigos de error:
+		//   "access_denied": el usuario ha denegado el acceso a la aplicación.
+		//   "immediate_failed": no se ha podido dar acceso al usuario de forma automática.
+		console.log('There was an error: ' + authResult['error']);
+	}
+}
+

@@ -41,6 +41,14 @@ html, body
 			content: url('../images/Red-signin_Long_press_44dp.png');
 		}
 
+	#header #signinButton
+	{
+		float: right;
+		margin-top: 0.7em;
+		margin-right: 0.5em;
+		height: 2.3em;
+	}
+
 #date_picker
 {
 	height: 3em;
