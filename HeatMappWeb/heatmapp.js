@@ -56,6 +56,20 @@ $(function() {
     $("#date_field").change(obtenerPuntosDeCalor);
     $("#hours_field").change(obtenerPuntosDeCalor);
     $("#minutes_field").change(obtenerPuntosDeCalor);
+    $("#play").click(function()
+    	{
+    		
+    	});
+    $("#next").click(function()
+    	{
+    		var currentDate = $("#date_field").datepicker( "getDate" );
+    		$("#date_field").datepicker("setDate", new Date(currentDate.getTime() + (24 * 60 * 60 * 1000)));
+    	});
+    $("#prev").click(function()
+    	{
+    		var currentDate = $("#date_field").datepicker( "getDate" );
+    		$("#date_field").datepicker("setDate", new Date(currentDate.getTime() - (24 * 60 * 60 * 1000)));
+    	});
 });
 
 function obtenerPuntosDeCalor() 
