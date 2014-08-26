@@ -77,18 +77,28 @@ function obtenerPuntosDeCalor()
 	alert($('#hours_field').val() + ' : ' + $('#minutes_field').val());
 
 	$.ajax({
-        url: 'http://localhost:8080/getHeatMap',
-        //dataType: "jsonp",
-        data: {timestamp: "TEST", latitud: '123', longitud: '456'},
-        type: 'GET',
-        //jsonpCallback: 'callback', // this is not relevant to the POST anymore
-        success: function (data) {
-            console.log('Success: ' + JSON.stringify(data));
-        },
-        error: function (xhr, status, error) {
-            console.log('Error: ' + error.message);
-        },
-    });
+		type : "GET",
+		url: 'http://localhost:8080/getHeatMap',
+		data: "timestamp=123&latitud=1231&longitud=567",
+		contentType: 'application/x-www-form-urlencoded',
+		dataType: 'json',
+	}).done(function(userData){
+		 console.log('Success: ' + JSON.stringify(data));
+	}).fail(function(jqXHR, textStatus) {
+		console.log('Error: ' + error.message);
+	});
+	/*$.ajax({
+		type : "POST",
+		url: 'http://localhost:8080/locationUpdate?timestamp=blablabla',
+		data: "timestamp=123",
+		contentType: 'application/x-www-form-urlencoded',
+		dataType: 'json',
+	}).done(function(userData){
+		 console.log('Success: ' + JSON.stringify(data));
+	}).fail(function(jqXHR, textStatus) {
+		console.log('Error: ' + error.message);
+	}); */
+
 }
 
 function signinCallback(authResult) {

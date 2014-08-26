@@ -102,14 +102,11 @@ html, body
 	{
 		content: url('../images/play-hover.png');
 	}
-	#controls #prev:hover
-	{
-		content: url('../images/prev-hover.png');
-	}
-	#controls #next:hover
-	{
-		content: url('../images/next-hover.png');
-	}
+	#controls #play:active { content: url('../images/play-active.png'); }
+	#controls #prev:hover { content: url('../images/prev-hover.png'); }
+	#controls #prev:active { content: url('../images/prev-active.png'); }
+	#controls #next:hover { content: url('../images/next-hover.png'); }
+	#controls #next:active { content: url('../images/next-active.png'); }
 	#controls ul
 	{
 		margin: 0;
