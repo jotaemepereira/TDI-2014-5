@@ -6,6 +6,8 @@
   "dependencies": {
     "express": "3.x",
     "body-parser": "1.6.5",
-    "url": "0.10.1"
+    "url": "0.10.1",
+    "mongodb": "*",
+    "mongoose": "*"
   }
 }
