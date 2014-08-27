@@ -21,9 +21,9 @@ var Position = mongoose.model('Position', { latitud: String, longitud: String, d
 
 
 //<PRUEBA>
-
+/*
 //guardar en la db
-var pos = new Position({ latitud: '11', longitud: '22'/*, timestamp: req.body.timestamp */});
+var pos = new Position({ latitud: '11', longitud: '22'});
 pos.save(function(err){
 
     if (err) // ...
@@ -31,24 +31,33 @@ pos.save(function(err){
     else
         console.log('Position recorded');
 
-    Position.find({"date": {'$gte': new Date('3/1/2014'), '$lt': new Date('3/16/2015')}}, function(err, docs){
+});
+
+var pos = new Position({ latitud: '11', longitud: '22'});
+pos.save(function(err){
+
+    if (err) // ...
+        console.log('Error recording position');
+    else
+        console.log('Position recorded');
+
+    Position.find({"date": {'$gte': new Date('3/1/2014'), '$lt': new Date('3/16/2015')}}).sort({date: 'asc'}).exec(function(err, docs){
         console.log(docs);
     });
 
 });
-
+*/
 //</PRUEBA>
 
 app.post('/locationUpdate', function(req, res){
 
     console.log('POST /locationUpdate');
 
-    //console.log(req.body.timestamp);
     console.log(req.body.latitud);
     console.log(req.body.longitud);
 
     //guardar en la db
-    var pos = new Position({ latitud: req.body.latitud, longitud: req.body.longitud/*, timestamp: req.body.timestamp */});
+    var pos = new Position({ latitud: req.body.latitud, longitud: req.body.longitud });
     pos.save(function(err){
 
         if (err) // ...
@@ -66,17 +75,17 @@ app.get('/getHeatMap', function(req, res){
 
     var urlpars = url.parse(req.url,false,true);
 
-    var params = urlpars.query.match(/timestamp=(.+)&latitud=(.+)&longitud=(.+)/);
+    //NECESITO LAS FECHAS, SIEMPRE.
 
-    var timestamp = params[1];
-    var latitud= params[2];
-    var longitud= params[3];
+    var params = urlpars.query.match(/fDesde=(.+)&fHasta=(.+)/);
 
-    console.log(timestamp);
-    console.log(latitud);
-    console.log(longitud);
+    var fDesde= params[1];
+    var fHasta= params[2];
 
-    Position.find({"date": {'$gte': new Date('3/1/2014'), '$lt': new Date('3/16/2015')}}, function(err, docs){
+    console.log(fDesde);
+    console.log(fHasta);
+
+    Position.find({"date": {'$gte': new Date('3/1/2014'), '$lt': new Date('3/16/2015')}}).sort({date: 'asc'}).exec(function(err, docs){
         console.log(docs);
     });
 
