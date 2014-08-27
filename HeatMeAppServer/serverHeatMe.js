@@ -77,18 +77,34 @@ app.get('/getHeatMap', function(req, res){
 
     //NECESITO LAS FECHAS, SIEMPRE.
 
-    /*var params = urlpars.query.match(/fDesde=(.+)&fHasta=(.+)/);
+    /*
+    var params = urlpars.query.match(/fDesde=(.+)&fHasta=(.+)/);
 
     var fDesde= params[1];
     var fHasta= params[2];
 
     console.log(fDesde);
-    console.log(fHasta);*/
+    console.log(fHasta);
+    */
 
     Position.find({"date": {'$gte': new Date('3/1/2014'), '$lt': new Date('3/16/2015')}}).sort({date: 'asc'}).exec(function(err, docs){
-        console.log(docs);
+        
+        console.log('<SENDING>');
+        
         res.setHeader('Content-Type', 'application/json');
-        res.json(docs);
+        res.setHeader("Access-Control-Allow-Origin", "*");
+
+        var ret = [];
+        for (var i=0; i<docs.length; i++)
+        ret.push({  latitud: docs[i].latitud,
+                    longitud: docs[i].longitud
+                });
+
+        console.log(ret);
+        res.json(ret);
+        
+        console.log('</SENDING>');
+
     });
 
 });
