@@ -17,7 +17,7 @@ var server = app.listen(8080, function(){
 
 mongoose.connect('mongodb://localhost/heatMe');
 
-var Position = mongoose.model('Position', { latitud: String, longitud: String, date:  { type: Date, default: Date.now } });
+var Position = mongoose.model('Position', { latitud: String, longitud: String, timestamp: String, tipo: String });
 
 
 //<PRUEBA>
@@ -57,7 +57,7 @@ app.post('/locationUpdate', function(req, res){
     console.log(req.body.longitud);
 
     //guardar en la db
-    var pos = new Position({ latitud: req.body.latitud, longitud: req.body.longitud });
+    var pos = new Position({ latitud: req.body.latitud, longitud: req.body.longitud, date: req.body.timestamp });
     pos.save(function(err){
 
         if (err) // ...
@@ -77,34 +77,71 @@ app.get('/getHeatMap', function(req, res){
 
     //NECESITO LAS FECHAS, SIEMPRE.
 
-    /*
-    var params = urlpars.query.match(/fDesde=(.+)&fHasta=(.+)/);
+    if (urlpars.query.test(/hDesde=(.+)&hHasta=(.+)/)){
 
-    var fDesde= params[1];
-    var fHasta= params[2];
+        var params = urlpars.query.match(/hDesde=(.+)&hHasta=(.+)/);
 
-    console.log(fDesde);
-    console.log(fHasta);
-    */
+        var hDesde= params[1];
+        var hHasta= params[2];
 
-    Position.find({"date": {'$gte': new Date('3/1/2014'), '$lt': new Date('3/16/2015')}}).sort({date: 'asc'}).exec(function(err, docs){
+        console.log(hDesde);
+        console.log(hHasta);
+
+        Position.find({"date": {'$gte': hDesde, '$lt': new hHasta}}).sort({date: 'asc'}).exec(function(err, docs){
+            
+            console.log('<SENDING>');
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.setHeader("Access-Control-Allow-Origin", "*");
+
+            var ret = [];
+            for (var i=0; i<docs.length; i++)
+            ret.push({  latitud: docs[i].latitud,
+                        longitud: docs[i].longitud
+                    });
+
+            console.log(ret);
+            res.json(ret);
+            
+            console.log('</SENDING>');
+
+        });
+
+        return;
+
+    };
+
+    if (urlpars.query.test(/hExacta=(.+)/)){
+
+        var params = urlpars.query.match(/hExacta=(.+)/);
+
+        var hExacta= params[1];
+
+        console.log(hExacta);
+
+        Position.find({"date": hExacta}).sort({date: 'asc'}).exec(function(err, docs){
+            
+            console.log('<SENDING>');
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.setHeader("Access-Control-Allow-Origin", "*");
+
+            var ret = [];
+            for (var i=0; i<docs.length; i++)
+            ret.push({  latitud: docs[i].latitud,
+                        longitud: docs[i].longitud
+                    });
+
+            console.log(ret);
+            res.json(ret);
+            
+            console.log('</SENDING>');
+
+        });
+
+        return;
         
-        console.log('<SENDING>');
-        
-        res.setHeader('Content-Type', 'application/json');
-        res.setHeader("Access-Control-Allow-Origin", "*");
-
-        var ret = [];
-        for (var i=0; i<docs.length; i++)
-        ret.push({  latitud: docs[i].latitud,
-                    longitud: docs[i].longitud
-                });
-
-        console.log(ret);
-        res.json(ret);
-        
-        console.log('</SENDING>');
-
-    });
+    };
+    
 
 });
