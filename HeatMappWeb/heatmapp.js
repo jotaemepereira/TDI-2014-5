@@ -113,10 +113,12 @@ $(function() {
     		$("#date_field").datepicker("setDate", new Date(currentDate.getTime() - (24 * 60 * 60 * 1000)));
     		obtenerPuntosDeCalor();
     	});
+    $("#tipo_select").change(cambiarMedioTransporte);
 });
 
 function obtenerPuntosDeCalor() 
 {
+	//162.248.53.11:8080
 	var timestamp = $( "#date_field" ).datepicker( "getDate" );
 	timestamp.setHours($('#hours_field').val());
 	timestamp.setMinutes($('#minutes_field').val());
@@ -124,7 +126,7 @@ function obtenerPuntosDeCalor()
 	$.ajax({
 		type : "GET",
 		url: 'http://localhost:8080/getHeatMap',
-		data: "timestamp=" + timestamp,
+		data: "timestamp=" + timestamp.getTime(),
 		contentType: 'application/x-www-form-urlencoded',
 		dataType: 'json',
 	}).done(function(userData){
@@ -160,18 +162,27 @@ function obtenerPuntosDeCalor()
 
 }
 
-function signinCallback(authResult) {
-	if (authResult['access_token']) {
+function signinCallback(authResult) 
+{
+	if (authResult['access_token']) 
+	{
 		// Autorizado correctamente
 		// Oculta el botón de inicio de sesión ahora que el usuario está autorizado, por ejemplo:
 		document.getElementById('google_sign_in').setAttribute('style', 'display: none');
 	} 
-	else if (authResult['error']) {
+	else if (authResult['error']) 
+	{
 		// Se ha producido un error.
 		// Posibles códigos de error:
 		//   "access_denied": el usuario ha denegado el acceso a la aplicación.
 		//   "immediate_failed": no se ha podido dar acceso al usuario de forma automática.
 		console.log('There was an error: ' + authResult['error']);
 	}
+}
+
+function cambiarMedioTransporte()
+{
+	var tipo = $('#tipo_select').val();
+	$('#tipo_img').attr('src', 'assets/images/tipo' + tipo +'.png');
 }
 
