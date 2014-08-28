@@ -76,11 +76,9 @@ html, body
 		#date_picker #tipo_select
 		{
 			margin-top: 1.3em;
-			margin-left: 1em;
 		}
 		#date_picker #tipo_img
 		{
-			padding-top: 0.77em;
 			height: 1em;
 			margin-left: 1em;
 		}
