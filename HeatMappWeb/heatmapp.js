@@ -21,11 +21,52 @@ function initialize()
 {
 	var sanFrancisco = new google.maps.LatLng(37.784546, -122.443523);
 
+	var styleArray = [
+	{
+		featureType: "all",
+		stylers: [
+		  { hue: "#808080" },
+		  { saturation: -100 }
+		]
+	},
+	{
+		featureType: "road",
+		elementType: "geometry",
+		stylers: [
+		  { hue: "#B3FFFB" },
+		  { saturation: 50 },
+		]
+	},
+	{
+		featureType: "road.arterial",
+		elementType: "geometry",
+		stylers: [
+		  { hue: "#00ffee" },
+		  { saturation: 100 },
+		]
+	},
+	{
+		featureType: "road.highway",
+		elementType: "geometry",
+		stylers: [
+		  { hue: "#00B3A7" },
+		  { saturation: 30 },
+		]
+	},
+	{
+		featureType: "poi.business",
+		elementType: "labels",
+		stylers: [
+		  { visibility: "off" }
+		]
+	}];
+
 	map = new google.maps.Map(document.getElementById('map_canvas'), {
 		center: sanFrancisco,
-		zoom: 15,
-		mapTypeId: google.maps.MapTypeId.SATELLITE
+		zoom: 12,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
 	});
+	map.setOptions({styles: styleArray});
 	runHeatmap();
 }
 
@@ -64,33 +105,51 @@ $(function() {
     	{
     		var currentDate = $("#date_field").datepicker( "getDate" );
     		$("#date_field").datepicker("setDate", new Date(currentDate.getTime() + (24 * 60 * 60 * 1000)));
+    		obtenerPuntosDeCalor();
     	});
     $("#prev").click(function()
     	{
     		var currentDate = $("#date_field").datepicker( "getDate" );
     		$("#date_field").datepicker("setDate", new Date(currentDate.getTime() - (24 * 60 * 60 * 1000)));
+    		obtenerPuntosDeCalor();
     	});
 });
 
 function obtenerPuntosDeCalor() 
 {
-	alert($('#hours_field').val() + ' : ' + $('#minutes_field').val());
-
+	var timestamp = $( "#date_field" ).datepicker( "getDate" );
+	timestamp.setHours($('#hours_field').val());
+	timestamp.setMinutes($('#minutes_field').val());
+	console.log('timestamp --> ' + timestamp);
 	$.ajax({
 		type : "GET",
 		url: 'http://localhost:8080/getHeatMap',
-		data: "timestamp=123&latitud=1231&longitud=567",
+		data: "timestamp=" + timestamp,
 		contentType: 'application/x-www-form-urlencoded',
 		dataType: 'json',
 	}).done(function(userData){
-		 console.log('Success: ' + JSON.stringify(data));
+		console.log('Success getHeatMap: ' + JSON.stringify(userData));
+		var heatpoints = [];
+		userData.forEach(function(point){
+			heatpoints.push(new google.maps.LatLng(parseFloat(point.latitud), parseFloat(point.longitud)));
+		})
+		var pointArray = new google.maps.MVCArray(heatpoints);
+		map.setCenter(new google.maps.LatLng(heatpoints[heatpoints.length - 1].k, heatpoints[heatpoints.length - 1].B));
+		if (!heatmap) {
+		    heatmap = new google.maps.visualization.HeatmapLayer({
+		        data: pointArray,
+		        map: map
+		    });
+		} else {
+		    heatmap.setData(pointArray);
+		}
 	}).fail(function(jqXHR, textStatus) {
-		console.log('Error: ' + error.message);
+		console.log('Error getHeatMap: ' + textStatus);
 	});
 	/*$.ajax({
 		type : "POST",
-		url: 'http://localhost:8080/locationUpdate?timestamp=blablabla',
-		data: "timestamp=123",
+		url: 'http://localhost:8080/locationUpdate',
+		data: "timestamp=" + timestamp,
 		contentType: 'application/x-www-form-urlencoded',
 		dataType: 'json',
 	}).done(function(userData){

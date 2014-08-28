@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Simple Map</title>
+		<title>HeatMapp | Tu ciudad en movimiento</title>
 		<link rel="stylesheet" href="assets/css/style.css" />
 		<link rel="stylesheet" href="assets/css/jquery-ui.css" />
 		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Indie+Flower'>
@@ -29,6 +29,12 @@
 	</div>
 	<div id="date_picker">
 		<div id="left_date_picker">
+			<select id='tipo'>
+				<option value="0">Caminando</option>
+				<option value="1">En Bici</option>
+				<option value="2">En Auto</option>
+				<option value="3">En Omnibus</option>
+			</select>
 			<img border="0" src="assets/images/calendar.png" alt="Enter Date" id="date_calendar" align="absmiddle" />
 			<input type='text' name='date_field' id='date_field' value='' >
 			<img border="0" src="assets/images/reloj.png" alt="Enter Time" id="time" align="absmiddle" />
