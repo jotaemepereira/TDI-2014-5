@@ -122,11 +122,13 @@ function obtenerPuntosDeCalor()
 	var timestamp = $( "#date_field" ).datepicker( "getDate" );
 	timestamp.setHours($('#hours_field').val());
 	timestamp.setMinutes($('#minutes_field').val());
+	var transporte = $("#tipo_select").val();
 	console.log('timestamp --> ' + timestamp);
+	
 	$.ajax({
 		type : "GET",
 		url: 'http://localhost:8080/getHeatMap',
-		data: "timestamp=" + timestamp.getTime(),
+		data: "hExacta=" + timestamp.getTime(),
 		contentType: 'application/x-www-form-urlencoded',
 		dataType: 'json',
 	}).done(function(userData){
