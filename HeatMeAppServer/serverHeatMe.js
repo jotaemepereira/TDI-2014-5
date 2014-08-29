@@ -77,7 +77,7 @@ app.get('/getHeatMap', function(req, res){
 
     //NECESITO LAS FECHAS, SIEMPRE.
 
-    if (urlpars.query.test(/hDesde=(.+)&hHasta=(.+)/)){
+    if ((/hDesde=(.+)&hHasta=(.+)/).test(urlpars.query)){
 
         var params = urlpars.query.match(/hDesde=(.+)&hHasta=(.+)/);
 
@@ -107,13 +107,12 @@ app.get('/getHeatMap', function(req, res){
 
         });
 
-        return;
-
     };
 
-    if (urlpars.query.test(/hExacta=(.+)/)){
+    if ((/hExacta=(.+)/).test(urlpars.query)){
 
         var params = urlpars.query.match(/hExacta=(.+)/);
+        
 
         var hExacta= params[1];
 
@@ -138,8 +137,6 @@ app.get('/getHeatMap', function(req, res){
             console.log('</SENDING>');
 
         });
-
-        return;
         
     };
     
