@@ -22,8 +22,10 @@ html, body
 		font-family: 'Indie Flower', cursive;
 		font-size: 2.2em;
 		color:	#F2F4F5;
-		margin: 0 0 0 2em;
+		/*margin: 0 0 0 2em;*/
+		margin: 0;
 		float: left;
+		padding-left: 45%;
 	}
 	#header #google_sign_in
 	{
