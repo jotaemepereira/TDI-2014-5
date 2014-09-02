@@ -98,10 +98,17 @@ app.get('/getHeatMap', function(req, res){
             res.setHeader("Access-Control-Allow-Origin", "*");
 
             var ret = [];
-            for (var i=0; i<docs.length; i++)
-            ret.push({  latitud: docs[i].latitud,
-                        longitud: docs[i].longitud
-                    });
+
+            for (var i=0; i<docs.length; i++){
+
+                if (!ret[docs[i].timestamp])
+                    ret[docs[i].timestamp] = [];
+
+                ret[docs[i].timestamp].push({ latitud: docs[i].latitud,
+                                              longitud: docs[i].longitud
+                                            });
+
+            };
 
             console.log(ret);
             res.json(ret);
