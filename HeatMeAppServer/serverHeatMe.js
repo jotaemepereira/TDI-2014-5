@@ -101,7 +101,7 @@ app.get('/getHeatMap', function(req, res){
 
             for (var i=0; i<docs.length; i++){
 
-                if (!ret[docs[i].timestamp])
+                if (ret[docs[i].timestamp]==undefined)
                     ret[docs[i].timestamp] = [];
 
                 ret[docs[i].timestamp].push({ latitud: docs[i].latitud,
