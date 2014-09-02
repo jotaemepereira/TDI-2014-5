@@ -57,7 +57,7 @@ app.post('/locationUpdate', function(req, res){
     console.log(req.body.longitud);
 
     //guardar en la db
-    var pos = new Position({ latitud: req.body.latitud, longitud: req.body.longitud, date: req.body.timestamp });
+    var pos = new Position({ latitud: req.body.latitud, longitud: req.body.longitud, timestamp: req.body.timestamp, tipo: req.body.tipo });
     pos.save(function(err){
 
         if (err) // ...
