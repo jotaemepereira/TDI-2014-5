@@ -22,8 +22,10 @@ html, body
 		font-family: 'Indie Flower', cursive;
 		font-size: 2.2em;
 		color:	#F2F4F5;
-		margin: 0 0 0 2em;
+		/*margin: 0 0 0 2em;*/
+		margin: 0;
 		float: left;
+		padding-left: 45%;
 	}
 	#header #google_sign_in
 	{
@@ -61,7 +63,7 @@ html, body
 		float: right;
 		padding-top: 0.77em;	
 	}
-		#date_picker #left_date_picker #date_calendar, #time
+		#date_picker #left_date_picker #calendar_img, #time_img, #tipo_img
 		{
 			height: 1em;
 		}
@@ -72,6 +74,15 @@ html, body
 		#date_picker #left_date_picker #minutes_field, #hours_field
 		{
 			width: 40px;
+		}
+		#date_picker #tipo_select
+		{
+			margin-top: 1.3em;
+		}
+		#date_picker #tipo_img
+		{
+			height: 1em;
+			margin-left: 1em;
 		}
 
 .map

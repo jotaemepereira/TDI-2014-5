@@ -15,7 +15,7 @@
 	<body>
 	<div id="header">
 		<h1>HeatMapp</h1>
-		<img id="google_sign_in" src="assets/images/Red-signin_Long_base_44dp.png">
+		<!--<img id="google_sign_in" src="assets/images/Red-signin_Long_base_44dp.png"> -->
 		<!--<span id="signinButton">
 		  <span
 		    class="g-signin"
@@ -28,16 +28,18 @@
 		</span>-->
 	</div>
 	<div id="date_picker">
+		<img border="0" src="assets/images/tipo0.png" id="tipo_img" align="absmiddle" />
+		<select id='tipo_select'>
+			<option value="4">Todos</option>
+			<option value="0">Caminando</option>
+			<option value="1">En Bici</option>
+			<option value="2">En Auto</option>
+			<option value="3">En Omnibus</option>
+		</select>
 		<div id="left_date_picker">
-			<select id='tipo'>
-				<option value="0">Caminando</option>
-				<option value="1">En Bici</option>
-				<option value="2">En Auto</option>
-				<option value="3">En Omnibus</option>
-			</select>
-			<img border="0" src="assets/images/calendar.png" alt="Enter Date" id="date_calendar" align="absmiddle" />
+			<img border="0" src="assets/images/calendar.png" alt="Enter Date" id="calendar_img" align="absmiddle" />
 			<input type='text' name='date_field' id='date_field' value='' >
-			<img border="0" src="assets/images/reloj.png" alt="Enter Time" id="time" align="absmiddle" />
+			<img border="0" src="assets/images/reloj.png" alt="Enter Time" id="time_img" align="absmiddle" />
 			<input type='number' name='hours' id='hours_field' max='23' min='0'> :
 			<input type='number' name='minutes' id='minutes_field' max='59' min='0'>
 		</div>

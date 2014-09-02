@@ -107,13 +107,12 @@ app.get('/getHeatMap', function(req, res){
 
         });
 
-        return;
-
     };
 
     if ((/hExacta=(.+)/).test(urlpars.query)){
 
         var params = urlpars.query.match(/hExacta=(.+)/);
+        
 
         var hExacta= params[1];
 
@@ -138,8 +137,6 @@ app.get('/getHeatMap', function(req, res){
             console.log('</SENDING>');
 
         });
-
-        return;
         
     };
     
