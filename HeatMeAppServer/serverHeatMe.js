@@ -97,12 +97,13 @@ app.get('/getHeatMap', function(req, res){
             res.setHeader('Content-Type', 'application/json');
             res.setHeader("Access-Control-Allow-Origin", "*");
 
-            console.log(docs);
+            //console.log(docs);
 
             var ret = [];
 
             for (var i=0; i<docs.length; i++){
 
+                console.log(ret[docs[i].timestamp]);
                 if (ret[docs[i].timestamp]==undefined)
                     ret[docs[i].timestamp] = [];
 
