@@ -97,6 +97,8 @@ app.get('/getHeatMap', function(req, res){
             res.setHeader('Content-Type', 'application/json');
             res.setHeader("Access-Control-Allow-Origin", "*");
 
+            console.log(docs);
+
             var ret = [];
 
             for (var i=0; i<docs.length; i++){
@@ -111,7 +113,7 @@ app.get('/getHeatMap', function(req, res){
             };
 
             console.log(ret);
-            res.json(ret);
+            res.send(ret);
             
             console.log('</SENDING>');
 
