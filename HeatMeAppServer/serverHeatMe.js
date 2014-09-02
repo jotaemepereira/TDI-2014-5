@@ -55,6 +55,9 @@ app.post('/locationUpdate', function(req, res){
 
     console.log(req.body.latitud);
     console.log(req.body.longitud);
+    console.log(req.body.timestamp);
+    console.log(req.body.timestamp);
+    console.log(req.body.tipo);
 
     //guardar en la db
     var pos = new Position({ latitud: req.body.latitud, longitud: req.body.longitud, timestamp: req.body.timestamp, tipo: req.body.tipo });
@@ -84,6 +87,7 @@ app.get('/getHeatMap', function(req, res){
         var hDesde= params[1];
         var hHasta= params[2];
 
+        console.log('Rango');
         console.log(hDesde);
         console.log(hHasta);
 
@@ -112,10 +116,10 @@ app.get('/getHeatMap', function(req, res){
     if ((/hExacta=(.+)/).test(urlpars.query)){
 
         var params = urlpars.query.match(/hExacta=(.+)/);
-        
 
         var hExacta= params[1];
 
+        console.log('hExacta');
         console.log(hExacta);
 
         Position.find({"date": hExacta}).sort({date: 'asc'}).exec(function(err, docs){
