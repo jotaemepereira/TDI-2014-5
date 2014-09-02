@@ -87,7 +87,7 @@ app.get('/getHeatMap', function(req, res){
         console.log(hDesde);
         console.log(hHasta);
 
-        Position.find({"date": {'$gte': hDesde, '$lt': new hHasta}}).sort({date: 'asc'}).exec(function(err, docs){
+        Position.find({"date": {'$gte': hDesde, '$lt': hHasta}}).sort({date: 'asc'}).exec(function(err, docs){
             
             console.log('<SENDING>');
             
