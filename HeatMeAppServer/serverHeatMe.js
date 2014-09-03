@@ -62,10 +62,14 @@ app.post('/locationUpdate', function(req, res){
     var pos = new Position({ latitud: req.body.latitud, longitud: req.body.longitud, timestamp: req.body.timestamp, tipo: req.body.tipo });
     pos.save(function(err){
 
-        if (err) // ...
+        if (err){
             console.log('Error recording position');
-        else
+            res.send('OK');
+        }
+        else{
             console.log('Position recorded');
+            res.send('BAD');
+        };  
 
     });
 
