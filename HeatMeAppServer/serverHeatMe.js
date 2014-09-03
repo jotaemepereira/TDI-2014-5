@@ -55,7 +55,7 @@ app.post('/locationUpdate', function(req, res){
 
     console.log(req.body.latitud);
     console.log(req.body.longitud);
-    console.log(req.body.timestamp);
+    console.log(new Date(req.body.timestamp));
     console.log(req.body.tipo);
 
     //guardar en la db
