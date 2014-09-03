@@ -64,11 +64,11 @@ app.post('/locationUpdate', function(req, res){
 
         if (err){
             console.log('Error recording position');
-            res.send('OK');
+            res.send('BAD');
         }
         else{
             console.log('Position recorded');
-            res.send('BAD');
+            res.send('OK');
         };  
 
     });
