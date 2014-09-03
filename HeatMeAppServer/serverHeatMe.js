@@ -55,9 +55,11 @@ app.post('/locationUpdate', function(req, res){
 
     console.log(req.body.latitud);
     console.log(req.body.longitud);
+    console.log(req.body.timestamp);
+    console.log(req.body.tipo);
 
     //guardar en la db
-    var pos = new Position({ latitud: req.body.latitud, longitud: req.body.longitud, date: req.body.timestamp });
+    var pos = new Position({ latitud: req.body.latitud, longitud: req.body.longitud, timestamp: req.body.timestamp, tipo: req.body.tipo });
     pos.save(function(err){
 
         if (err) // ...
@@ -84,24 +86,37 @@ app.get('/getHeatMap', function(req, res){
         var hDesde= params[1];
         var hHasta= params[2];
 
+        console.log('Rango');
         console.log(hDesde);
         console.log(hHasta);
 
-        Position.find({"date": {'$gte': hDesde, '$lt': new hHasta}}).sort({date: 'asc'}).exec(function(err, docs){
+        Position.find({"timestamp": {'$gte': hDesde, '$lt': hHasta}}).sort({date: 'asc'}).exec(function(err, docs){
             
             console.log('<SENDING>');
             
             res.setHeader('Content-Type', 'application/json');
             res.setHeader("Access-Control-Allow-Origin", "*");
 
-            var ret = [];
-            for (var i=0; i<docs.length; i++)
-            ret.push({  latitud: docs[i].latitud,
-                        longitud: docs[i].longitud
-                    });
+            //console.log(docs);
 
-            console.log(ret);
-            res.json(ret);
+            /*
+            var ret = [];
+
+            for (var i=0; i<docs.length; i++){
+
+                console.log(ret[docs[i].timestamp]);
+                if (ret[docs[i].timestamp]==undefined)
+                    ret[docs[i].timestamp] = [];
+
+                ret[docs[i].timestamp].push({ latitud: docs[i].latitud,
+                                              longitud: docs[i].longitud
+                                            });
+
+            };
+            */
+
+            console.log(docs);
+            res.json(docs);
             
             console.log('</SENDING>');
 
@@ -112,27 +127,30 @@ app.get('/getHeatMap', function(req, res){
     if ((/hExacta=(.+)/).test(urlpars.query)){
 
         var params = urlpars.query.match(/hExacta=(.+)/);
-        
 
         var hExacta= params[1];
 
+        console.log('hExacta');
         console.log(hExacta);
 
-        Position.find({"date": hExacta}).sort({date: 'asc'}).exec(function(err, docs){
+        Position.find({"timestamp": hExacta}).sort({date: 'asc'}).exec(function(err, docs){
             
             console.log('<SENDING>');
             
             res.setHeader('Content-Type', 'application/json');
             res.setHeader("Access-Control-Allow-Origin", "*");
 
+            /*
             var ret = [];
             for (var i=0; i<docs.length; i++)
             ret.push({  latitud: docs[i].latitud,
                         longitud: docs[i].longitud
                     });
 
-            console.log(ret);
-            res.json(ret);
+            */
+
+            console.log(docs);
+            res.json(docs);
             
             console.log('</SENDING>');
 

@@ -124,7 +124,7 @@ function obtenerPuntosDeCalor()
 	
 	$.ajax({
 		type : "GET",
-		url: 'http://localhost:8080/getHeatMap',
+		url: 'http://162.248.53.11:8080/getHeatMap',
 		data: "hExacta=" + timestamp.getTime(),
 		contentType: 'application/x-www-form-urlencoded',
 		dataType: 'json',
@@ -190,17 +190,17 @@ function cambiarMedioTransporte()
 function verMovimientoDelDia()
 {
 	var hDesde = $( "#date_field" ).datepicker( "getDate" );
-	var hHasta = hDesde;
+	var hHasta = $( "#date_field" ).datepicker( "getDate" );;
 	hDesde.setHours(0);
-	hDesde.setMinutes(0);
+	hDesde.setMinutes(1);
 	hHasta.setHours(23);
 	hHasta.setMinutes(59);
 
 	$.ajax({
 		type : "GET",
-		url: 'http://localhost:8080/getHeatMap',
-		//data: "hDesde=" + hDesde.getTime() + "&hHasta=" + hHasta.getTime(),
-		data: "hExacta=" + hDesde.getTime(),
+		url: 'http://162.248.53.11:8080/getHeatMap',
+		data: "hDesde=" + hDesde.getTime() + "&hHasta=" + hHasta.getTime(),
+		//data: "hExacta=" + hDesde.getTime(),
 		contentType: 'application/x-www-form-urlencoded',
 		dataType: 'json',
 	}).done(function(userData){
