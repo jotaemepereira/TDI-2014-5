@@ -99,6 +99,7 @@ app.get('/getHeatMap', function(req, res){
 
             //console.log(docs);
 
+            /*
             var ret = [];
 
             for (var i=0; i<docs.length; i++){
@@ -112,9 +113,10 @@ app.get('/getHeatMap', function(req, res){
                                             });
 
             };
+            */
 
-            console.log(ret);
-            res.send(ret);
+            console.log(docs);
+            res.json(docs);
             
             console.log('</SENDING>');
 
@@ -138,14 +140,17 @@ app.get('/getHeatMap', function(req, res){
             res.setHeader('Content-Type', 'application/json');
             res.setHeader("Access-Control-Allow-Origin", "*");
 
+            /*
             var ret = [];
             for (var i=0; i<docs.length; i++)
             ret.push({  latitud: docs[i].latitud,
                         longitud: docs[i].longitud
                     });
 
-            console.log(ret);
-            res.json(ret);
+            */
+
+            console.log(docs);
+            res.json(docs);
             
             console.log('</SENDING>');
 
