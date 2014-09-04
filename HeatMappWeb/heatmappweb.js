@@ -21,7 +21,7 @@ var Data = {"year":2013,"crimes":[[44.728,-63.658,0,7,25],[44.732,-63.651,0,7,25
 
 function initialize() 
 {
-	//var sanFrancisco = new google.maps.LatLng(37.784546, -122.443523);
+	var montevideo = new google.maps.LatLng(-34.8730281, -56.1500187);
 
 	var styleArray = [
 	{
@@ -64,7 +64,7 @@ function initialize()
 	}];
 
 	map = new google.maps.Map(document.getElementById('map_canvas'), {
-		//center: sanFrancisco,
+		center: montevideo,
 		zoom: 12,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	});
@@ -125,6 +125,8 @@ function obtenerPuntosDeCalor()
 	timestamp.setMinutes($('#minutes_field').val());
 	var transporte = $("#tipo_select").val();
 	console.log('timestamp --> ' + timestamp);
+	var d = new Date();
+	console.log('hora ---> ' + d);
 	
 	$.ajax({
 		type : "GET",
@@ -140,15 +142,23 @@ function obtenerPuntosDeCalor()
 		})
 		var pointArray = new google.maps.MVCArray(heatpoints);
 		if(heatpoints.length > 0)
+		{
 			map.panTo(new google.maps.LatLng(heatpoints[heatpoints.length - 1].k, heatpoints[heatpoints.length - 1].B));
-		if (!heatmap) {
-		    heatmap = new google.maps.visualization.HeatmapLayer({
-		        data: pointArray,
+			if (!heatmap) {
+			    heatmap = new google.maps.visualization.HeatmapLayer({
+			        data: pointArray,
+			        map: map
+			    });
+			} else {
+			    heatmap.setData(pointArray);
+			}
+		}
+		else {
+			heatmap = new google.maps.visualization.HeatmapLayer({
 		        map: map
 		    });
-		} else {
-		    heatmap.setData(pointArray);
 		}
+		
 	}).fail(function(jqXHR, textStatus) {
 		console.log('Error getHeatMap: ' + textStatus);
 	});
