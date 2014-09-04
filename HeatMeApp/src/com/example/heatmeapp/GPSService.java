@@ -1,6 +1,5 @@
 package com.example.heatmeapp;
  
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -12,6 +11,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 
 import android.app.AlertDialog;
 import android.app.Service;
@@ -27,7 +27,7 @@ import android.os.IBinder;
 import android.provider.Settings;
 import android.util.Log;
 
-public class TestService extends Service implements LocationListener {
+public class GPSService extends Service implements LocationListener {
  
     private final Context mContext;
  
@@ -56,13 +56,13 @@ public class TestService extends Service implements LocationListener {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
     	// TODO Auto-generated method stub
-    	
-    	new sendData().execute();
+    	//getLocation();       
+    	//new sendData().execute();
     	return super.onStartCommand(intent, flags, startId);
     }
     
     
-    public TestService(Context context) {
+    public GPSService(Context context) {
         this.mContext = context;
     	getLocation();       
     	new sendData().execute();
@@ -135,7 +135,7 @@ public class TestService extends Service implements LocationListener {
      * */
     public void stopUsingGPS(){
         if(locationManager != null){
-            locationManager.removeUpdates(TestService.this);
+            locationManager.removeUpdates(GPSService.this);
         }       
     }
      
@@ -240,6 +240,7 @@ public class TestService extends Service implements LocationListener {
 				c.set(c.MILLISECOND, 0);
 				c.set(c.SECOND, 0);
 				long timestamp = c.getTimeInMillis();
+				Log.d("Timestamp, fecha", c.getTime().toString());
 				nameValuePairs.add(new BasicNameValuePair("timestamp", Long.toString(timestamp)));
 				nameValuePairs.add(new BasicNameValuePair("latitud", Double.toString(getLatitude())));
 				nameValuePairs.add(new BasicNameValuePair("longitud", Double.toString(getLongitude())));
@@ -248,13 +249,13 @@ public class TestService extends Service implements LocationListener {
 
 				HttpResponse response = httpclient.execute(post); 
 
-				int statusCode = response.getStatusLine().getStatusCode();
+				//int statusCode = response.getStatusLine().getStatusCode();
 				HttpEntity entity = response.getEntity();
-				InputStream responseBody = entity.getContent();
+				//InputStream responseBody = entity.getContent();
 
-				if (statusCode != 200) {
-					Log.d("responseBody", responseBody.toString());
-				}
+				
+				Log.d("responseBody", EntityUtils.toString(entity));
+				
 			}
 			catch (Exception e) {
 				e.printStackTrace();
