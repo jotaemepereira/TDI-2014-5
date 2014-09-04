@@ -67,6 +67,8 @@ html, body
 		#date_picker #left_date_picker #calendar_img, #time_img, #tipo_img
 		{
 			height: 1em;
+			margin-right: 0.5em;
+			margin-left: 0.5em;
 		}
 		#date_picker #left_date_picker #minutes_field
 		{
@@ -90,7 +92,7 @@ html, body
 		font-family: 'Indie Flower', cursive;
 		font-size: 1.8em;
 		margin-top: 0.23em;
-		margin-left: 18.5em;
+		margin-left: 15em;
 		position: absolute;
 		display: inline-table;
 	}
@@ -100,7 +102,7 @@ html, body
 		}
 		#date_picker .hora_div #min
 		{
-			margin-left: 0.5em;
+			margin-left: 0.1em;
 		}
 
 .map
