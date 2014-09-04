@@ -62,6 +62,7 @@ html, body
 	{
 		float: right;
 		padding-top: 0.77em;	
+		display: inline-table;
 	}
 		#date_picker #left_date_picker #calendar_img, #time_img, #tipo_img
 		{
@@ -75,14 +76,31 @@ html, body
 		{
 			width: 40px;
 		}
-		#date_picker #tipo_select
+	#date_picker #tipo_select
+	{
+		margin-top: 1.3em;
+	}
+	#date_picker #tipo_img
+	{
+		height: 1em;
+		margin-left: 1em;
+	}
+	#date_picker .hora_div
+	{
+		font-family: 'Indie Flower', cursive;
+		font-size: 1.8em;
+		margin-top: 0.23em;
+		margin-left: 18.5em;
+		position: absolute;
+		display: inline-table;
+	}
+		#date_picker .hora_div #hora
 		{
-			margin-top: 1.3em;
+			margin-right: 0.5em;
 		}
-		#date_picker #tipo_img
+		#date_picker .hora_div #min
 		{
-			height: 1em;
-			margin-left: 1em;
+			margin-left: 0.5em;
 		}
 
 .map
