@@ -139,24 +139,15 @@ function obtenerPuntosDeCalor()
 			heatpoints.push(new google.maps.LatLng(parseFloat(point.latitud), parseFloat(point.longitud)));
 		})
 		var pointArray = new google.maps.MVCArray(heatpoints);
-		if(heatpoints.length > 0)
-		{
-			//map.panTo(new google.maps.LatLng(heatpoints[heatpoints.length - 1].k, heatpoints[heatpoints.length - 1].B));
-			if (!heatmap) {
-			    heatmap = new google.maps.visualization.HeatmapLayer({
-			        data: pointArray,
-			        map: map
-			    });
-			} else {
-			    heatmap.setData(pointArray);
-			}
-		}
-		else {
-			heatmap = new google.maps.visualization.HeatmapLayer({
+		//map.panTo(new google.maps.LatLng(heatpoints[heatpoints.length - 1].k, heatpoints[heatpoints.length - 1].B));
+		if (!heatmap) {
+		    heatmap = new google.maps.visualization.HeatmapLayer({
+		        data: pointArray,
 		        map: map
 		    });
+		} else {
+		    heatmap.setData(pointArray);
 		}
-		
 	}).fail(function(jqXHR, textStatus) {
 		console.log('Error getHeatMap: ' + textStatus);
 	});
