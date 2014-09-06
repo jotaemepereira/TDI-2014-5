@@ -6,10 +6,36 @@
 	<body>
 	<script type="text/javascript">
 		(function() {
-			var response = JSON.parse('{"routes":[{"bounds":{"northeast":{"lat":-34.90563,"lng":-56.174465},"southwest":{"lat":-34.907337,"lng":-56.18616}},"copyrights":"Map data ©2014 Google","legs":[{"distance":{"text":"1.1 km","value":1088},"duration":{"text":"15 mins","value":875},"end_address":"18 de Julio Avenue 1368-1400, Montevideo 11200, Uruguay","end_location":{"lat":-34.905685,"lng":-56.18616},"start_address":"Constituyente, Montevideo 11200, Uruguay","start_location":{"lat":-34.907337,"lng":-56.174465},"steps":[{"distance":{"text":"1.1 km","value":1088},"duration":{"text":"15 mins","value":875},"end_location":{"lat":-34.905685,"lng":-56.18616},"html_instructions":"Head west<\/b>Destination will be on the right<\/div>","polyline":{"points":"zy`tEjqzuIk@bDk@bEADm@hFm@dFi@rE_@nD?f@E^CdAGrAMxBGbBCtA[pGMdD?VHfB@R"},"start_location":{"lat":-34.907337,"lng":-56.174465},"travel_mode":"WALKING"}],"via_waypoint":[]}],"overview_polyline":{"points":"zy`tEjqzuIk@bDk@bEo@nFwAxL_@nD?f@IdBUlEKxDi@vLJrC"},"summary":"Unknown road","warnings":["Walking directions are in beta.    Use caution – This route may be missing sidewalks or pedestrian paths."],"waypoint_order":[]}],"status":"OK"}');
-			var date = new Date(2014, 8, 5, 8, 0, 0, 0);
-			var steps = response.routes[0].legs[0].steps;
+			var response = JSON.parse('{"routes":[{"bounds":{"northeast":{"lat":-34.899433,"lng":-56.172764},"southwest":{"lat":-34.90318,"lng":-56.179222}},"copyrights":"Map data ©2014 Google","legs":[{"distance":{"text":"0.8 km","value":833},"duration":{"text":"10 mins","value":629},"end_address":"18 de Julio Avenue 1730, Montevideo 11200, Uruguay","end_location":{"lat":-34.90318,"lng":-56.179222},"start_address":"Colonia 2001-2049, Montevideo 11200, Uruguay","start_location":{"lat":-34.899433,"lng":-56.172764},"steps":[{"distance":{"text":"0.4 km","value":417},"duration":{"text":"5 mins","value":326},"end_location":{"lat":-34.901085,"lng":-56.176865},"html_instructions":"Head southwest<\/b> on Colonia<\/b> toward República<\/b>","polyline":{"points":"lh_tEvfzuIPj@V~@pArEfBjGdBfF"},"start_location":{"lat":-34.899433,"lng":-56.172764},"travel_mode":"WALKING"},{"distance":{"text":"0.1 km","value":119},"duration":{"text":"2 mins","value":102},"end_location":{"lat":-34.902042,"lng":-56.176273},"html_instructions":"Turn left<\/b> toward Avenida 18 de Julio<\/b>","maneuver":"turn-left","polyline":{"points":"vr_tEj`{uI~DuB"},"start_location":{"lat":-34.901085,"lng":-56.176865},"travel_mode":"WALKING"},{"distance":{"text":"0.3 km","value":297},"duration":{"text":"3 mins","value":201},"end_location":{"lat":-34.90318,"lng":-56.179222},"html_instructions":"Turn right<\/b> onto Avenida 18 de Julio<\/b>Destination will be on the right<\/div>","maneuver":"turn-right","polyline":{"points":"vx_tEt|zuIlA~D|A|Fv@nC"},"start_location":{"lat":-34.902042,"lng":-56.176273},"travel_mode":"WALKING"}],"via_waypoint":[]}],"overview_polyline":{"points":"lh_tEvfzuIbFjQdBfF~DuBjD|Lv@nC"},"summary":"Colonia and Avenida 18 de Julio","warnings":["Walking directions are in beta.    Use caution – This route may be missing sidewalks or pedestrian paths."],"waypoint_order":[]}],"status":"OK"}');
+			var fechalog = null;
+			var tipo = 0;
+			var date = new Date(2014, 8, 2, 0, 0, 0, 0);
+			var ochoAM = new Date(2014, 8, 2, 8, 0, 0, 0).getTime();
+			var siesPM = new Date(2014, 8, 2, 18, 0, 0, 0).getTime();
+			var docePM = new Date(2014, 8, 2, 23, 59, 0, 0).getTime();
+			var start_lat = response.routes[0].legs[0].start_location.lat;
+			var start_lng = response.routes[0].legs[0].start_location.lng;
+			var end_lat = response.routes[0].legs[0].end_location.lat;
+			var end_lng = response.routes[0].legs[0].end_location.lng;
 			var timestamp = date.getTime();
+
+			for (var j = timestamp; j < ochoAM; j += 60000)
+			{
+				timestamp += 60000;
+				$.ajax({
+					type : "POST",
+					url: 'http://162.248.53.11:8080/locationUpdateTest',
+					data: "timestamp=" + timestamp + "&latitud=" + start_lat + "&longitud=" + start_lng + "&tipo=" + tipo,
+					contentType: 'application/x-www-form-urlencoded',
+				}).done(function(data){
+				}).fail(function(jqXHR, textStatus) {
+				});
+			}
+
+			//fechalog = new Date(timestamp);
+			//console.log(timestamp);
+
+			var steps = response.routes[0].legs[0].steps;
 			steps.forEach(function (step){
 				var milisecs = ((step.duration.text).split(' ')[0]) * 1000 * 60;
 				var latitud = step.start_location.lat;
@@ -17,13 +43,12 @@
 				//console.log('timestamp: '+ timestamp +' milisec: '+ milisecs +' latitud: '+ latitud +' longitud: '+ longitud);
 				for (var i = 1000 * 60; i <= milisecs; i += 60000)
 				{
-					date = new Date(parseFloat(timestamp) + 60000);
-					timestamp = date.getTime();
+					timestamp += 60000;
 					console.log('date sent: ' + timestamp + ' i: ' + i);
 					$.ajax({
 						type : "POST",
-						url: 'http://162.248.53.11:8080/locationUpdate',
-						data: "timestamp=" + timestamp + "&latitud=" + latitud + "&longitud=" + longitud + "&tipo=0",
+						url: 'http://162.248.53.11:8080/locationUpdateTest',
+						data: "timestamp=" + timestamp + "&latitud=" + latitud + "&longitud=" + longitud + "&tipo=" + tipo,
 						contentType: 'application/x-www-form-urlencoded',
 					}).done(function(data){
 						 console.log('Success: ' + JSON.stringify(data));
@@ -31,22 +56,82 @@
 						console.log('Error: ' + textStatus);
 					});
 				}
-				latitud = step.end_location.lat;
-				longitud = step.end_location.lng;
-				timestamp += 60000;
+				/*timestamp += 60000;
 				console.log(timestamp);
 				$.ajax({
 					type : "POST",
 					url: 'http://162.248.53.11:8080/locationUpdate',
-					data: "timestamp=" + timestamp + "&latitud=" + latitud + "&longitud=" + longitud + "&tipo=0",
+					data: "timestamp=" + timestamp + "&latitud=" + end_lat + "&longitud=" + end_lat + "&tipo=" + tipo,
 					contentType: 'application/x-www-form-urlencoded',
-					dataType: 'json',
+					//dataType: 'json',
 				}).done(function(data){
 					 console.log('Success: ' + JSON.stringify(data));
 				}).fail(function(jqXHR, textStatus) {
 					console.log('Error: ' + textStatus);
-				});
+				});*/
 			})
+			
+			//fechalog = new Date(timestamp);
+			//console.log(timestamp);
+
+			for (var j = timestamp; j < siesPM; j += 60000)
+			{
+				timestamp += 60000;
+				$.ajax({
+					type : "POST",
+					url: 'http://162.248.53.11:8080/locationUpdateTest',
+					data: "timestamp=" + timestamp + "&latitud=" + end_lat + "&longitud=" + end_lng + "&tipo=" + tipo,
+					contentType: 'application/x-www-form-urlencoded',
+				}).done(function(data){
+				}).fail(function(jqXHR, textStatus) {
+				});
+			}
+
+			//fechalog = new Date(timestamp);
+			//console.log(timestamp);
+
+			for (var k = steps.length - 1; k >= 0; k--) {
+				var step = steps[k];
+				console.log('step: ' + k);
+				var milisecs = ((step.duration.text).split(' ')[0]) * 1000 * 60;
+				var latitud = step.start_location.lat;
+				var longitud = step.start_location.lng;
+				//console.log('timestamp: '+ timestamp +' milisec: '+ milisecs +' latitud: '+ latitud +' longitud: '+ longitud);
+				for (var i = 1000 * 60; i <= milisecs; i += 60000)
+				{
+					timestamp += 60000;
+					console.log('date sent: ' + timestamp + ' i: ' + i);
+					$.ajax({
+						type : "POST",
+						url: 'http://162.248.53.11:8080/locationUpdateTest',
+						data: "timestamp=" + timestamp + "&latitud=" + latitud + "&longitud=" + longitud + "&tipo=" + tipo,
+						contentType: 'application/x-www-form-urlencoded',
+					}).done(function(data){
+						 console.log('Success: ' + JSON.stringify(data));
+					}).fail(function(jqXHR, textStatus) {
+						console.log('Error: ' + textStatus);
+					});
+				}
+			};
+
+			//fechalog = new Date(timestamp);
+			//console.log(timestamp);
+
+			for (var j = timestamp; j < docePM; j += 60000)
+			{
+				timestamp += 60000;
+				$.ajax({
+					type : "POST",
+					url: 'http://162.248.53.11:8080/locationUpdateTest',
+					data: "timestamp=" + timestamp + "&latitud=" + start_lat + "&longitud=" + start_lng + "&tipo=" + tipo,
+					contentType: 'application/x-www-form-urlencoded',
+				}).done(function(data){
+				}).fail(function(jqXHR, textStatus) {
+				});
+			}
+
+			fechalog = new Date(timestamp);
+			console.log(timestamp);
 		})();
     </script>
 	</body>
