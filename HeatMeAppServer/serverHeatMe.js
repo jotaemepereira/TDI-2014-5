@@ -90,7 +90,7 @@ app.post('/locationUpdate', function(req, res){
     console.log(new Date(parseFloat(req.body.timestamp)));
     console.log(req.body.tipo);*/
 
-    console.log(req.body);
+    console.log(req.body.posiciones);
 
     req.body.posiciones.foreach(function(position){
         console.log(position);
