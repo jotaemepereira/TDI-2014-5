@@ -94,13 +94,7 @@ app.post('/locationUpdate', function(req, res){
 
     for (var i=0; i<req.body.posiciones.length; i++){
         console.log(req.body.posiciones[i]);
-    };
-
-    return;
-
-    req.body.posiciones.foreach(function(position){
-        console.log(position);
-        var pos = new Position({ latitud: position.latitud, longitud: position.longitud, timestamp: position.timestamp, tipo: position.tipo });
+        var pos = new Position({ latitud: req.body.posiciones[i].latitud, longitud: req.body.posiciones[i].longitud, timestamp: req.body.posiciones[i].timestamp, tipo: req.body.posiciones[i].tipo });
         pos.save(function(err){
 
             res.setHeader("Access-Control-Allow-Origin", "*");
@@ -115,24 +109,7 @@ app.post('/locationUpdate', function(req, res){
             };  
 
         });
-    });
-
-    //guardar en la db
-    var pos = new Position({ latitud: req.body.latitud, longitud: req.body.longitud, timestamp: req.body.timestamp, tipo: req.body.tipo });
-    pos.save(function(err){
-
-        res.setHeader("Access-Control-Allow-Origin", "*");
-
-        if (err){
-            console.log('Error recording position');
-            res.send('BAD');
-        }
-        else{
-            console.log('Position recorded');
-            res.send('OK');
-        };  
-
-    });
+    };
 
 });
 
