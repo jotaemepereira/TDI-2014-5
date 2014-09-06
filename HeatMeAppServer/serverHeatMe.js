@@ -85,16 +85,17 @@ app.get('/getHeatMap', function(req, res){
 
     if ((/hDesde=(.+)&hHasta=(.+)/).test(urlpars.query)){
 
-        var params = urlpars.query.match(/hDesde=(.+)&hHasta=(.+)/);
+        var params = urlpars.query.match(/hDesde=(.+)&hHasta=(.+)&tipo=(.+)/);
 
-        var hDesde= params[1];
-        var hHasta= params[2];
+        var hDesde = params[1];
+        var hHasta = params[2];
+        var tipo = params [3];
 
         console.log('Rango');
         console.log(hDesde);
         console.log(hHasta);
 
-        Position.find({"timestamp": {'$gte': hDesde, '$lt': hHasta}}).sort({date: 'asc'}).exec(function(err, docs){
+        Position.find({"timestamp": {'$gte': hDesde, '$lt': hHasta}, "tipo" : tipo}).sort({date: 'asc'}).exec(function(err, docs){
             
             console.log('<SENDING>');
             
@@ -137,7 +138,7 @@ app.get('/getHeatMap', function(req, res){
         console.log('hExacta');
         console.log(hExacta);
 
-        Position.find({"timestamp": hExacta}).sort({date: 'asc'}).exec(function(err, docs){
+        Position.find({"timestamp": hExacta, , "tipo" : tipo}).sort({date: 'asc'}).exec(function(err, docs){
             
             console.log('<SENDING>');
             
