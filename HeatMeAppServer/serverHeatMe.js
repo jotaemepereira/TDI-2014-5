@@ -9,7 +9,9 @@ var app = express();
 
 app.use(express.urlencoded());
 
-app.use(bodyParser.urlencoded());
+app.use(express.bodyParser());
+
+//app.use(bodyParser.urlencoded());
 
 var server = app.listen(8080, function(){
     console.log('heatMe is listening on port %d', server.address().port);
@@ -84,8 +86,6 @@ app.post('/locationUpdate', function(req, res){
     pos.save(function(err){
 
         res.setHeader("Access-Control-Allow-Origin", "*");
-
-
 
         if (err){
             console.log('Error recording position');
