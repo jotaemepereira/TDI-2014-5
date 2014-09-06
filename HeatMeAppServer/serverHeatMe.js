@@ -92,9 +92,14 @@ app.post('/locationUpdate', function(req, res){
 
     console.log(req.body.posiciones);
 
+    for (var i=0; i<req.body.posiciones.length; i++){
+        console.log(req.body.posiciones[i]);
+    };
+
+    return;
+
     req.body.posiciones.foreach(function(position){
         console.log(position);
-        return;
         var pos = new Position({ latitud: position.latitud, longitud: position.longitud, timestamp: position.timestamp, tipo: position.tipo });
         pos.save(function(err){
 
