@@ -58,7 +58,8 @@ app.post('/locationUpdate', function(req, res){
     console.log(req.body.timestamp);
     console.log(new Date(parseFloat(req.body.timestamp)));
     console.log(req.body.tipo);
-    //console.log(req);
+
+    console.log(req.body);
 
    /* positions.foreach(function(position){
         var pos = new Position({ latitud: position.latitud, longitud: position.longitud, timestamp: position.timestamp, tipo: position.tipo });
