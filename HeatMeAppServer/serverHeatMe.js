@@ -90,10 +90,10 @@ app.post('/locationUpdate', function(req, res){
     console.log(new Date(parseFloat(req.body.timestamp)));
     console.log(req.body.tipo);*/
 
-    console.log(req.body.posiciones);
+    //console.log(req.body.posiciones);
 
     for (var i=0; i<req.body.posiciones.length; i++){
-        console.log(req.body.posiciones[i]);
+        //console.log(req.body.posiciones[i]);
         var pos = new Position({ latitud: req.body.posiciones[i].latitud, longitud: req.body.posiciones[i].longitud, timestamp: req.body.posiciones[i].timestamp, tipo: req.body.posiciones[i].tipo });
         pos.save(function(err){
 
