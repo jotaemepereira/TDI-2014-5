@@ -51,6 +51,35 @@ pos.save(function(err){
 */
 //</PRUEBA>
 
+app.post('/locationUpdateTest', function(req, res){
+
+    console.log('POST /locationUpdateTest');
+
+    console.log(req.body.latitud);
+    console.log(req.body.longitud);
+    console.log(req.body.timestamp);
+    console.log(new Date(parseFloat(req.body.timestamp)));
+    console.log(req.body.tipo);
+
+    //guardar en la db
+    var pos = new Position({ latitud: req.body.latitud, longitud: req.body.longitud, timestamp: req.body.timestamp, tipo: req.body.tipo });
+    pos.save(function(err){
+
+        res.setHeader("Access-Control-Allow-Origin", "*");
+
+        if (err){
+            console.log('Error recording position');
+            res.send('BAD');
+        }
+        else{
+            console.log('Position recorded');
+            res.send('OK');
+        };  
+
+    });
+
+});
+
 app.post('/locationUpdate', function(req, res){
 
     console.log('POST /locationUpdate');
@@ -63,7 +92,7 @@ app.post('/locationUpdate', function(req, res){
 
     console.log(req.body);
 
-   req.body.foreach(function(position){
+    req.body.posiciones.foreach(function(position){
         console.log(position);
         return;
         var pos = new Position({ latitud: position.latitud, longitud: position.longitud, timestamp: position.timestamp, tipo: position.tipo });
