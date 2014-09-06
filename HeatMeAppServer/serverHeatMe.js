@@ -94,6 +94,7 @@ app.get('/getHeatMap', function(req, res){
         console.log('Rango');
         console.log(hDesde);
         console.log(hHasta);
+        console.log(tipo);
 
         Position.find({"timestamp": {'$gte': hDesde, '$lt': hHasta}, "tipo" : tipo}).sort({date: 'asc'}).exec(function(err, docs){
             
@@ -134,9 +135,12 @@ app.get('/getHeatMap', function(req, res){
         var params = urlpars.query.match(/hExacta=(.+)/);
 
         var hExacta= params[1];
+        var tipo = params [3];
 
         console.log('hExacta');
+        
         console.log(hExacta);
+        console.log(tipo);
 
         Position.find({"timestamp": hExacta, "tipo" : tipo}).sort({date: 'asc'}).exec(function(err, docs){
             
