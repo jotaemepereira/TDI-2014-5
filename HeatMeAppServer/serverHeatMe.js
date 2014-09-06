@@ -55,15 +55,17 @@ app.post('/locationUpdate', function(req, res){
 
     console.log('POST /locationUpdate');
 
-    console.log(req.body.latitud);
+    /*console.log(req.body.latitud);
     console.log(req.body.longitud);
     console.log(req.body.timestamp);
     console.log(new Date(parseFloat(req.body.timestamp)));
-    console.log(req.body.tipo);
+    console.log(req.body.tipo);*/
 
     console.log(req.body);
 
-   /* positions.foreach(function(position){
+   req.body.foreach(function(position){
+        console.log(position);
+        return;
         var pos = new Position({ latitud: position.latitud, longitud: position.longitud, timestamp: position.timestamp, tipo: position.tipo });
         pos.save(function(err){
 
@@ -79,7 +81,7 @@ app.post('/locationUpdate', function(req, res){
             };  
 
         });
-    });*/
+    });
 
     //guardar en la db
     var pos = new Position({ latitud: req.body.latitud, longitud: req.body.longitud, timestamp: req.body.timestamp, tipo: req.body.tipo });
