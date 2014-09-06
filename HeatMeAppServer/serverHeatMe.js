@@ -58,7 +58,25 @@ app.post('/locationUpdate', function(req, res){
     console.log(req.body.timestamp);
     console.log(new Date(parseFloat(req.body.timestamp)));
     console.log(req.body.tipo);
-    console.log(req.body);
+    console.log(req);
+
+   /* positions.foreach(function(position){
+        var pos = new Position({ latitud: position.latitud, longitud: position.longitud, timestamp: position.timestamp, tipo: position.tipo });
+        pos.save(function(err){
+
+            res.setHeader("Access-Control-Allow-Origin", "*");
+
+            if (err){
+                console.log('Error recording position');
+                res.send('BAD');
+            }
+            else{
+                console.log('Position recorded');
+                res.send('OK');
+            };  
+
+        });
+    });*/
 
     //guardar en la db
     var pos = new Position({ latitud: req.body.latitud, longitud: req.body.longitud, timestamp: req.body.timestamp, tipo: req.body.tipo });
