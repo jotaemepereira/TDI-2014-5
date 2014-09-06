@@ -107,7 +107,7 @@ app.post('/locationUpdate', function(req, res){
             if (!err){
 
                 if (ok==req.body.posiciones.length){
-                    console.log('Position recorded');
+                    console.log('Positions recorded');
                     res.send('OK');
                 };  
 
@@ -117,8 +117,8 @@ app.post('/locationUpdate', function(req, res){
                 res.setHeader("Access-Control-Allow-Origin", "*");
                 console.log('Error recording position');
                 res.send('BAD');
-                
-            }    
+
+            };
 
         });
 
