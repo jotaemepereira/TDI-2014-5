@@ -138,7 +138,7 @@ app.get('/getHeatMap', function(req, res){
         console.log('hExacta');
         console.log(hExacta);
 
-        Position.find({"timestamp": hExacta, , "tipo" : tipo}).sort({date: 'asc'}).exec(function(err, docs){
+        Position.find({"timestamp": hExacta, "tipo" : tipo}).sort({date: 'asc'}).exec(function(err, docs){
             
             console.log('<SENDING>');
             
