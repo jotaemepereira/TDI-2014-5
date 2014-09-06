@@ -55,6 +55,7 @@ app.post('/locationUpdate', function(req, res){
 
     console.log(req.body.latitud);
     console.log(req.body.longitud);
+    console.log(parseFloat(req.body.timestamp));
     console.log(new Date(parseFloat(req.body.timestamp)));
     console.log(req.body.tipo);
 
@@ -63,8 +64,7 @@ app.post('/locationUpdate', function(req, res){
     pos.save(function(err){
 
         res.setHeader("Access-Control-Allow-Origin", "*");
-        res.setHeader('Content-Type', 'application/json');
-        
+
         if (err){
             console.log('Error recording position');
             res.send('BAD');
