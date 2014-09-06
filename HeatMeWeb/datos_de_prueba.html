@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+	</head>
+	<body>
+	<script type="text/javascript">
+		(function() {
+			var response = JSON.parse('{"routes":[{"bounds":{"northeast":{"lat":-34.90563,"lng":-56.174465},"southwest":{"lat":-34.907337,"lng":-56.18616}},"copyrights":"Map data ©2014 Google","legs":[{"distance":{"text":"1.1 km","value":1088},"duration":{"text":"15 mins","value":875},"end_address":"18 de Julio Avenue 1368-1400, Montevideo 11200, Uruguay","end_location":{"lat":-34.905685,"lng":-56.18616},"start_address":"Constituyente, Montevideo 11200, Uruguay","start_location":{"lat":-34.907337,"lng":-56.174465},"steps":[{"distance":{"text":"1.1 km","value":1088},"duration":{"text":"15 mins","value":875},"end_location":{"lat":-34.905685,"lng":-56.18616},"html_instructions":"Head west<\/b>Destination will be on the right<\/div>","polyline":{"points":"zy`tEjqzuIk@bDk@bEADm@hFm@dFi@rE_@nD?f@E^CdAGrAMxBGbBCtA[pGMdD?VHfB@R"},"start_location":{"lat":-34.907337,"lng":-56.174465},"travel_mode":"WALKING"}],"via_waypoint":[]}],"overview_polyline":{"points":"zy`tEjqzuIk@bDk@bEo@nFwAxL_@nD?f@IdBUlEKxDi@vLJrC"},"summary":"Unknown road","warnings":["Walking directions are in beta.    Use caution – This route may be missing sidewalks or pedestrian paths."],"waypoint_order":[]}],"status":"OK"}');
+			var date = new Date(2014, 8, 5, 8, 0, 0, 0);
+			var steps = response.routes[0].legs[0].steps;
+			var timestamp = date.getTime();
+			steps.forEach(function (step){
+				var milisecs = ((step.duration.text).split(' ')[0]) * 1000 * 60;
+				var latitud = step.start_location.lat;
+				var longitud = step.start_location.lng;
+				//console.log('timestamp: '+ timestamp +' milisec: '+ milisecs +' latitud: '+ latitud +' longitud: '+ longitud);
+				for (var i = 1000 * 60; i <= milisecs; i += 60000)
+				{
+					date = new Date(parseFloat(timestamp) + 60000);
+					timestamp = date.getTime();
+					console.log('date sent: ' + timestamp + ' i: ' + i);
+					$.ajax({
+						type : "POST",
+						url: 'http://162.248.53.11:8080/locationUpdate',
+						data: "timestamp=" + timestamp + "&latitud=" + latitud + "&longitud=" + longitud + "&tipo=0",
+						contentType: 'application/x-www-form-urlencoded',
+					}).done(function(data){
+						 console.log('Success: ' + JSON.stringify(data));
+					}).fail(function(jqXHR, textStatus) {
+						console.log('Error: ' + textStatus);
+					});
+				}
+				latitud = step.end_location.lat;
+				longitud = step.end_location.lng;
+				timestamp += 60000;
+				console.log(timestamp);
+				$.ajax({
+					type : "POST",
+					url: 'http://162.248.53.11:8080/locationUpdate',
+					data: "timestamp=" + timestamp + "&latitud=" + latitud + "&longitud=" + longitud + "&tipo=0",
+					contentType: 'application/x-www-form-urlencoded',
+					dataType: 'json',
+				}).done(function(data){
+					 console.log('Success: ' + JSON.stringify(data));
+				}).fail(function(jqXHR, textStatus) {
+					console.log('Error: ' + textStatus);
+				});
+			})
+		})();
+    </script>
+	</body>
+</html>
+
+
