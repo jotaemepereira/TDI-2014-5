@@ -63,7 +63,8 @@ app.post('/locationUpdate', function(req, res){
     pos.save(function(err){
 
         res.setHeader("Access-Control-Allow-Origin", "*");
-
+        res.setHeader('Content-Type', 'application/json');
+        
         if (err){
             console.log('Error recording position');
             res.send('BAD');
