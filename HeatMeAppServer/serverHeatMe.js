@@ -132,13 +132,13 @@ app.get('/getHeatMap', function(req, res){
 
     if ((/hExacta=(.+)/).test(urlpars.query)){
 
-        var params = urlpars.query.match(/hExacta=(.+)/);
+        var params = urlpars.query.match(/hExacta=(.+)&tipo=(.+)/);
 
         var hExacta= params[1];
-        var tipo = params [3];
+        var tipo = params [2];
 
         console.log('hExacta');
-        
+
         console.log(hExacta);
         console.log(tipo);
 
