@@ -21,36 +21,6 @@ mongoose.connect('mongodb://localhost/heatMe');
 
 var Position = mongoose.model('Position', { latitud: String, longitud: String, timestamp: String, tipo: String });
 
-
-//<PRUEBA>
-/*
-//guardar en la db
-var pos = new Position({ latitud: '11', longitud: '22'});
-pos.save(function(err){
-
-    if (err) // ...
-        console.log('Error recording position');
-    else
-        console.log('Position recorded');
-
-});
-
-var pos = new Position({ latitud: '11', longitud: '22'});
-pos.save(function(err){
-
-    if (err) // ...
-        console.log('Error recording position');
-    else
-        console.log('Position recorded');
-
-    Position.find({"date": {'$gte': new Date('3/1/2014'), '$lt': new Date('3/16/2015')}}).sort({date: 'asc'}).exec(function(err, docs){
-        console.log(docs);
-    });
-
-});
-*/
-//</PRUEBA>
-
 app.post('/locationUpdateTest', function(req, res){
 
     console.log('POST /locationUpdateTest');
@@ -68,12 +38,16 @@ app.post('/locationUpdateTest', function(req, res){
         res.setHeader("Access-Control-Allow-Origin", "*");
 
         if (err){
+
             console.log('Error recording position');
             res.send('BAD');
+
         }
         else{
+
             console.log('Position recorded');
             res.send('OK');
+            
         };  
 
     });
@@ -84,21 +58,12 @@ app.post('/locationUpdate', function(req, res){
 
     console.log('POST /locationUpdate');
 
-    /*console.log(req.body.latitud);
-    console.log(req.body.longitud);
-    console.log(req.body.timestamp);
-    console.log(new Date(parseFloat(req.body.timestamp)));
-    console.log(req.body.tipo);*/
-
-    //console.log(req.body.posiciones);
-
     var ok = 0;
     
     res.setHeader("Access-Control-Allow-Origin", "*");
 
     for (var i=0; i<req.body.posiciones.length; i++){
 
-        //console.log(req.body.posiciones[i]);
         var pos = new Position({ latitud: req.body.posiciones[i].latitud, longitud: req.body.posiciones[i].longitud, timestamp: req.body.posiciones[i].timestamp, tipo: req.body.posiciones[i].tipo });
         pos.save(function(err){
 
@@ -132,8 +97,6 @@ app.get('/getHeatMap', function(req, res){
 
     var urlpars = url.parse(req.url,false,true);
 
-    //NECESITO LAS FECHAS, SIEMPRE.
-
     if ((/hDesde=(.+)&hHasta=(.+)/).test(urlpars.query)){
 
         var params = urlpars.query.match(/hDesde=(.+)&hHasta=(.+)&tipo=(.+)/);
@@ -147,37 +110,40 @@ app.get('/getHeatMap', function(req, res){
         console.log(hHasta);
         console.log(tipo);
 
-        Position.find({"timestamp": {'$gte': hDesde, '$lt': hHasta}, "tipo" : tipo}).sort({date: 'asc'}).exec(function(err, docs){
-            
-            console.log('<SENDING>');
-            
-            res.setHeader('Content-Type', 'application/json');
-            res.setHeader("Access-Control-Allow-Origin", "*");
+        if (tipo=="4"){
 
-            //console.log(docs);
+            Position.find({"timestamp": {'$gte': hDesde, '$lt': hHasta}}).sort({date: 'asc'}).exec(function(err, docs){
+                
+                console.log('<SENDING>');
+                
+                res.setHeader('Content-Type', 'application/json');
+                res.setHeader("Access-Control-Allow-Origin", "*");
 
-            /*
-            var ret = [];
+                console.log(docs);
+                res.json(docs);
+                
+                console.log('</SENDING>');
 
-            for (var i=0; i<docs.length; i++){
+            });
 
-                console.log(ret[docs[i].timestamp]);
-                if (ret[docs[i].timestamp]==undefined)
-                    ret[docs[i].timestamp] = [];
+        }
+        else{
 
-                ret[docs[i].timestamp].push({ latitud: docs[i].latitud,
-                                              longitud: docs[i].longitud
-                                            });
+            Position.find({"timestamp": {'$gte': hDesde, '$lt': hHasta}, "tipo" : tipo}).sort({date: 'asc'}).exec(function(err, docs){
+                
+                console.log('<SENDING>');
+                
+                res.setHeader('Content-Type', 'application/json');
+                res.setHeader("Access-Control-Allow-Origin", "*");
 
-            };
-            */
+                console.log(docs);
+                res.json(docs);
+                
+                console.log('</SENDING>');
 
-            console.log(docs);
-            res.json(docs);
-            
-            console.log('</SENDING>');
+            });
 
-        });
+        };
 
     };
 
@@ -193,30 +159,41 @@ app.get('/getHeatMap', function(req, res){
         console.log(hExacta);
         console.log(tipo);
 
-        Position.find({"timestamp": hExacta, "tipo" : tipo}).sort({date: 'asc'}).exec(function(err, docs){
-            
-            console.log('<SENDING>');
-            
-            res.setHeader('Content-Type', 'application/json');
-            res.setHeader("Access-Control-Allow-Origin", "*");
+        if (tipo=="4"){
 
-            /*
-            var ret = [];
-            for (var i=0; i<docs.length; i++)
-            ret.push({  latitud: docs[i].latitud,
-                        longitud: docs[i].longitud
-                    });
+            Position.find({"timestamp": hExacta}).sort({date: 'asc'}).exec(function(err, docs){
+                
+                console.log('<SENDING>');
+                
+                res.setHeader('Content-Type', 'application/json');
+                res.setHeader("Access-Control-Allow-Origin", "*");
 
-            */
+                console.log(docs);
+                res.json(docs);
+                
+                console.log('</SENDING>');
 
-            console.log(docs);
-            res.json(docs);
-            
-            console.log('</SENDING>');
+            });
 
-        });
+        }
+        else{
+
+            Position.find({"timestamp": hExacta, "tipo" : tipo}).sort({date: 'asc'}).exec(function(err, docs){
+                
+                console.log('<SENDING>');
+                
+                res.setHeader('Content-Type', 'application/json');
+                res.setHeader("Access-Control-Allow-Origin", "*");
+
+                console.log(docs);
+                res.json(docs);
+                
+                console.log('</SENDING>');
+
+            });  
+
+        }
         
     };
-    
 
 });
