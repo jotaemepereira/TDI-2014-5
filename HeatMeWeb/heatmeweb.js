@@ -71,11 +71,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
 $(document).ready(function()
 {
 	var date = new Date();
-	$('#hours_field').val(date.getHours());
-	$('#minutes_field').val(date.getMinutes());
+	var h = date.getHours();
+	var m = date.getMinutes()
 	$('#date_field').val((date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear());
-	$('#hora').text(date.getHours());
-	$('#min').text(date.getMinutes());
+	parseFloat(h) < 10 ? ($('#hora').text('0' + h), $('#hours_field').val('0' + h)) : ($('#hora').text(h), $('#hours_field').val(h));
+	parseFloat(m) < 10 ? ($('#min').text('0' + m), $('#minutes_field').val('0' + m)) : ($('#min').text(m), $('#minutes_field').val(m));
 })
 
 $(function() {
@@ -130,40 +130,12 @@ function obtenerPuntosDeCalor()
 		} else {
 		    heatmap.setData(pointArray);
 		}
+	}).progress(function(jqXHR, textStatus) {
+		console.log('progress: ' + textStatus);
 	}).fail(function(jqXHR, textStatus) {
 		console.log('Error getHeatMap: ' + textStatus);
 	});
-	/*$.ajax({
-		type : "POST",
-		url: 'http://localhost:8080/locationUpdate',
-		data: "timestamp=" + timestamp,
-		contentType: 'application/x-www-form-urlencoded',
-		dataType: 'json',
-	}).done(function(userData){
-		 console.log('Success: ' + JSON.stringify(data));
-	}).fail(function(jqXHR, textStatus) {
-		console.log('Error: ' + error.message);
-	}); */
-
 }
-
-/*function signinCallback(authResult) 
-{
-	if (authResult['access_token']) 
-	{
-		// Autorizado correctamente
-		// Oculta el botón de inicio de sesión ahora que el usuario está autorizado, por ejemplo:
-		document.getElementById('google_sign_in').setAttribute('style', 'display: none');
-	} 
-	else if (authResult['error']) 
-	{
-		// Se ha producido un error.
-		// Posibles códigos de error:
-		//   "access_denied": el usuario ha denegado el acceso a la aplicación.
-		//   "immediate_failed": no se ha podido dar acceso al usuario de forma automática.
-		console.log('There was an error: ' + authResult['error']);
-	}
-}*/
 
 function cambiarMedioTransporte()
 {
@@ -187,17 +159,15 @@ function verMovimientoDelDia()
 		type : "GET",
 		url: 'http://162.248.53.11:8080/getHeatMap',
 		data: "hDesde=" + hDesde.getTime() + "&hHasta=" + hHasta.getTime() + "&tipo=" + tipo,
-		//data: "hExacta=" + hDesde.getTime(),
 		contentType: 'application/x-www-form-urlencoded',
 		dataType: 'json',
 	}).done(function(response){
-		//console.log('Success getHeatMap: ' + response);
 		var heatpoints = [];
 		for (var i=0; i<response.length; i++){
 		   if ( !heatpoints[response[i].timestamp] ) ///  si esa celda no esta creada la creo vacia
 		   {
 	   			var d = new Date(parseFloat(response[i].timestamp));
-				console.log(d);
+				//console.log(d);
 		        heatpoints[response[i].timestamp] = [];
 		   }
 		   //inserto en la celda del timestamp los datos correspondientes
@@ -211,7 +181,6 @@ function verMovimientoDelDia()
 		        map: map
 		    });
 		}
-		//console.log('userData length = ' + userData.length);
 		var i = 10;
 		for (var timestamp in heatpoints){
             (function(timestamp){
@@ -220,9 +189,10 @@ function verMovimientoDelDia()
 				i += 100;
             })(timestamp);
         };
-
         //map.panTo(new google.maps.LatLng(-34.8970141,-56.06299));
 		
+	}).progress(function(jqXHR, textStatus) {
+		console.log('Error getHeatMap: ' + textStatus);
 	}).fail(function(jqXHR, textStatus) {
 		console.log('Error getHeatMap: ' + textStatus);
 	});
@@ -234,12 +204,13 @@ function moveCity(puntos, timestamp){
 	var d = new Date(parseFloat(timestamp));
 	var heatpoints = [];
 	puntos.forEach(function(point){
-		//console.log(point);
 		heatpoints.push(new google.maps.LatLng(parseFloat(point[0]), parseFloat(point[1])));
 	})
 	var pointArray = new google.maps.MVCArray(heatpoints);
 	heatmap.setData(pointArray);
-	hora.text(d.getHours());
-	min.text(d.getMinutes());
+	var h = d.getHours();
+	var m = d.getMinutes()
+	parseFloat(h) < 10 ? hora.text('0' + h) : hora.text(h);
+	parseFloat(m) < 10 ? min.text('0' + m) : min.text(m);
 }
 
