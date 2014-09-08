@@ -70,6 +70,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 $(document).ready(function()
 {
+	$("#spinner").hide();
 	var date = new Date();
 	var h = date.getHours();
 	var m = date.getMinutes()
@@ -147,6 +148,7 @@ function cambiarMedioTransporte()
 
 function verMovimientoDelDia()
 {
+	$("#spinner").show();
 	var hDesde = $( "#date_field" ).datepicker( "getDate" );
 	var hHasta = $( "#date_field" ).datepicker( "getDate" );
 	var tipo = $('#tipo_select').val();
@@ -162,6 +164,7 @@ function verMovimientoDelDia()
 		contentType: 'application/x-www-form-urlencoded',
 		dataType: 'json',
 	}).done(function(response){
+		$("#spinner").hide();
 		var heatpoints = [];
 		for (var i=0; i<response.length; i++){
 		   if ( !heatpoints[response[i].timestamp] ) ///  si esa celda no esta creada la creo vacia
