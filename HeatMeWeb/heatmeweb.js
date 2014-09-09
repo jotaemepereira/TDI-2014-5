@@ -1,9 +1,16 @@
 var map;
 var heatmap = null;
+var pointArray = [];
+var gradient = null;
+var gradientTodos = ['rgba(0, 255, 255, 0)', 'rgba(0, 255, 255, 1)', 'rgba(0, 127, 255, 1)', 'rgba(0, 90, 179, 1)', 'rgba(0, 50, 95, 1)', 'rgba(0, 37, 79, 1)'];
+var gradientBondi = ['rgba(226, 226, 0, 0)', 'rgba(226, 226, 0, 1)', 'rgba(142, 142, 0, 1)', 'rgba(142, 104, 0, 1)', 'rgba(142, 59, 0, 1)', 'rgba(142, 26, 0, 1)', 'rgba(187, 19, 0, 1)'];
+var gradientAuto = ['rgba(152, 240, 0, 0)', 'rgba(152, 240, 0, 1)', 'rgba(112, 177, 0, 1)', 'rgba(0, 119, 16, 1)', 'rgba(0, 134, 100, 1)', 'rgba(0, 134, 127, 1)', 'rgba(0, 208, 219, 1)'];
+var gradientBici = null;
+var gradientCaminando = ['rgba(255, 186, 251, 0)', 'rgba(255, 186, 251, 1)', 'rgba(254, 138, 246, 1)', 'rgba(218, 30, 114, 1)', 'rgba(190, 10, 10, 1)', 'rgba(105, 0, 0, 1)'];
 
 function initialize() 
 {
-	var montevideo = new google.maps.LatLng(-34.8730281, -56.1500187);
+	var montevideo = new google.maps.LatLng(-34.8968678,-56.1182457);
 
 	var styleArray = [
 	{
@@ -47,25 +54,19 @@ function initialize()
 
 	map = new google.maps.Map(document.getElementById('map_canvas'), {
 		center: montevideo,
-		zoom: 12,
+		zoom: 13,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	});
 	map.setOptions({styles: styleArray});
+	heatmap = new google.maps.visualization.HeatmapLayer({
+        data: pointArray,
+        map: map,
+        radius: 25,
+        maxIntensity: 1
+    });
 	obtenerPuntosDeCalor();
 }
 
-function runHeatmap() 
-{
-    var pointArray = new google.maps.MVCArray(heatmapData);
-    if (!heatmap) {
-        heatmap = new google.maps.visualization.HeatmapLayer({
-            data: pointArray,
-            map: map
-        });
-    } else {
-        heatmap.setData(pointArray);
-    }
-}
 google.maps.event.addDomListener(window, 'load', initialize);
 
 $(document).ready(function()
@@ -106,7 +107,24 @@ function obtenerPuntosDeCalor()
 	var timestamp = $( "#date_field" ).datepicker( "getDate" );
 	timestamp.setHours($('#hours_field').val());
 	timestamp.setMinutes($('#minutes_field').val());
+	
 	var transporte = $("#tipo_select").val();
+	switch(transporte) {
+	    case '0':
+	        gradient = gradientCaminando;
+	        break;
+	    case '1':
+	        gradient = gradientBici;
+	        break;
+	    case '2':
+	    	gradient = gradientAuto;
+	    	break;
+	    case '3':
+	    	gradient = gradientBondi;
+		    break;
+	    default:
+	        gradient = gradientTodos;
+	}
 	console.log('timestamp --> ' + timestamp);
 	var d = new Date();	
 	$.ajax({
@@ -121,18 +139,19 @@ function obtenerPuntosDeCalor()
 		userData.forEach(function(point){
 			heatpoints.push(new google.maps.LatLng(parseFloat(point.latitud), parseFloat(point.longitud)));
 		})
-		var pointArray = new google.maps.MVCArray(heatpoints);
+		pointArray = new google.maps.MVCArray(heatpoints);
 		//map.panTo(new google.maps.LatLng(heatpoints[heatpoints.length - 1].k, heatpoints[heatpoints.length - 1].B));
-		if (!heatmap) {
+		/*if (!heatmap) {
 		    heatmap = new google.maps.visualization.HeatmapLayer({
 		        data: pointArray,
-		        map: map
+		        map: map,
+		        gradient: ['rgba(0, 255, 255, 0)', 'rgba(0, 255, 255, 1)', 'rgba(0, 191, 255, 1)', 'rgba(0, 127, 255, 1)', 'rgba(0, 90, 179, 1)', 'rgba(0, 50, 95, 1)'],
+		        radius: 23
 		    });
-		} else {
-		    heatmap.setData(pointArray);
-		}
-	}).progress(function(jqXHR, textStatus) {
-		console.log('progress: ' + textStatus);
+		} else {*/
+		heatmap.setData(pointArray);
+		heatmap.set('gradient', gradient);
+		//}
 	}).fail(function(jqXHR, textStatus) {
 		console.log('Error getHeatMap: ' + textStatus);
 	});
@@ -152,9 +171,9 @@ function verMovimientoDelDia()
 	var hDesde = $( "#date_field" ).datepicker( "getDate" );
 	var hHasta = $( "#date_field" ).datepicker( "getDate" );
 	var tipo = $('#tipo_select').val();
-	hDesde.setHours(0);
+	hDesde.setHours(6);
 	hDesde.setMinutes(1);
-	hHasta.setHours(23);
+	hHasta.setHours(20);
 	hHasta.setMinutes(59);
 
 	$.ajax({
@@ -177,26 +196,25 @@ function verMovimientoDelDia()
 		   heatpoints[response[i].timestamp].push([response[i].latitud, response[i].longitud]);
 		};
 		//console.log(heatpoints);
-		var pointArray = [];
-		if (!heatmap) {
+		/*if (!heatmap) {
 		    heatmap = new google.maps.visualization.HeatmapLayer({
 		        data: pointArray,
-		        map: map
+		        map: map,
+		        radius: 23
 		    });
-		}
+		}*/
 		var i = 10;
 		for (var timestamp in heatpoints){
             (function(timestamp){
             	//console.log(heatpoints[timestamp]);
             	setTimeout(moveCity, i, heatpoints[timestamp], timestamp); 
-				i += 100;
+				i += 200;
             })(timestamp);
         };
         //map.panTo(new google.maps.LatLng(-34.8970141,-56.06299));
 		
-	}).progress(function(jqXHR, textStatus) {
-		console.log('Error getHeatMap: ' + textStatus);
 	}).fail(function(jqXHR, textStatus) {
+		$("#spinner").hide();
 		console.log('Error getHeatMap: ' + textStatus);
 	});
 }
@@ -209,7 +227,7 @@ function moveCity(puntos, timestamp){
 	puntos.forEach(function(point){
 		heatpoints.push(new google.maps.LatLng(parseFloat(point[0]), parseFloat(point[1])));
 	})
-	var pointArray = new google.maps.MVCArray(heatpoints);
+	pointArray = new google.maps.MVCArray(heatpoints);
 	heatmap.setData(pointArray);
 	var h = d.getHours();
 	var m = d.getMinutes()
