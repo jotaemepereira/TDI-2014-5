@@ -76,8 +76,8 @@ $(document).ready(function()
 	var h = date.getHours();
 	var m = date.getMinutes()
 	$('#date_field').val((date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear());
-	parseFloat(h) < 10 ? ($('#hora').text('0' + h), $('#hours_field').val('0' + h)) : ($('#hora').text(h), $('#hours_field').val(h));
-	parseFloat(m) < 10 ? ($('#min').text('0' + m), $('#minutes_field').val('0' + m)) : ($('#min').text(m), $('#minutes_field').val(m));
+	parseFloat(h) < 10 ? $('#hours_field').val('0' + h) : $('#hours_field').val(h);
+	parseFloat(m) < 10 ? $('#minutes_field').val('0' + m) : $('#minutes_field').val(m);
 })
 
 $(function() {
@@ -103,10 +103,14 @@ $(function() {
 
 function obtenerPuntosDeCalor() 
 {
-	//162.248.53.11:8080
+	var h = $('#hours_field').val();
+	var m = $('#minutes_field').val();
+	parseFloat(h) < 10 && h.length < 2 ? $('#hora').text('0' + h) : $('#hora').text(h);
+	parseFloat(m) < 10 && m.length < 2 ? $('#min').text('0' + m) : $('#min').text(m);
+
 	var timestamp = $( "#date_field" ).datepicker( "getDate" );
-	timestamp.setHours($('#hours_field').val());
-	timestamp.setMinutes($('#minutes_field').val());
+	timestamp.setHours(h);
+	timestamp.setMinutes(m);
 	
 	var transporte = $("#tipo_select").val();
 	switch(transporte) {
@@ -172,9 +176,9 @@ function verMovimientoDelDia()
 	var hHasta = $( "#date_field" ).datepicker( "getDate" );
 	var tipo = $('#tipo_select').val();
 	hDesde.setHours(6);
-	hDesde.setMinutes(1);
+	hDesde.setMinutes(30);
 	hHasta.setHours(20);
-	hHasta.setMinutes(59);
+	hHasta.setMinutes(00);
 
 	$.ajax({
 		type : "GET",
