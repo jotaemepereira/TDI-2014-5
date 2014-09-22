@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>63542F05-89FC-4B4A-9D0F-6EF21B74FFCA</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B317CFE55D8FE56D223F1F48B1AC0329AFCD3028</key>
+		<string>https://github.com/heisters/ofxShader.git</string>
+		<key>DE1F8E412E467B422A13A071E08A09E17102E7BF</key>
+		<string>https://github.com/Scylardor/ofxShadersFX.git</string>
+	</dict>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B317CFE55D8FE56D223F1F48B1AC0329AFCD3028</key>
+		<string>ofxShader</string>
+		<key>DE1F8E412E467B422A13A071E08A09E17102E7BF</key>
+		<string>ofxShadersFX/</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/heisters/ofxShader.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B317CFE55D8FE56D223F1F48B1AC0329AFCD3028</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B317CFE55D8FE56D223F1F48B1AC0329AFCD3028</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxShader</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DE1F8E412E467B422A13A071E08A09E17102E7BF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxShadersFX</string>
+		</dict>
+	</array>
+</dict>
+</plist>
