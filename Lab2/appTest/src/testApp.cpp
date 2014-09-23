@@ -13,7 +13,7 @@ void testApp::setup(){
     //in this example, they are all the same size. We move the mask
     //to match the mouse so it looks like you can x-ray through the hand
     
-    topLayer.loadImage("/Users/miligaricoits/Development/of_v0.8.4_osx_release/apps/myApps/appTest/src/image1.png");
+    topLayer.loadImage("/Users/miligaricoits/Development/of_v0.8.4_osx_release/apps/myApps/appTest/src/image1.jpg");
     mask.loadImage("/Users/miligaricoits/Development/of_v0.8.4_osx_release/apps/myApps/appTest/src/circle.png");
     bottomLayer.loadImage("/Users/miligaricoits/Development/of_v0.8.4_osx_release/apps/myApps/appTest/src/image3.png");
     
@@ -51,21 +51,22 @@ void testApp::draw(){
     glBegin(GL_QUADS);
     
     //move the mask around with the mouse by modifying the texture coordinates
-    float maskOffset = 15 - mouseY;
+    float maskOffsetY = 334 - mouseY;
+    float maskOffsetX = 509 - mouseX;
     glMultiTexCoord2d(GL_TEXTURE0_ARB, 0, 0);
-    glMultiTexCoord2d(GL_TEXTURE1_ARB, 0, maskOffset);
+    glMultiTexCoord2d(GL_TEXTURE1_ARB, maskOffsetX, maskOffsetY);
     glVertex2f( 0, 0);
     
     glMultiTexCoord2d(GL_TEXTURE0_ARB, topLayer.getWidth(), 0);
-    glMultiTexCoord2d(GL_TEXTURE1_ARB, mask.getWidth(), maskOffset);
+    glMultiTexCoord2d(GL_TEXTURE1_ARB, mask.getWidth() + maskOffsetX, maskOffsetY);
     glVertex2f( ofGetWidth(), 0);
     
     glMultiTexCoord2d(GL_TEXTURE0_ARB, topLayer.getWidth(), topLayer.getHeight());
-    glMultiTexCoord2d(GL_TEXTURE1_ARB, mask.getWidth(), mask.getHeight() + maskOffset);
+    glMultiTexCoord2d(GL_TEXTURE1_ARB, mask.getWidth() + maskOffsetX, mask.getHeight() + maskOffsetY);
     glVertex2f( ofGetWidth(), ofGetHeight());
     
     glMultiTexCoord2d(GL_TEXTURE0_ARB, 0, topLayer.getHeight());
-    glMultiTexCoord2d(GL_TEXTURE1_ARB, 0, mask.getHeight() + maskOffset);
+    glMultiTexCoord2d(GL_TEXTURE1_ARB, maskOffsetX, mask.getHeight() + maskOffsetY);
     glVertex2f( 0, ofGetHeight() );
     
     glEnd();

@@ -18,7 +18,7 @@
 		<key>B317CFE55D8FE56D223F1F48B1AC0329AFCD3028</key>
 		<string>ofxShader</string>
 		<key>DE1F8E412E467B422A13A071E08A09E17102E7BF</key>
-		<string>ofxShadersFX/</string>
+		<string>ofxShadersFX</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/heisters/ofxShader.git</string>

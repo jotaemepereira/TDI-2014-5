@@ -61,13 +61,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A37F09819D1034400E1C1D4 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
 		0AD1024419CF9C310015B687 /* composite.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = composite.vert; sourceTree = "<group>"; };
 		0AD1024519CF9C310015B687 /* TemplateIcon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon2x.png; sourceTree = "<group>"; };
 		0AD1024619CF9C570015B687 /* composite.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = composite.frag; sourceTree = "<group>"; };
 		0AD1024819CF9DAC0015B687 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0AD1024A19CF9DAC0015B687 /* ofxShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxShader.cpp; sourceTree = "<group>"; };
 		0AD1024B19CF9DAC0015B687 /* ofxShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxShader.h; sourceTree = "<group>"; };
-		0AD1025219CFAC0C0015B687 /* image1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image1.png; path = src/image1.png; sourceTree = SOURCE_ROOT; };
 		0AD1025419CFAC0C0015B687 /* image3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image3.png; path = /Users/miligaricoits/Development/of_v0.8.4_osx_release/apps/myApps/appTest/src/image3.png; sourceTree = "<absolute>"; };
 		0AD1025819CFADE30015B687 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
@@ -211,8 +211,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				0A37F09819D1034400E1C1D4 /* image1.jpg */,
 				0AD1025819CFADE30015B687 /* circle.png */,
-				0AD1025219CFAC0C0015B687 /* image1.png */,
 				0AD1025419CFAC0C0015B687 /* image3.png */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */,
