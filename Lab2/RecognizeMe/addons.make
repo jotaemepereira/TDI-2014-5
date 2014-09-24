@@ -1,2 +1,4 @@
 ofxOpenCv
 ofxCv
+ofxFilterLibrary
+ofxScreenGrab

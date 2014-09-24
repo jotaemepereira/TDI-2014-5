@@ -2,6 +2,8 @@
 
 #include "ofMain.h"
 #include "ofxOpenCv.h"
+#include "ofxFilterLibrary.h"
+#include "ofxScreenGrab.h"
 
 class ofApp : public ofBaseApp{
 
@@ -21,11 +23,14 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
         ofxCvColorImage mask;
-        ofxCvColorImage topLayer;
+        //ofxCvColorImage topLayer;
         ofxCvColorImage bottomLayer;
     
-        ofImage topImage;
+        //ofImage topImage;
         ofImage backImage;
         ofImage maskImage;
 		
+        AbstractFilter* topLayer;
+    
+        ofxScreenGrab grabber;
 };
