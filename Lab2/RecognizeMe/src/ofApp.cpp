@@ -3,30 +3,34 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
     
+    topImage.allocate(320,240, OF_IMAGE_COLOR_ALPHA);
+    backImage.allocate(320,240, OF_IMAGE_COLOR);
+    maskImage.allocate(320,240, OF_IMAGE_COLOR_ALPHA);
+    
     topImage.loadImage("top.png");
     backImage.loadImage("back.png");
     maskImage.loadImage("circle.png");
     
-    topLayer.allocate(1024,768);
-    bottomLayer.allocate(1024,768);
-    mask.allocate(1024,768);
+    topLayer.allocate(320,240);
+    bottomLayer.allocate(320,240);
+    mask.allocate(320,240);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    //topLayer.setFromPixels(topImage.getPixels(), 1024, 768);
-    //bottomLayer.setFromPixels(backImage.getPixels(), 1024, 768);
+    topLayer.setFromPixels(topImage.getPixelsRef());
+    bottomLayer.setFromPixels(backImage.getPixels(), 1024, 768);
     
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     
-    //bottomLayer.draw(0, 0);
-    //topLayer.draw(0, 0);
-    //mask.draw(mouseX, mouseY);
+    bottomLayer.draw(0, 0);
+    topLayer.draw(0, 0);
+    mask.draw(mouseX, mouseY);
     
-    //topLayer.operator-=(mask);
+    topLayer.operator-=(mask);
 }
 
 //--------------------------------------------------------------
