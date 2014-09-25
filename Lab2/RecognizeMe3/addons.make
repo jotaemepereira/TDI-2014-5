@@ -1,0 +1,3 @@
+ofxFilterLibrary
+ofxScreenGrab
+ofxShader

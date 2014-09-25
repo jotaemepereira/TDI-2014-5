@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>998C551F-0751-4316-A4A1-0A69A183C526</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2FD5A69EE360795D0E5BEC83F98FCBF703291CA3</key>
+		<string>https://github.com/mfargo/ofxFilterLibrary.git</string>
+		<key>518FB09BD2F7E4DED99A71BC7A8D171298C064BA</key>
+		<string>https://github.com/genekogan/ofxScreenGrab.git</string>
+		<key>B317CFE55D8FE56D223F1F48B1AC0329AFCD3028</key>
+		<string>https://github.com/heisters/ofxShader.git</string>
+	</dict>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2FD5A69EE360795D0E5BEC83F98FCBF703291CA3</key>
+		<string>ofxFilterLibrary/</string>
+		<key>518FB09BD2F7E4DED99A71BC7A8D171298C064BA</key>
+		<string>ofxScreenGrab/</string>
+		<key>B317CFE55D8FE56D223F1F48B1AC0329AFCD3028</key>
+		<string>ofxShader</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/heisters/ofxShader.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B317CFE55D8FE56D223F1F48B1AC0329AFCD3028</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2FD5A69EE360795D0E5BEC83F98FCBF703291CA3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxFilterLibrary</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>518FB09BD2F7E4DED99A71BC7A8D171298C064BA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxScreenGrab</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B317CFE55D8FE56D223F1F48B1AC0329AFCD3028</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxShader</string>
+		</dict>
+	</array>
+</dict>
+</plist>
