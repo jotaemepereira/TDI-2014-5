@@ -1,0 +1,5 @@
+ofxFilterLibrary
+ofxScreenGrab
+ofxShader
+ofxUI
+ofxXmlSettings
