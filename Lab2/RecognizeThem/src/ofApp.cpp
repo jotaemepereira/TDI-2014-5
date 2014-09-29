@@ -145,6 +145,10 @@ void ofApp::setup(){
     perdiste.loadImage("perdiste.png");
     ofganaste.loadImage("ganaste.png");
     
+    fail.loadSound("fail.mp3");
+    gameover.loadSound("gameover.mp3");
+    win.loadSound("win.mp3");
+    
     bool retina = true;
     grabber.setup(this->width, this->height, retina);
     
@@ -352,7 +356,7 @@ void ofApp::draw(){
         
     }
     
-    if (this->intentos >= 3) {
+    if (this->intentos == 3) {
         //Perdiste!
         grabber.draw(0, 0);
         perdiste.draw(0, 0);
@@ -399,15 +403,20 @@ void ofApp::guiEvent(ofxUIEventArgs &e)
         this->ganaste = true;
         gui2->setVisible(true);
         gui->setVisible(false);
+        win.play();
         
     }
     if ((name.find("face") != string::npos) && (name.compare(this->ganadora) != 0) && (button->getValue() == 1))  {
+        fail.play();
         this->intentos += 1;
         stringstream intento_int;
         intento_int << this->intentos;
         gui3->removeWidgets();
         gui3->addLabel("Intentos: " + intento_int.str(), OFX_UI_FONT_LARGE);
         gui3->setDimensions(120, 30);
+        if (this->intentos == 3) {
+            gameover.play();
+        }
     }
 }
 

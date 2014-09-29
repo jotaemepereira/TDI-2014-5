@@ -52,5 +52,9 @@ public:
     
     void guiEvent(ofxUIEventArgs &e);
     bool drawPadding;
+    
+    ofSoundPlayer fail;
+    ofSoundPlayer gameover;
+    ofSoundPlayer win;
 };
 
