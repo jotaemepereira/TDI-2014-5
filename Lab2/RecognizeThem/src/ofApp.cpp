@@ -396,7 +396,7 @@ void ofApp::guiEvent(ofxUIEventArgs &e)
     }
     
     if (name.compare("exit") == 0 && (button->getValue() == 1)) {
-        exit();
+        ExitToShell();
     }
     
     if (name.compare(this->ganadora) == 0 && (button->getValue() == 1)) {
