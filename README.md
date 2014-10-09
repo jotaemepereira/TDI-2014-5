@@ -8,7 +8,7 @@ Programa del curso: [Link](http://www.fing.edu.uy/sites/default/files/cursos/201
 
 ## Laboratorio 1 - Memoria
 
-Para este laboratorio decidimos utilizar el movimiento de las personas para tener una memoria colectiva de los diferentes lugares por los cuales se fueron moviendo, representado por un mapa de calor.
+Nuestra representación de la memoria fue sobre el movimiento de las personas en Montevideo. Decidimos desarrollar una aplicación que localice la ubicación de la persona y que envie como se esta moviendo, para luego se muestre en una aplicación web a través de mapas de calor.
 
 Enlace al código: [Link](https://github.com/jotaemepereira/TDI-2014-5/tree/master/Lab1)
 
@@ -25,5 +25,11 @@ La aplicación web se desarrolló en las siguientes herramientas:
 ![alt tag](http://html5facil.com/wp-content/uploads/2013/10/html5_css3_javascript.jpg)
 
 
+### Servidor Web
 
-## Laborat
+### App en Android
+
+
+## Laboratorio 2 - Reconocimiento Facial
+
+
