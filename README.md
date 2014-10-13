@@ -27,7 +27,7 @@ El proyecto consta de tres partes:
 Algunas imagenes de la app:
 
 <pre>
-<a href="url"><img src="http://i61.tinypic.com/2med2is.png" align="left"></a>
+<a href="#"><img src="http://i61.tinypic.com/2med2is.png" align="left"></a>
 </pre>
 
 ## Laboratorio 2 - Reconocimiento Facial
@@ -41,7 +41,7 @@ Decidimos hacer un juego que reconozca a donde esta mirando el jugador y le vaya
 
 Imagen del juego:
 <pre>
-<a href="url"><img src="http://i62.tinypic.com/2501lrm.png" align="center" height="350" width="500"></a>
+<a href="#"><img src="http://i62.tinypic.com/2501lrm.png" align="center" height="350" width="500"></a>
 </pre>
 
 
