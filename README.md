@@ -30,10 +30,8 @@ La aplicación web se desarrolló en las siguientes herramientas:
 
 ### App en Android
 
-<ul>
-<li style="margin-right : 20px"><a href="url"><img src="http://i61.tinypic.com/2u4q8fd.jpg" align="left" height="250" width="150"></a></li>
-<li><a href="url"><img src="http://i59.tinypic.com/2myvi4y.png" align="left" height="250" width="150" ></a> </li>
-</ul>
+<a href="url"><img src="http://i61.tinypic.com/2u4q8fd.jpg" align="left" height="250" width="150"></a>
+<a href="url"><img src="http://i59.tinypic.com/2myvi4y.png" align="left" height="250" width="150"></a>
 
 ## Laboratorio 2 - Reconocimiento Facial
 
