@@ -13,8 +13,14 @@ HashMap<String,ArrayList <Dato>> hm = new HashMap<String,ArrayList <Dato>>();
 void setup(){
   
   size(800, 640);
-  stroke(0, 150, 255, 65);
-  for(int i = 0; i < 5; i++){branches.add(new Branch());}
+  noStroke();
+  colorMode(HSB, 100);
+  //stroke(0, 150, 255, 65);
+  
+  branches.add(new Branch("Uruguay", 295));
+  branches.add(new Branch("Uruguay", 235));
+  branches.add(new Branch("Uruguay", 175));
+  branches.add(new Branch("Uruguay", 115));
   
   cp5 = new ControlP5(this);
   cp5.setControlFont(new ControlFont(createFont("Verdana", 10), 10));
@@ -56,38 +62,41 @@ void setup(){
 void draw(){
   background(0);
   for(int i = 0; i < branches.size(); i++){
+    stroke(i*20, (i*2)+50, 150, 70);
     Branch b = (Branch) branches.get(i);
     pushMatrix();
-    translate(width/2, height);
+    translate((width/2)+30, height);
     rotate(radians(b.startAngle));
     b.branch(b.segments);
     popMatrix();
+    
+    fill(i*20, (i*2)+50, 150, 70);
+    rect(20,(i*30)+50, 20, 20);
   }
+  text("Año 2010", 47, 53, width, height);
+  text("Año 2005", 47, 83, width, height);
+  text("Año 2000", 47, 113, width, height);
+  text("Año 1990", 47, 143, width, height);
 }
 
 void controlEvent(ControlEvent theEvent) {
-  // DropdownList is of type ControlGroup.
-  // A controlEvent will be triggered from inside the ControlGroup class.
-  // therefore you need to check the originator of the Event with
-  // if (theEvent.isGroup())
-  // to avoid an error message thrown by controlP5.
-
   if (theEvent.isGroup()) {
     // check if the Event was triggered from a ControlGroup
     DropdownList ddl = (DropdownList) theEvent.getGroup();
     int index = Math.round(theEvent.getGroup().getValue());
     String country = ddl.getItem(index).getName();
-    println("event from group : " + country);
+    println("Country | Area selected : " + country);
   }
 }
  
 class Branch {
   float segments, startAngle, theta, num;
-  Branch(){
-    //Largo
-    //segments = random(150, 250);
-    segments = 300;
-    startAngle = random(-30, 30);
+  Branch(String c, int i){
+    /*Largo
+    segments = random(100, 300);
+    segments = 64; */
+    segments = i;
+    startAngle = random(-20, 20);
   }
    
   void branch(float len){
@@ -119,27 +128,27 @@ class Branch {
 class Dato {
   String year, value;
   
+  // CONSTRUCTOR
   Dato(){};
   
+  // SETTERS
   void setYear(String y){
     this.year = y; 
   }
-  
   void setValue(String v){
     this.value = v; 
   }
   
+  // GETTERS
   String getYear(){
     return this.year; 
   }
- 
   String getValue(){
     return this.value; 
   }
 }
 
 void customize(DropdownList ddl) {
-  // a convenience function to customize a DropdownList
   ddl.setWidth(280);
   ddl.setHeight(160);
   ddl.setBackgroundColor(color(190));
@@ -148,9 +157,9 @@ void customize(DropdownList ddl) {
   ddl.captionLabel().style().marginTop = 3;
   ddl.captionLabel().style().marginLeft = 3;
   ddl.valueLabel().style().marginTop = 3;
-  //ddl.scroll(0);
   ddl.setColorBackground(color(60));
   ddl.setColorActive(color(255, 128));
+  ddl.setValue(214.0);
 }
 
 
