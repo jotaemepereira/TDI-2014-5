@@ -22,14 +22,21 @@ El proyecto consta de tres partes:
 
 La aplicación web se desarrolló en las siguientes herramientas: 
 
-![alt tag](http://html5facil.com/wp-content/uploads/2013/10/html5_css3_javascript.jpg)
+<a href="url"><img src="http://html5facil.com/wp-content/uploads/2013/10/html5_css3_javascript.jpg" align="left" height="100" width="350" ></a>
+
 
 
 ### Servidor Web
 
 ### App en Android
 
+<ul>
+<li style="margin-right : 20px"><a href="url"><img src="http://i61.tinypic.com/2u4q8fd.jpg" align="left" height="250" width="150"></a></li>
+<li><a href="url"><img src="http://i59.tinypic.com/2myvi4y.png" align="left" height="250" width="150" ></a> </li>
+</ul>
 
 ## Laboratorio 2 - Reconocimiento Facial
+
+En el 
 
 
