@@ -28,7 +28,7 @@ Algunas imagenes de la app:
 
 <a href="url"><img src="http://i61.tinypic.com/2u4q8fd.jpg" align="left" height="250" width="150"></a>
 <a href="url"><img src="http://i59.tinypic.com/2myvi4y.png" align="left" height="250" width="150"></a>
-
+<br></br>
 ## Laboratorio 2 - Reconocimiento Facial
 
 Para el segundo laboratorio dentro del reconocimiento facial nos enfocamos en el tracking del movimiento ocular. 
@@ -42,6 +42,7 @@ Imagen del juego:
 <p>
 <a href="url"><img src="http://i62.tinypic.com/2501lrm.png" align="left" height="350" width="500"></a>
 </p>
+<br></br>
 
 ## Laboratorio 3 - Datos Abiertos
 
