@@ -27,7 +27,7 @@ El proyecto consta de tres partes:
 Algunas imagenes de la app:
 
 <pre>
-<a href="url"><img src="http://i61.tinypic.com/2med2is.png" align="left" height="250" width="150"></a>
+<a href="url"><img src="http://i61.tinypic.com/2med2is.png" align="left"></a>
 </pre>
 
 ## Laboratorio 2 - Reconocimiento Facial
