@@ -26,9 +26,11 @@ El proyecto consta de tres partes:
 
 Algunas imagenes de la app:
 
+<pre>
 <a href="url"><img src="http://i61.tinypic.com/2u4q8fd.jpg" align="left" height="250" width="150"></a>
 <a href="url"><img src="http://i59.tinypic.com/2myvi4y.png" align="left" height="250" width="150"></a>
-<br></br>
+</pre>
+
 ## Laboratorio 2 - Reconocimiento Facial
 
 Para el segundo laboratorio dentro del reconocimiento facial nos enfocamos en el tracking del movimiento ocular. 
@@ -39,10 +41,10 @@ Decidimos hacer un juego que reconozca a donde esta mirando el jugador y le vaya
 * El desarrollo del juego fue todo sobre openFrameworks: [Link](http://www.openframeworks.cc)
 
 Imagen del juego:
-<p>
+<pre>
 <a href="url"><img src="http://i62.tinypic.com/2501lrm.png" align="left" height="350" width="500"></a>
-</p>
-<br></br>
+</pre>
+
 
 ## Laboratorio 3 - Datos Abiertos
 
