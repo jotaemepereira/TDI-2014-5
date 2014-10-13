@@ -6,6 +6,12 @@ El taller propone poner en práctica las nociones básicas sobre diseño de inte
 
 Programa del curso: [Link](http://www.fing.edu.uy/sites/default/files/cursos/2013/anexos/8289/Taller%20de%20Interaccion%20Persona%20Computadora.pdf)
 
+## Integrantes
+
+* "Milagros Garicoits" <mili.garicoits@gmail.com>
+* "Agustín Prado" <aguprado@gmail.com>
+* "Juan Pereira" <juanmanuel.pereira1@gmail.com>
+
 ## Laboratorio 1 - Memoria
 
 Nuestra representación de la memoria fue sobre el movimiento de las personas en Montevideo. Decidimos desarrollar una aplicación que localice la ubicación de la persona y que envie como se esta moviendo, para luego se muestre en una aplicación web a través de mapas de calor.
@@ -14,27 +20,20 @@ Enlace al código: [Link](https://github.com/jotaemepereira/TDI-2014-5/tree/mast
 
 El proyecto consta de tres partes:
 
-1. Aplicación web
-2. Servidor web
-3. App en Android
+1. Aplicación web (HTML5 + CSS3 + JavaScript + GoogleMaps)
+2. Servidor web (NodeJs + MongoDb)
+3. Aplicación mobile (Android nativo)
 
-### Aplicación Web
-
-La aplicación web se desarrolló en las siguientes herramientas: 
-
-<a href="url"><img src="http://html5facil.com/wp-content/uploads/2013/10/html5_css3_javascript.jpg" align="left" height="100" width="350" ></a>
-
-
-
-### Servidor Web
-
-### App en Android
+Algunas imagenes de la app:
 
 <a href="url"><img src="http://i61.tinypic.com/2u4q8fd.jpg" align="left" height="250" width="150"></a>
 <a href="url"><img src="http://i59.tinypic.com/2myvi4y.png" align="left" height="250" width="150"></a>
 
 ## Laboratorio 2 - Reconocimiento Facial
 
-En el 
+Para el segundo laboratorio dentro del reconocimiento facial nos enfocamos en el tracking del movimiento ocular. 
+Decidimos hacer un juego que reconozca a donde esta mirando el jugador y le vaya mostrando una imagen escondida, la cual es de una persona famosa que debe adivinar.
 
+Para el tracking del movimiento del ojo utilizamos EyeTribe: [Link](https://theeyetribe.com)
+El desarrollo del juego fue todo sobre openFrameworks: [Link](http://www.openframeworks.cc)
 
