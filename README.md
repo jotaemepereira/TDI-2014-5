@@ -26,23 +26,25 @@ El proyecto consta de tres partes:
 
 Algunas imagenes de la app:
 
-<p>
 <a href="url"><img src="http://i61.tinypic.com/2u4q8fd.jpg" align="left" height="250" width="150"></a>
 <a href="url"><img src="http://i59.tinypic.com/2myvi4y.png" align="left" height="250" width="150"></a>
-</p>
-
 
 ## Laboratorio 2 - Reconocimiento Facial
 
 Para el segundo laboratorio dentro del reconocimiento facial nos enfocamos en el tracking del movimiento ocular. 
 Decidimos hacer un juego que reconozca a donde esta mirando el jugador y le vaya mostrando una imagen escondida, la cual es de una persona famosa que debe adivinar.
 
-<p>
-Para el tracking del movimiento del ojo utilizamos EyeTribe: [Link](https://theeyetribe.com)
-</p>
-El desarrollo del juego fue todo sobre openFrameworks: [Link](http://www.openframeworks.cc)
+
+* Para el tracking del movimiento del ojo utilizamos EyeTribe: [Link](https://theeyetribe.com)
+* El desarrollo del juego fue todo sobre openFrameworks: [Link](http://www.openframeworks.cc)
 
 Imagen del juego:
-
+<p>
 <a href="url"><img src="http://i62.tinypic.com/2501lrm.png" align="left" height="350" width="500"></a>
+</p>
+
+## Laboratorio 3 - Datos Abiertos
+
+En este labortario decidimos tomar los datos de la deforestación mundial para mostrarlos de una manera particular usando Processing.
+Datos de la deforestación: [Link](http://data.un.org/Data.aspx?q=FOREST&d=MDG&f=seriesRowID%3a567)
 
