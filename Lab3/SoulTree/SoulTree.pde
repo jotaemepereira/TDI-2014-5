@@ -13,7 +13,7 @@ HashMap<String,ArrayList <Dato>> hm = new HashMap<String,ArrayList <Dato>>();
   
 void setup(){
   
-  size(800, 640);
+  size(1024, 768);
   noStroke();
   colorMode(HSB, 100);
   //stroke(0, 150, 255, 65);
@@ -115,22 +115,22 @@ void controlEvent(ControlEvent theEvent) {
         branches.clear();
     
         branches.add(new Branch(country, 4*parseInt(fields[2].getContent())));
-        println("2010" + parseFloat(fields[2].getContent()));
+        println("2010: " + parseFloat(fields[2].getContent()));
         i++;
         
         fields = records[i].getChildren("field");
         branches.add(new Branch(country, 4*parseInt(fields[2].getContent())));
-        println("2005" + parseFloat(fields[2].getContent()));
+        println("2005: " + parseFloat(fields[2].getContent()));
         i++;
         
         fields = records[i].getChildren("field");
         branches.add(new Branch(country, 4*parseInt(fields[2].getContent())));
-        println("2000" + parseFloat(fields[2].getContent()));
+        println("2000: " + parseFloat(fields[2].getContent()));
         i++;
         
         fields = records[i].getChildren("field");
         branches.add(new Branch(country, 4*parseInt(fields[2].getContent())));  
-        println("1990" + parseFloat(fields[2].getContent()));
+        println("1990: " + parseFloat(fields[2].getContent()));
         
         break;
         
