@@ -13,7 +13,7 @@ HashMap<String,ArrayList <Dato>> hm = new HashMap<String,ArrayList <Dato>>();
   
 void setup(){
   
-  size(1024, 768);
+  size(800, 640);
   noStroke();
   colorMode(HSB, 100);
   //stroke(0, 150, 255, 65);
@@ -75,7 +75,7 @@ void draw(){
     pushMatrix();
     translate((width/2)+30, height);
     rotate(radians(b.startAngle));
-    b.branch(b.segments);
+    b.branch(b.segments, b.hojas);
     popMatrix();
     
     fill(i*20, (i*2)+50, 150, 70);
@@ -100,50 +100,21 @@ void controlEvent(ControlEvent theEvent) {
     String country = ddl.getItem(index).getName();
     println("Country | Area selected : " + country);
     
-    XML xml = loadXML("data.xml");
-    XML[] data = xml.getChildren("data");
-    XML[] records = data[0].getChildren("record");
-    XML[] fields;
+    Dato dato1990, dato2000, dato2005, dato2010;
     
-    int i = 0;
-    while (i<records.length){
-      
-      fields = records[i].getChildren("field");
-      
-      if (fields[0].getContent().compareTo(country)==0){
-        
-        branches.clear();
+    ArrayList <Dato> datos = hm.get(country);
+    dato1990 = datos.get(3);
+    dato2000 = datos.get(2);
+    dato2005 = datos.get(1);
+    dato2010 = datos.get(0);
     
-        branches.add(new Branch(country, 4*parseInt(fields[2].getContent())));
-        println("2010: " + parseFloat(fields[2].getContent()));
-        i++;
-        
-        fields = records[i].getChildren("field");
-        branches.add(new Branch(country, 4*parseInt(fields[2].getContent())));
-        println("2005: " + parseFloat(fields[2].getContent()));
-        i++;
-        
-        fields = records[i].getChildren("field");
-        branches.add(new Branch(country, 4*parseInt(fields[2].getContent())));
-        println("2000: " + parseFloat(fields[2].getContent()));
-        i++;
-        
-        fields = records[i].getChildren("field");
-        branches.add(new Branch(country, 4*parseInt(fields[2].getContent())));  
-        println("1990: " + parseFloat(fields[2].getContent()));
-        
-        break;
-        
-      }
-      else
-        i++;
-        
-    };
-    
-    if (i==records.length){
-       println("Error! | "+country+" no encontrado.");
-       return;
-    };
+    println("datos 2010 año : " + dato2010.year);
+          
+    branches.clear();
+    branches.add(new Branch(country, 2.5*parseFloat(dato2010.value), 16.0));
+    branches.add(new Branch(country, 3*parseFloat(dato2005.value), 8.0));
+    branches.add(new Branch(country, 3.5*parseFloat(dato2000.value), 4.0));
+    branches.add(new Branch(country, 4*parseFloat(dato1990.value), 2.0));  
 
   };
 
@@ -151,19 +122,19 @@ void controlEvent(ControlEvent theEvent) {
  
 class Branch {
   
-  float segments, startAngle, theta, num;
+  float segments, startAngle, theta, num, hojas;
   
-  Branch(String c, int i){
+  Branch(String c, float l, float h){
     
     /*Largo
     segments = random(100, 300);
     segments = 64; */
-    segments = i;
+    segments = l;
     startAngle = random(-20, 20);
-    
+    hojas = h;
   }
    
-  void branch(float len){
+  void branch(float len, float h){
     
     float t = map(len, 1, 160, 1, 5);
     theta = sin(len+num) * 3;
@@ -173,18 +144,33 @@ class Branch {
     translate(0, -len);
     len *= 0.50;
     
-    if(len > 2){
+    if(len > h){
       
       pushMatrix();
       rotate(radians(-20+theta));
-      branch(len);
+      branch(len, h);
       popMatrix();
       
       pushMatrix();
       rotate(radians(20-theta));
-      branch(len);
+      branch(len, h);
       popMatrix();
-
+      
+      if (h == 2.0 && len > 16)
+      {
+          pushMatrix();
+          rotate(radians(5-theta));
+          branch(len, h);
+          popMatrix();
+      }
+      else if (h == 4.0 && len > 32)
+      {
+          pushMatrix();
+          rotate(radians(10-theta));
+          branch(len, h);
+          popMatrix();
+      }
+      
     }
     else{
       
@@ -237,7 +223,7 @@ void customize(DropdownList ddl) {
   ddl.valueLabel().style().marginTop = 3;
   ddl.setColorBackground(color(60));
   ddl.setColorActive(color(255, 128));
-  ddl.setValue(214.0);
+  ddl.setValue(5.0);
   
 }
 
