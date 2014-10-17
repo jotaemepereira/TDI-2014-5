@@ -45,7 +45,6 @@ void setup(){
     if (list != null){
       list.add(d);
     }
-    
     else {
       
       list = new ArrayList <Dato>();
@@ -53,15 +52,10 @@ void setup(){
       
       droplist.addItem(country, j);
       j++;
-      
     }
-    
     hm.put(country, list);
-    
   }
-  
   customize(droplist);
-  
 }
  
 void draw(){
@@ -73,7 +67,7 @@ void draw(){
     stroke(i*20, (i*2)+50, 150, 70);
     Branch b = (Branch) branches.get(i);
     pushMatrix();
-    translate((width/2)+30, height);
+    translate((width/3)+(100*i), height);
     rotate(radians(b.startAngle));
     b.branch(b.segments, b.hojas);
     popMatrix();
@@ -117,7 +111,6 @@ void controlEvent(ControlEvent theEvent) {
     branches.add(new Branch(country, 4*parseFloat(dato1990.value), 2.0));  
 
   };
-
 };
  
 class Branch {
@@ -126,11 +119,8 @@ class Branch {
   
   Branch(String c, float l, float h){
     
-    /*Largo
-    segments = random(100, 300);
-    segments = 64; */
     segments = l;
-    startAngle = random(-20, 20);
+    startAngle = random(-5, 5);
     hojas = h;
   }
    
@@ -147,24 +137,24 @@ class Branch {
     if(len > h){
       
       pushMatrix();
-      rotate(radians(-20+theta));
+      rotate(radians(-35+theta));
       branch(len, h);
       popMatrix();
       
       pushMatrix();
-      rotate(radians(20-theta));
+      rotate(radians(35+theta));
       branch(len, h);
       popMatrix();
-      
-      if (h == 2.0 && len > 16)
-      {
+
+      if (h == 2.0 && len > 16){
+        
           pushMatrix();
-          rotate(radians(5-theta));
+          rotate(radians(10-theta));
           branch(len, h);
           popMatrix();
       }
-      else if (h == 4.0 && len > 32)
-      {
+      else if (h == 4.0 && len > 32){
+        
           pushMatrix();
           rotate(radians(10-theta));
           branch(len, h);
@@ -175,13 +165,9 @@ class Branch {
     else{
       
       ellipse(0, 0, 3, 3);
-      
-    }
-    
+    }   
     num += 0.001;
-    
   }
-  
 }
 
 class Dato {
@@ -208,7 +194,6 @@ class Dato {
   String getValue(){
     return this.value; 
   }
-  
 }
 
 void customize(DropdownList ddl) {
@@ -224,7 +209,6 @@ void customize(DropdownList ddl) {
   ddl.setColorBackground(color(60));
   ddl.setColorActive(color(255, 128));
   ddl.setValue(5.0);
-  
 }
 
 
