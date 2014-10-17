@@ -63,7 +63,7 @@ void draw(){
   background(0);
   
   for(int i = 0; i < branches.size(); i++){
-    
+  
     stroke(i*20, (i*2)+50, 150, 70);
     Branch b = (Branch) branches.get(i);
     pushMatrix();
@@ -166,7 +166,7 @@ class Branch {
       
       ellipse(0, 0, 3, 3);
     }   
-    num += 0.001;
+    num += 0.0001;
   }
 }
 
