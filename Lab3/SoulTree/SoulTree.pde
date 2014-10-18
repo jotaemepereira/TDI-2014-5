@@ -13,7 +13,10 @@ HashMap<String,ArrayList <Dato>> hm = new HashMap<String,ArrayList <Dato>>();
   
 void setup(){
   
-  size(800, 640);
+  size(displayWidth, displayHeight);
+  if (frame != null) {
+    frame.setResizable(true);
+  }
   noStroke();
   colorMode(HSB, 100);
   //stroke(0, 150, 255, 65);
@@ -67,7 +70,7 @@ void draw(){
     stroke(i*20, (i*2)+50, 150, 70);
     Branch b = (Branch) branches.get(i);
     pushMatrix();
-    translate((width/4.9)+(170*i), height);
+    translate((width/5)+(250*i), height);
     rotate(radians(b.startAngle));
     b.branch(b.segments, b.hojas);
     popMatrix();
