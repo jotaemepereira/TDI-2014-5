@@ -64,9 +64,9 @@ void setup(){
   customize(droplist);
   
   int sentido = -1;
-  for (int k = 0; k < 15; k++){
+  for (int k = 0; k < 20; k++){
     sentido = sentido*(-1);
-    clouds.add(new Cloud(Math.round(random(100, displayWidth -100)), Math.round(random(50, 70)), Math.round(random(60, 80)), sentido));
+    clouds.add(new Cloud(Math.round(random(100, displayWidth -100)), Math.round(random(60, 80)), Math.round(random(70, 90)), sentido));
   }
 }
  
@@ -313,7 +313,7 @@ class Cloud {
  
   void display() {
     noStroke();
-    fill(60, 80);
+    fill(60, 70);
     ellipse(x, y, r, r); 
     ellipse(x-(r/2), y, r*.8, r*.8);
   }
