@@ -67,7 +67,7 @@ void draw(){
     stroke(i*20, (i*2)+50, 150, 70);
     Branch b = (Branch) branches.get(i);
     pushMatrix();
-    translate((width/4.5)+(150*i), height);
+    translate((width/4.9)+(170*i), height);
     rotate(radians(b.startAngle));
     b.branch(b.segments, b.hojas);
     popMatrix();
@@ -97,17 +97,51 @@ void controlEvent(ControlEvent theEvent) {
     datoMedioAlto = datos.get(2);
     datoMayor = datos.get(3);
     
-    println("dato 0 Menor: " + datoMenor.value);
-    println("dato 1 Medio Bajo: " + datoMedioBajo.value);
-    println("dato 2 Medio Alto : " + datoMedioAlto.value);
-    println("dato 3 alto : " + datoMayor.value);
+    println("dato Menor: " + datoMenor.value + " año: " + datoMenor.year);
+    println("dato Medio Bajo: " + datoMedioBajo.value+ " año: " + datoMedioBajo.year);
+    println("dato Medio Alto : " + datoMedioAlto.value+ " año: " + datoMedioAlto.year);
+    println("dato alto : " + datoMayor.value+ " año: " + datoMayor.year);
           
     branches.clear();
-    branches.add(new Branch(country, 4*parseFloat(datoMenor.value), 16.0, datoMenor.year));
-    branches.add(new Branch(country, 4*parseFloat(datoMedioBajo.value), 8.0, datoMedioBajo.year));
-    branches.add(new Branch(country, 4*parseFloat(datoMedioAlto.value), 4.0, datoMedioAlto.year));
-    branches.add(new Branch(country, 4*parseFloat(datoMayor.value), 2.0, datoMayor.year));  
+    if (datoMenor.year.equals("1990")){
+      branches.add(new Branch(country, 4*parseFloat(datoMenor.value), 16.0, datoMenor.year));
+    }else if (datoMedioBajo.year.equals("1990")){
+      branches.add(new Branch(country, 4*parseFloat(datoMedioBajo.value), 8.0, datoMedioBajo.year));
+    }else if (datoMedioAlto.year.equals("1990")){
+      branches.add(new Branch(country, 4*parseFloat(datoMedioAlto.value), 4.0, datoMedioAlto.year));
+    }else{
+      branches.add(new Branch(country, 4*parseFloat(datoMayor.value), 2.0, datoMayor.year));  
+    }
 
+    if (datoMenor.year.equals("2000")){
+      branches.add(new Branch(country, 4*parseFloat(datoMenor.value), 16.0, datoMenor.year));
+    }else if (datoMedioBajo.year.equals("2000")){
+      branches.add(new Branch(country, 4*parseFloat(datoMedioBajo.value), 8.0, datoMedioBajo.year));
+    }else if (datoMedioAlto.year.equals("2000")){
+      branches.add(new Branch(country, 4*parseFloat(datoMedioAlto.value), 4.0, datoMedioAlto.year));
+    }else{
+      branches.add(new Branch(country, 4*parseFloat(datoMayor.value), 2.0, datoMayor.year));  
+    }
+    
+    if (datoMenor.year.equals("2005")){
+      branches.add(new Branch(country, 4*parseFloat(datoMenor.value), 16.0, datoMenor.year));
+    }else if (datoMedioBajo.year.equals("2005")){
+      branches.add(new Branch(country, 4*parseFloat(datoMedioBajo.value), 8.0, datoMedioBajo.year));
+    }else if (datoMedioAlto.year.equals("2005")){
+      branches.add(new Branch(country, 4*parseFloat(datoMedioAlto.value), 4.0, datoMedioAlto.year));
+    }else{
+      branches.add(new Branch(country, 4*parseFloat(datoMayor.value), 2.0, datoMayor.year));  
+    }  
+    
+    if (datoMenor.year.equals("2010")){
+      branches.add(new Branch(country, 4*parseFloat(datoMenor.value), 16.0, datoMenor.year));
+    }else if (datoMedioBajo.year.equals("2010")){
+      branches.add(new Branch(country, 4*parseFloat(datoMedioBajo.value), 8.0, datoMedioBajo.year));
+    }else if (datoMedioAlto.year.equals("2010")){
+      branches.add(new Branch(country, 4*parseFloat(datoMedioAlto.value), 4.0, datoMedioAlto.year));
+    }else{
+      branches.add(new Branch(country, 4*parseFloat(datoMayor.value), 2.0, datoMayor.year));  
+    }  
   };
 };
  
