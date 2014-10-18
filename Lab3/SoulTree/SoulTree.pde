@@ -43,7 +43,7 @@ void setup(){
     ArrayList <Dato> list = hm.get(country);
     
     if (list != null){
-      list.add(d);
+      insertOrdered (list, d);
     }
     else {
       
@@ -61,27 +61,22 @@ void setup(){
 void draw(){
   
   background(0);
-  
+  int j = 53;
   for(int i = 0; i < branches.size(); i++){
   
     stroke(i*20, (i*2)+50, 150, 70);
     Branch b = (Branch) branches.get(i);
     pushMatrix();
-    translate((width/3)+(100*i), height);
+    translate((width/4.5)+(150*i), height);
     rotate(radians(b.startAngle));
     b.branch(b.segments, b.hojas);
     popMatrix();
     
     fill(i*20, (i*2)+50, 150, 70);
     rect(20,(i*30)+50, 20, 20);
-    
+    text(b.year, 47, j, width, height);
+    j = j + 30;
   }
-  
-  text("Año 2010", 47, 53, width, height);
-  text("Año 2005", 47, 83, width, height);
-  text("Año 2000", 47, 113, width, height);
-  text("Año 1990", 47, 143, width, height);
-  
 }
 
 void controlEvent(ControlEvent theEvent) {
@@ -94,21 +89,24 @@ void controlEvent(ControlEvent theEvent) {
     String country = ddl.getItem(index).getName();
     println("Country | Area selected : " + country);
     
-    Dato dato1990, dato2000, dato2005, dato2010;
+    Dato datoMenor, datoMedioBajo, datoMedioAlto, datoMayor;
     
     ArrayList <Dato> datos = hm.get(country);
-    dato1990 = datos.get(3);
-    dato2000 = datos.get(2);
-    dato2005 = datos.get(1);
-    dato2010 = datos.get(0);
+    datoMenor = datos.get(0);
+    datoMedioBajo = datos.get(1);
+    datoMedioAlto = datos.get(2);
+    datoMayor = datos.get(3);
     
-    println("datos 2010 año : " + dato2010.year);
+    println("dato 0 Menor: " + datoMenor.value);
+    println("dato 1 Medio Bajo: " + datoMedioBajo.value);
+    println("dato 2 Medio Alto : " + datoMedioAlto.value);
+    println("dato 3 alto : " + datoMayor.value);
           
     branches.clear();
-    branches.add(new Branch(country, 2.5*parseFloat(dato2010.value), 16.0));
-    branches.add(new Branch(country, 3*parseFloat(dato2005.value), 8.0));
-    branches.add(new Branch(country, 3.5*parseFloat(dato2000.value), 4.0));
-    branches.add(new Branch(country, 4*parseFloat(dato1990.value), 2.0));  
+    branches.add(new Branch(country, 4*parseFloat(datoMenor.value), 16.0, datoMenor.year));
+    branches.add(new Branch(country, 4*parseFloat(datoMedioBajo.value), 8.0, datoMedioBajo.year));
+    branches.add(new Branch(country, 4*parseFloat(datoMedioAlto.value), 4.0, datoMedioAlto.year));
+    branches.add(new Branch(country, 4*parseFloat(datoMayor.value), 2.0, datoMayor.year));  
 
   };
 };
@@ -116,12 +114,14 @@ void controlEvent(ControlEvent theEvent) {
 class Branch {
   
   float segments, startAngle, theta, num, hojas;
+  String year;
   
-  Branch(String c, float l, float h){
+  Branch(String c, float l, float h, String y){
     
     segments = l;
     startAngle = random(-5, 5);
     hojas = h;
+    year = y;
   }
    
   void branch(float len, float h){
@@ -209,6 +209,26 @@ void customize(DropdownList ddl) {
   ddl.setColorBackground(color(60));
   ddl.setColorActive(color(255, 128));
   ddl.setValue(5.0);
+}
+
+ArrayList <Dato> insertOrdered (ArrayList <Dato> l, Dato d){
+  
+  int i = 0;
+  boolean found = false;
+  while(i < l.size() && !found) {
+
+    found = (Float.parseFloat(d.value) <= Float.parseFloat(l.get(i).value));
+    if (!found){
+      i++;
+    }  
+  }
+  if (!found){
+    l.add(d);
+  } 
+  else {
+    l.add(i, d);
+  }
+  return l;
 }
 
 

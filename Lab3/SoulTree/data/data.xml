@@ -3097,30 +3097,6 @@
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Monaco</field>
-            <field name="Year">2010</field>
-            <field name="Value"></field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Monaco</field>
-            <field name="Year">2005</field>
-            <field name="Value"></field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Monaco</field>
-            <field name="Year">2000</field>
-            <field name="Value"></field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Monaco</field>
-            <field name="Year">1990</field>
-            <field name="Value"></field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
             <field name="Country or Area">Mongolia</field>
             <field name="Year">2010</field>
             <field name="Value">6.9569103096074</field>
