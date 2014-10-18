@@ -10,9 +10,7 @@ ControlP5 cp5;
 ArrayList branches = new ArrayList();
 HashMap<String,ArrayList <Dato>> hm = new HashMap<String,ArrayList <Dato>>();
 ArrayList allDrops = new ArrayList();
-
-Cloud cloudA = new Cloud(300, 50, 50, -1);
-Cloud cloudB = new Cloud(200,60,70, 1);
+ArrayList <Cloud> clouds = new ArrayList <Cloud>();
   
 void setup(){
   
@@ -64,6 +62,12 @@ void setup(){
     hm.put(country, list);
   }
   customize(droplist);
+  
+  int sentido = -1;
+  for (int k = 0; k < 15; k++){
+    sentido = sentido*(-1);
+    clouds.add(new Cloud(Math.round(random(100, displayWidth -100)), Math.round(random(50, 70)), Math.round(random(60, 80)), sentido));
+  }
 }
  
 void draw(){
@@ -92,8 +96,10 @@ void draw(){
     drop.update();
   }
   
-  cloudA.update();
-  cloudB.update();
+  for (int w = 0; w < clouds.size(); w++) {
+    Cloud c = clouds.get(w);
+    c.update();
+  }
 }
 
 void controlEvent(ControlEvent theEvent) {
@@ -229,10 +235,8 @@ class Branch {
           branch(len, h);
           popMatrix();
       }
-      
     }
     else{
-      
       ellipse(0, 0, 3, 3);
     }   
     num += 0.0001;
