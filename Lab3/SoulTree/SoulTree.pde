@@ -28,7 +28,7 @@ void setup(){
   cp5.setControlFont(new ControlFont(createFont("Verdana", 10), 10));
   DropdownList droplist = cp5.addDropdownList("Select the Country or Area").setPosition(20, 35);
   
-  XML xml = loadXML("data.xml");
+  XML xml = loadXML("dataForestacion.xml");
   XML[] data = xml.getChildren("data");
   XML[] records = data[0].getChildren("record");
   XML[] fields;
@@ -331,7 +331,7 @@ class Cloud {
 void addDrop() {
  
   int dropX=int(random(0, displayWidth));
-  int dropY=int(random(20, 100));
+  int dropY=int(random(40, 100));
   int dropSpeed=int(random(1, 2));
   Raindrop drop = new Raindrop(dropX, dropY, 10);
   allDrops.add(drop);
