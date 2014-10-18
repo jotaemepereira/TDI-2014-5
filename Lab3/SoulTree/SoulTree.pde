@@ -73,7 +73,7 @@ void setup(){
 void draw(){
   
   background(30);
-  int j = 53;
+  int j = 3;
   for(int i = 0; i < branches.size(); i++){
   
     stroke(i*20, (i*2)+50, 150, 70);
@@ -85,8 +85,8 @@ void draw(){
     popMatrix();
     
     fill(i*20, (i*2)+50, 150, 70);
-    rect(20,(i*30)+50, 20, 20);
-    text(b.year, 47, j, width, height);
+    rect(20,(i*30) + displayHeight - 180, 20, 20);
+    text(b.year, 47, displayHeight - 180 + j, width, height);
     j = j + 30;
   }
   
@@ -120,10 +120,10 @@ void controlEvent(ControlEvent theEvent) {
     datoMedioAlto = datos.get(2);
     datoMayor = datos.get(3);
     
-    println("dato Menor: " + datoMenor.value + " año: " + datoMenor.year);
-    println("dato Medio Bajo: " + datoMedioBajo.value+ " año: " + datoMedioBajo.year);
-    println("dato Medio Alto : " + datoMedioAlto.value+ " año: " + datoMedioAlto.year);
-    println("dato alto : " + datoMayor.value+ " año: " + datoMayor.year);
+    println("dato Menor: " + datoMenor.value + " - año: " + datoMenor.year);
+    println("dato Medio Bajo: " + datoMedioBajo.value+ " - año: " + datoMedioBajo.year);
+    println("dato Medio Alto : " + datoMedioAlto.value+ " - año: " + datoMedioAlto.year);
+    println("dato alto : " + datoMayor.value+ " - año: " + datoMayor.year);
           
     branches.clear();
     if (datoMenor.year.equals("1990")){
@@ -212,12 +212,12 @@ class Branch {
     if(len > h){
       
       pushMatrix();
-      rotate(radians(-35+theta));
+      rotate(radians(-40+theta));
       branch(len, h);
       popMatrix();
       
       pushMatrix();
-      rotate(radians(35+theta));
+      rotate(radians(40+theta));
       branch(len, h);
       popMatrix();
 
