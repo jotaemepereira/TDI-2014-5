@@ -9,8 +9,10 @@ import controlP5.*;
 ControlP5 cp5;
 ArrayList branches = new ArrayList();
 HashMap<String,ArrayList <Dato>> hm = new HashMap<String,ArrayList <Dato>>();
+HashMap<String,Double> co2 = new HashMap<String,Double>();
 ArrayList allDrops = new ArrayList();
 ArrayList <Cloud> clouds = new ArrayList <Cloud>();
+int sentido = -1;
   
 void setup(){
   
@@ -63,10 +65,19 @@ void setup(){
   }
   customize(droplist);
   
-  int sentido = -1;
-  for (int k = 0; k < 20; k++){
-    sentido = sentido*(-1);
-    clouds.add(new Cloud(Math.round(random(100, displayWidth -100)), Math.round(random(60, 80)), Math.round(random(70, 90)), sentido));
+  xml = loadXML("dataCO2Emission.xml");
+  data = xml.getChildren("data");
+  records = data[0].getChildren("record");
+  
+  for (int i = 0; i < records.length; i++) {
+    
+    fields = records[i].getChildren("field");
+    if (fields[1].getContent().equals("2010")){
+      
+      String country = fields[0].getContent();
+      String metric = fields[2].getContent();
+      co2.put(country, Double.parseDouble(metric));
+    }
   }
 }
  
@@ -164,7 +175,18 @@ void controlEvent(ControlEvent theEvent) {
       branches.add(new Branch(country, 4*parseFloat(datoMedioAlto.value), 4.0, datoMedioAlto.year));
     }else{
       branches.add(new Branch(country, 4*parseFloat(datoMayor.value), 2.0, datoMayor.year));  
-    }  
+    }
+    
+    Double metric = co2.get(country);
+    if (metric != null) {
+      
+      metric = Math.ceil(co2.get(country));
+      println("metric " + co2.get(country));
+      for (int k = 0; k < metric; k++){
+        sentido = sentido*(-1);
+        clouds.add(new Cloud(Math.round(random(100, displayWidth -100)), Math.round(random(60, 80)), Math.round(random(70, 90)), sentido));
+      }
+    }
   };
 };
 
