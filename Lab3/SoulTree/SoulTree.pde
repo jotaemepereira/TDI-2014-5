@@ -1,3 +1,10 @@
+import ddf.minim.spi.*;
+import ddf.minim.signals.*;
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.ugens.*;
+import ddf.minim.effects.*;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -15,6 +22,12 @@ ArrayList <Cloud> clouds = new ArrayList <Cloud>();
 int sentido = -1;
 int dropsCount = 0;
 String actualCountry = "Angola";
+
+
+//Variables de la musica
+Minim minim;
+AudioPlayer player;
+AudioInput input;
   
 void setup(){
   
@@ -23,6 +36,9 @@ void setup(){
     frame.setResizable(true);
   }
   //frameRate(40);
+  
+  
+  minim = new Minim(this);
   
   noStroke();
   colorMode(HSB, 100);
@@ -84,13 +100,16 @@ void setup(){
   
   Double metric = co2.get(actualCountry);
   if (metric != null) {
-    
+    player = minim.loadFile("data/rainSoft.mp3");
+    emissionMusic(metric);
     metric = Math.ceil(metric);
-    println("metric " + metric);
     for (int k = 0; k < metric; k++){
       sentido = sentido*(-1);
       clouds.add(new Cloud(Math.round(random(100, displayWidth -100)), Math.round(random(60, 80)), Math.round(random(70, 90)), sentido));
     }
+  }
+  else {
+    emissionMusic(0);
   }
 }
  
@@ -184,10 +203,10 @@ void controlEvent(ControlEvent theEvent) {
     datoMedioAlto = datos.get(2);
     datoMayor = datos.get(3);
     
-    println("dato Menor: " + datoMenor.value + " - año: " + datoMenor.year);
+    /*println("dato Menor: " + datoMenor.value + " - año: " + datoMenor.year);
     println("dato Medio Bajo: " + datoMedioBajo.value+ " - año: " + datoMedioBajo.year);
     println("dato Medio Alto : " + datoMedioAlto.value+ " - año: " + datoMedioAlto.year);
-    println("dato alto : " + datoMayor.value+ " - año: " + datoMayor.year);
+    println("dato alto : " + datoMayor.value+ " - año: " + datoMayor.year);*/
           
     branches.clear();
     if (datoMenor.year.equals("1990")){
@@ -233,8 +252,9 @@ void controlEvent(ControlEvent theEvent) {
     allDrops.clear();
     clouds.clear();
     Double metric = co2.get(actualCountry);
+    
     if (metric != null) {
-      
+      emissionMusic(metric);
       metric = Math.ceil(metric);
       println("metric " + metric);
       for (int k = 0; k < metric; k++){
@@ -242,6 +262,9 @@ void controlEvent(ControlEvent theEvent) {
         clouds.add(new Cloud(Math.round(random(100, displayWidth -100)), Math.round(random(60, 80)), Math.round(random(70, 90)), sentido));
       }
     }
+    else {
+    emissionMusic(0);
+  }
   };
 };
 
@@ -439,6 +462,31 @@ class Raindrop {
   }
 }
 ///***********///
+void emissionMusic(double emission) {  
+  if (emission <= 0) {
+    musicPlayer("birds.mp3");
+  }
+  else if (emission < 8) {
+    musicPlayer("rainSoft.mp3");
+  }
+  else if (emission >= 8 && emission < 16) {
+    musicPlayer("rainMed.mp3");
+  }
+  else if (emission >= 16) {
+    musicPlayer("thunder.mp3");
+  }
+}
 
+void musicPlayer(String fileName) {  
+  
+  println(fileName);
+  
+  if (player.isPlaying()) 
+    player.close();
+  
+  player = minim.loadFile("data/" + fileName);
+  input = minim.getLineIn();
+  player.play();
+}
 
 
