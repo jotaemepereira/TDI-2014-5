@@ -22,11 +22,9 @@ void setup(){
   if (frame != null) {
     frame.setResizable(true);
   }
-  //frameRate(40);
   
   noStroke();
   colorMode(HSB, 100);
-  //stroke(0, 150, 255, 65);
   
   cp5 = new ControlP5(this);
   cp5.setControlFont(new ControlFont(createFont("Verdana", 10), 10));
@@ -170,7 +168,6 @@ void controlEvent(ControlEvent theEvent) {
   
   if (theEvent.isGroup()) {
     
-    // check if the Event was triggered from a ControlGroup
     DropdownList ddl = (DropdownList) theEvent.getGroup();
     int index = Math.round(theEvent.getGroup().getValue());
     actualCountry = ddl.getItem(index).getName();
@@ -430,7 +427,6 @@ class Raindrop {
   }
  
   void display() {
-    //stroke(0);
     line(x, y, x, y+len);
   }
    
