@@ -85,8 +85,8 @@ void draw(){
     popMatrix();
     
     fill(i*20, (i*2)+50, 150, 70);
-    rect(20,(i*30) + displayHeight - 180, 20, 20);
-    text(b.year, 47, displayHeight - 180 + j, width, height);
+    rect(20,(i*30) + height - 130, 20, 20);
+    text(b.year, 47, height - 130 + j, width, height);
     j = j + 30;
   }
   
