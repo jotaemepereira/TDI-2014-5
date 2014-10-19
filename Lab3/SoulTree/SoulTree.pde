@@ -99,8 +99,8 @@ void setup(){
   Double metric = co2.get(actualCountry);
   if (metric != null) {
     player = minim.loadFile("data/rainSoft.mp3");
-    emissionMusic(metric);
     metric = Math.ceil(metric);
+    emissionMusic(metric);
     for (int k = 0; k < metric; k++){
       sentido = sentido*(-1);
       clouds.add(new Cloud(Math.round(random(100, displayWidth -100)), Math.round(random(60, 80)), Math.round(random(70, 90)), sentido));
@@ -251,8 +251,8 @@ void controlEvent(ControlEvent theEvent) {
     Double metric = co2.get(actualCountry);
     
     if (metric != null) {
-      emissionMusic(metric);
       metric = Math.ceil(metric);
+      emissionMusic(metric);
       println("metric " + metric);
       for (int k = 0; k < metric; k++){
         sentido = sentido*(-1);
@@ -260,8 +260,8 @@ void controlEvent(ControlEvent theEvent) {
       }
     }
     else {
-    emissionMusic(0);
-  }
+      emissionMusic(0);
+    }
   };
 };
 
