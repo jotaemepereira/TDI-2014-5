@@ -42,14 +42,41 @@ void setup(){
   noStroke();
   colorMode(HSB, 100);
   
+  XML xml = loadXML("dataCO2Emission.xml");
+  XML[] data = xml.getChildren("data");
+  XML[] records = data[0].getChildren("record");
+  XML[] fields;
+  
+  for (int i = 0; i < records.length; i++) {
+    
+    fields = records[i].getChildren("field");
+    if (fields[1].getContent().equals("2010")){
+      
+      String country = fields[0].getContent();
+      String metric = fields[2].getContent();
+      co2.put(country, Double.parseDouble(metric));
+    }
+  }
+  
+  Double metric = co2.get(actualCountry);
+  if (metric != null) {
+    player = minim.loadFile("data/rainSoft.mp3");
+    metric = Math.ceil(metric);
+    emissionMusic(metric);
+    for (int k = 0; k < metric; k++){
+      sentido = sentido*(-1);
+      clouds.add(new Cloud(Math.round(random(100, displayWidth -100)), Math.round(random(60, 80)), Math.round(random(70, 90)), sentido));
+    }
+  }
+  
   cp5 = new ControlP5(this);
   cp5.setControlFont(new ControlFont(createFont("Verdana", 10), 10));
   DropdownList droplist = cp5.addDropdownList("Select the Country or Area").setPosition(20, 35);
   
-  XML xml = loadXML("dataForestacion.xml");
-  XML[] data = xml.getChildren("data");
-  XML[] records = data[0].getChildren("record");
-  XML[] fields;
+  xml = loadXML("dataForestacion.xml");
+  data = xml.getChildren("data");
+  records = data[0].getChildren("record");
+  
   
   int j = 0;
   
@@ -81,34 +108,7 @@ void setup(){
   }
   customize(droplist);
   
-  xml = loadXML("dataCO2Emission.xml");
-  data = xml.getChildren("data");
-  records = data[0].getChildren("record");
   
-  for (int i = 0; i < records.length; i++) {
-    
-    fields = records[i].getChildren("field");
-    if (fields[1].getContent().equals("2010")){
-      
-      String country = fields[0].getContent();
-      String metric = fields[2].getContent();
-      co2.put(country, Double.parseDouble(metric));
-    }
-  }
-  
-  Double metric = co2.get(actualCountry);
-  if (metric != null) {
-    player = minim.loadFile("data/rainSoft.mp3");
-    metric = Math.ceil(metric);
-    emissionMusic(metric);
-    for (int k = 0; k < metric; k++){
-      sentido = sentido*(-1);
-      clouds.add(new Cloud(Math.round(random(100, displayWidth -100)), Math.round(random(60, 80)), Math.round(random(70, 90)), sentido));
-    }
-  }
-  else {
-    emissionMusic(0);
-  }
 }
  
 void draw(){
@@ -474,9 +474,7 @@ void emissionMusic(double emission) {
 }
 
 void musicPlayer(String fileName) {  
-  
-  println(fileName);
-  
+    
   if (player.isPlaying()) 
     player.close();
   
