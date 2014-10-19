@@ -7845,7 +7845,7 @@
         <record>
             <field name="Country or Area">Burundi</field>
             <field name="Year">2010</field>
-            <field name="Value">0.0333625301142574</field>
+            <field name="Value">0.0</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
@@ -10281,7 +10281,7 @@
         <record>
             <field name="Country or Area">Chad</field>
             <field name="Year">2010</field>
-            <field name="Value">0.0400464781314488</field>
+            <field name="Value">0.0</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
@@ -11809,615 +11809,309 @@
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">2010</field>
-            <field name="Value">0.0488806279078791</field>
+            <field name="Value">0.0</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">2009</field>
             <field name="Value">0.044983989425965</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">2008</field>
             <field name="Value">0.0479423515903133</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">2007</field>
             <field name="Value">0.0455265552308212</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">2006</field>
             <field name="Value">0.0434703466783501</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">2005</field>
             <field name="Value">0.0411984318576424</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">2004</field>
             <field name="Value">0.0368884712724659</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">2003</field>
             <field name="Value">0.0333086840087708</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">2002</field>
             <field name="Value">0.0311773380272133</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">2001</field>
             <field name="Value">0.0325078899899298</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">2000</field>
             <field name="Value">0.0350694251860584</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1999</field>
             <field name="Value">0.0489848569703917</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1998</field>
             <field name="Value">0.0563577394877033</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1997</field>
             <field name="Value">0.0663877590648317</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1996</field>
             <field name="Value">0.0753424404988929</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1995</field>
             <field name="Value">0.0706123488319816</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1994</field>
             <field name="Value">0.0608887601574933</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1993</field>
             <field name="Value">0.0868707354103418</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1992</field>
             <field name="Value">0.0959244939574917</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1991</field>
             <field name="Value">0.103577784198698</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1990</field>
             <field name="Value">0.116594130417328</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1989</field>
             <field name="Value">0.130250188975568</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1988</field>
             <field name="Value">0.122984564045377</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1987</field>
             <field name="Value">0.121420914581519</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1986</field>
             <field name="Value">0.109397605035396</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1985</field>
             <field name="Value">0.121216591028864</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1984</field>
             <field name="Value">0.13555227893323</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1983</field>
             <field name="Value">0.141323058098995</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1982</field>
             <field name="Value">0.110665906793036</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1981</field>
             <field name="Value">0.139577262720852</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1980</field>
             <field name="Value">0.132865308032767</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1979</field>
             <field name="Value">0.146389028931712</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1978</field>
             <field name="Value">0.141878587479604</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1977</field>
             <field name="Value">0.143878018703762</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1976</field>
             <field name="Value">0.144936662591375</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1975</field>
             <field name="Value">0.141381631300821</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1974</field>
             <field name="Value">0.151237104745728</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1973</field>
             <field name="Value">0.147245680374099</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1972</field>
             <field name="Value">0.143058623721544</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1971</field>
             <field name="Value">0.144088840396789</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1970</field>
             <field name="Value">0.135611858568823</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1969</field>
             <field name="Value">0.187694930343863</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1968</field>
             <field name="Value">0.1781812225413</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1967</field>
             <field name="Value">0.124706248259826</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1966</field>
             <field name="Value">0.134675336163199</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1965</field>
             <field name="Value">0.142290043920333</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1964</field>
             <field name="Value">0.116926455843116</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1963</field>
             <field name="Value">0.139445631899183</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1962</field>
             <field name="Value">0.135558725577881</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1961</field>
             <field name="Value">0.150781683896912</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Congo, Dem. Rep.</field>
+            <field name="Country or Area">Congo</field>
             <field name="Year">1960</field>
             <field name="Value">0.152228066100193</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">2010</field>
-            <field name="Value">0.493188608646271</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">2009</field>
-            <field name="Value">0.47178200746606</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">2008</field>
-            <field name="Value">0.3802769268472</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">2007</field>
-            <field name="Value">0.382420405346518</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">2006</field>
-            <field name="Value">0.367036567504503</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">2005</field>
-            <field name="Value">0.410909864807231</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">2004</field>
-            <field name="Value">0.342365668967325</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">2003</field>
-            <field name="Value">0.322716950435539</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">2002</field>
-            <field name="Value">0.215527272583312</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">2001</field>
-            <field name="Value">0.268821850016658</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">2000</field>
-            <field name="Value">0.3354745883506</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1999</field>
-            <field name="Value">0.269805586832932</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1998</field>
-            <field name="Value">0.262516137027721</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1997</field>
-            <field name="Value">0.814086834289153</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1996</field>
-            <field name="Value">0.61344480142066</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1995</field>
-            <field name="Value">0.575531135584991</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1994</field>
-            <field name="Value">0.811559862331876</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1993</field>
-            <field name="Value">0.598740548490085</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1992</field>
-            <field name="Value">0.626296321510427</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1991</field>
-            <field name="Value">0.517002313017466</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1990</field>
-            <field name="Value">0.498517381276164</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1989</field>
-            <field name="Value">0.64949140008481</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1988</field>
-            <field name="Value">0.663986612271642</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1987</field>
-            <field name="Value">0.602262030686639</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1986</field>
-            <field name="Value">0.499088906453891</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1985</field>
-            <field name="Value">0.615601703581774</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1984</field>
-            <field name="Value">0.564479716957551</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1983</field>
-            <field name="Value">0.583020064972291</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1982</field>
-            <field name="Value">0.706298536116355</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1981</field>
-            <field name="Value">0.255703065455115</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1980</field>
-            <field name="Value">0.226583322756695</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1979</field>
-            <field name="Value">0.19964502711296</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1978</field>
-            <field name="Value">0.19034204186987</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1977</field>
-            <field name="Value">0.291611223077483</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1976</field>
-            <field name="Value">0.772219497030235</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1975</field>
-            <field name="Value">0.707959248421555</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1974</field>
-            <field name="Value">1.07724204244032</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1973</field>
-            <field name="Value">0.834795288654994</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1972</field>
-            <field name="Value">0.467889177445233</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1971</field>
-            <field name="Value">0.498394477409301</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1970</field>
-            <field name="Value">0.428474484866189</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1969</field>
-            <field name="Value">0.387546613222495</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1968</field>
-            <field name="Value">0.35814129652833</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1967</field>
-            <field name="Value">0.263600250615306</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1966</field>
-            <field name="Value">0.25875486381323</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1965</field>
-            <field name="Value">0.212184073822982</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1964</field>
-            <field name="Value">0.237615316539629</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1963</field>
-            <field name="Value">0.214039990223153</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1962</field>
-            <field name="Value">0.223264758254347</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1961</field>
-            <field name="Value">0.257405587533343</field>
-            <field name="Value Footnotes"></field>
-        </record>
-        <record>
-            <field name="Country or Area">Congo, Rep.</field>
-            <field name="Year">1960</field>
-            <field name="Value">0.22068981166774</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
@@ -47197,307 +46891,307 @@
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">2010</field>
             <field name="Value">0.867327137166786</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">2009</field>
             <field name="Value">0.87354902979903</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">2008</field>
             <field name="Value">0.87954907219642</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">2007</field>
             <field name="Value">0.885359964881475</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">2006</field>
             <field name="Value">0.870814533364996</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">2005</field>
             <field name="Value">0.876356097994753</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">2004</field>
             <field name="Value">0.861404745125675</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">2003</field>
             <field name="Value">0.846181554168519</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">2002</field>
             <field name="Value">0.809849823321555</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">2001</field>
             <field name="Value">0.814577910427358</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">2000</field>
             <field name="Value">0.798023068024328</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1999</field>
             <field name="Value">0.801954442385387</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1998</field>
             <field name="Value">0.763167783372548</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1997</field>
             <field name="Value">0.766660278411764</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1996</field>
             <field name="Value">0.770755972815806</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1995</field>
             <field name="Value">0.77582012012365</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1994</field>
             <field name="Value">0.716949273043973</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1993</field>
             <field name="Value">0.767586091408203</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1992</field>
             <field name="Value">0.775179986470816</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1991</field>
             <field name="Value">0.759893462056524</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1990</field>
             <field name="Value">0.765529733214626</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1989</field>
             <field name="Value">0.746976870513145</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1988</field>
             <field name="Value">0.704213747645951</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1987</field>
             <field name="Value">0.706006931074317</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1986</field>
             <field name="Value">0.707866567864949</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1985</field>
             <field name="Value">0.710348059738799</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1984</field>
             <field name="Value">0.713688387189935</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1983</field>
             <field name="Value">0.71773485790773</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1982</field>
             <field name="Value">0.722212692422539</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1981</field>
             <field name="Value">0.65634928244958</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1980</field>
             <field name="Value">0.636492793499364</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1979</field>
             <field name="Value">0.616051640249931</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1978</field>
             <field name="Value">0.690494123758198</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1977</field>
             <field name="Value">0.526441491999687</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1976</field>
             <field name="Value">0.312822363672157</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1975</field>
             <field name="Value">0.387573241381133</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1974</field>
             <field name="Value">0.219699239110898</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1973</field>
             <field name="Value">0.246290860976969</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1972</field>
             <field name="Value">0.248908860123674</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1971</field>
             <field name="Value">0.252136663985093</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1970</field>
             <field name="Value">0.204896106163786</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1969</field>
             <field name="Value">0.208767435240535</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1968</field>
             <field name="Value">0.213348072405693</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1967</field>
             <field name="Value">0.191282769721448</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1966</field>
             <field name="Value">0.19641586385792</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1965</field>
             <field name="Value">0.230868511348254</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1964</field>
             <field name="Value">0.20809215753036</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1963</field>
             <field name="Value">0.184018600916664</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1962</field>
             <field name="Value">0.158352477847063</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1961</field>
             <field name="Value">0.163528687756977</field>
             <field name="Value Footnotes"></field>
         </record>
         <record>
-            <field name="Country or Area">Samoa</field>
+            <field name="Country or Area">American Samoa</field>
             <field name="Year">1960</field>
             <field name="Value">0.135008513967509</field>
             <field name="Value Footnotes"></field>

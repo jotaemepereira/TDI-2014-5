@@ -134,7 +134,7 @@ void draw(){
   Double emissions = co2.get(actualCountry);
   if (emissions != null){
     
-    if (emissions <= 1 && dropsCount % 10 == 0){
+    if (emissions > 0 && emissions <= 1 && dropsCount % 10 == 0){
       addDrop();
     }
     else if (emissions > 1 && emissions <= 3 && dropsCount % 5 == 0){
