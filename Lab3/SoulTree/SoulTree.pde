@@ -12,13 +12,10 @@ HashMap<String,ArrayList <Dato>> hm = new HashMap<String,ArrayList <Dato>>();
 HashMap<String,Double> co2 = new HashMap<String,Double>();
 ArrayList allDrops = new ArrayList();
 ArrayList <Cloud> clouds = new ArrayList <Cloud>();
-<<<<<<< HEAD
 int sentido = -1;
-  
-=======
 int dropsCount = 0;
-
->>>>>>> FETCH_HEAD
+String actualCountry = "Angola";
+  
 void setup(){
   
   size(displayWidth, displayHeight);
@@ -84,6 +81,17 @@ void setup(){
       co2.put(country, Double.parseDouble(metric));
     }
   }
+  
+  Double metric = co2.get(actualCountry);
+  if (metric != null) {
+    
+    metric = Math.ceil(metric);
+    println("metric " + metric);
+    for (int k = 0; k < metric; k++){
+      sentido = sentido*(-1);
+      clouds.add(new Cloud(Math.round(random(100, displayWidth -100)), Math.round(random(60, 80)), Math.round(random(70, 90)), sentido));
+    }
+  }
 }
  
 void draw(){
@@ -106,20 +114,44 @@ void draw(){
     j = j + 30;
   }
   
-  if (emissions < 3 && (dropsCount % 5) == 0)
-    addDrop();
-  else if (emissions < 7 && (dropsCount % 4) == 0)
-    addDrop();
-  else if (emissions < 11 && (dropsCount % 3) == 0)
-    addDrop();
-  else if (emissions < 15 && (dropsCount % 2) == 0)
-    addDrop();
-  else if (emissions < 19 && (dropsCount % 1) == 0)
-    addDrop();
-  else if (emissions > 18){
-    addDrop();
-    addDrop();
-  };
+  Double emissions = co2.get(actualCountry);
+  if (emissions != null){
+    
+    if (emissions <= 1 && dropsCount % 10 == 0){
+      addDrop();
+    }
+    else if (emissions > 1 && emissions <= 3 && dropsCount % 5 == 0){
+      addDrop();
+    }
+    else if (emissions > 3 && emissions <= 7 && dropsCount % 1 == 0){
+      addDrop();
+    }
+    else if (emissions > 7 && emissions <= 11){
+      addDrop();
+      addDrop();
+    }
+    else if (emissions > 11 && emissions <= 15){
+      addDrop();
+      addDrop();
+      addDrop();
+    }
+    else if (emissions > 15 && emissions <= 18){
+      addDrop();
+      addDrop();
+      addDrop();
+      addDrop();
+      addDrop();
+    }
+    else if (emissions > 18){
+      addDrop();
+      addDrop();
+      addDrop();
+      addDrop();
+      addDrop();
+      addDrop();
+      addDrop();
+    };
+  }
   
   dropsCount++;
   
@@ -141,12 +173,12 @@ void controlEvent(ControlEvent theEvent) {
     // check if the Event was triggered from a ControlGroup
     DropdownList ddl = (DropdownList) theEvent.getGroup();
     int index = Math.round(theEvent.getGroup().getValue());
-    String country = ddl.getItem(index).getName();
-    println("Country | Area selected : " + country);
+    actualCountry = ddl.getItem(index).getName();
+    println("Country | Area selected : " + actualCountry);
     
     Dato datoMenor, datoMedioBajo, datoMedioAlto, datoMayor;
     
-    ArrayList <Dato> datos = hm.get(country);
+    ArrayList <Dato> datos = hm.get(actualCountry);
     datoMenor = datos.get(0);
     datoMedioBajo = datos.get(1);
     datoMedioAlto = datos.get(2);
@@ -159,50 +191,52 @@ void controlEvent(ControlEvent theEvent) {
           
     branches.clear();
     if (datoMenor.year.equals("1990")){
-      branches.add(new Branch(country, 4*parseFloat(datoMenor.value), 16.0, datoMenor.year));
+      branches.add(new Branch(actualCountry, 4*parseFloat(datoMenor.value), 16.0, datoMenor.year));
     }else if (datoMedioBajo.year.equals("1990")){
-      branches.add(new Branch(country, 4*parseFloat(datoMedioBajo.value), 8.0, datoMedioBajo.year));
+      branches.add(new Branch(actualCountry, 4*parseFloat(datoMedioBajo.value), 8.0, datoMedioBajo.year));
     }else if (datoMedioAlto.year.equals("1990")){
-      branches.add(new Branch(country, 4*parseFloat(datoMedioAlto.value), 4.0, datoMedioAlto.year));
+      branches.add(new Branch(actualCountry, 4*parseFloat(datoMedioAlto.value), 4.0, datoMedioAlto.year));
     }else{
-      branches.add(new Branch(country, 4*parseFloat(datoMayor.value), 2.0, datoMayor.year));  
+      branches.add(new Branch(actualCountry, 4*parseFloat(datoMayor.value), 2.0, datoMayor.year));  
     }
 
     if (datoMenor.year.equals("2000")){
-      branches.add(new Branch(country, 4*parseFloat(datoMenor.value), 16.0, datoMenor.year));
+      branches.add(new Branch(actualCountry, 4*parseFloat(datoMenor.value), 16.0, datoMenor.year));
     }else if (datoMedioBajo.year.equals("2000")){
-      branches.add(new Branch(country, 4*parseFloat(datoMedioBajo.value), 8.0, datoMedioBajo.year));
+      branches.add(new Branch(actualCountry, 4*parseFloat(datoMedioBajo.value), 8.0, datoMedioBajo.year));
     }else if (datoMedioAlto.year.equals("2000")){
-      branches.add(new Branch(country, 4*parseFloat(datoMedioAlto.value), 4.0, datoMedioAlto.year));
+      branches.add(new Branch(actualCountry, 4*parseFloat(datoMedioAlto.value), 4.0, datoMedioAlto.year));
     }else{
-      branches.add(new Branch(country, 4*parseFloat(datoMayor.value), 2.0, datoMayor.year));  
+      branches.add(new Branch(actualCountry, 4*parseFloat(datoMayor.value), 2.0, datoMayor.year));  
     }
     
     if (datoMenor.year.equals("2005")){
-      branches.add(new Branch(country, 4*parseFloat(datoMenor.value), 16.0, datoMenor.year));
+      branches.add(new Branch(actualCountry, 4*parseFloat(datoMenor.value), 16.0, datoMenor.year));
     }else if (datoMedioBajo.year.equals("2005")){
-      branches.add(new Branch(country, 4*parseFloat(datoMedioBajo.value), 8.0, datoMedioBajo.year));
+      branches.add(new Branch(actualCountry, 4*parseFloat(datoMedioBajo.value), 8.0, datoMedioBajo.year));
     }else if (datoMedioAlto.year.equals("2005")){
-      branches.add(new Branch(country, 4*parseFloat(datoMedioAlto.value), 4.0, datoMedioAlto.year));
+      branches.add(new Branch(actualCountry, 4*parseFloat(datoMedioAlto.value), 4.0, datoMedioAlto.year));
     }else{
-      branches.add(new Branch(country, 4*parseFloat(datoMayor.value), 2.0, datoMayor.year));  
+      branches.add(new Branch(actualCountry, 4*parseFloat(datoMayor.value), 2.0, datoMayor.year));  
     }  
     
     if (datoMenor.year.equals("2010")){
-      branches.add(new Branch(country, 4*parseFloat(datoMenor.value), 16.0, datoMenor.year));
+      branches.add(new Branch(actualCountry, 4*parseFloat(datoMenor.value), 16.0, datoMenor.year));
     }else if (datoMedioBajo.year.equals("2010")){
-      branches.add(new Branch(country, 4*parseFloat(datoMedioBajo.value), 8.0, datoMedioBajo.year));
+      branches.add(new Branch(actualCountry, 4*parseFloat(datoMedioBajo.value), 8.0, datoMedioBajo.year));
     }else if (datoMedioAlto.year.equals("2010")){
-      branches.add(new Branch(country, 4*parseFloat(datoMedioAlto.value), 4.0, datoMedioAlto.year));
+      branches.add(new Branch(actualCountry, 4*parseFloat(datoMedioAlto.value), 4.0, datoMedioAlto.year));
     }else{
-      branches.add(new Branch(country, 4*parseFloat(datoMayor.value), 2.0, datoMayor.year));  
+      branches.add(new Branch(actualCountry, 4*parseFloat(datoMayor.value), 2.0, datoMayor.year));  
     }
     
-    Double metric = co2.get(country);
+    allDrops.clear();
+    clouds.clear();
+    Double metric = co2.get(actualCountry);
     if (metric != null) {
       
-      metric = Math.ceil(co2.get(country));
-      println("metric " + co2.get(country));
+      metric = Math.ceil(metric);
+      println("metric " + metric);
       for (int k = 0; k < metric; k++){
         sentido = sentido*(-1);
         clouds.add(new Cloud(Math.round(random(100, displayWidth -100)), Math.round(random(60, 80)), Math.round(random(70, 90)), sentido));
