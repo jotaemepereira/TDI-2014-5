@@ -12,8 +12,13 @@ HashMap<String,ArrayList <Dato>> hm = new HashMap<String,ArrayList <Dato>>();
 HashMap<String,Double> co2 = new HashMap<String,Double>();
 ArrayList allDrops = new ArrayList();
 ArrayList <Cloud> clouds = new ArrayList <Cloud>();
+<<<<<<< HEAD
 int sentido = -1;
   
+=======
+int dropsCount = 0;
+
+>>>>>>> FETCH_HEAD
 void setup(){
   
   size(displayWidth, displayHeight);
@@ -101,7 +106,23 @@ void draw(){
     j = j + 30;
   }
   
-  addDrop();
+  if (emissions < 3 && (dropsCount % 5) == 0)
+    addDrop();
+  else if (emissions < 7 && (dropsCount % 4) == 0)
+    addDrop();
+  else if (emissions < 11 && (dropsCount % 3) == 0)
+    addDrop();
+  else if (emissions < 15 && (dropsCount % 2) == 0)
+    addDrop();
+  else if (emissions < 19 && (dropsCount % 1) == 0)
+    addDrop();
+  else if (emissions > 18){
+    addDrop();
+    addDrop();
+  };
+  
+  dropsCount++;
+  
   for (int k = 0; k < allDrops.size(); k++) {
     Raindrop drop = (Raindrop) allDrops.get(k);
     drop.update();
