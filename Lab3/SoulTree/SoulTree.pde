@@ -28,6 +28,9 @@ String actualCountry = "Angola";
 Minim minim;
 AudioPlayer player;
 AudioInput input;
+
+//Sol
+float num;
   
 void setup(){
   
@@ -108,11 +111,9 @@ void setup(){
   }
   customize(droplist);
   
-  
 }
  
 void draw(){
-  
   background(30);
   int j = 3;
   for(int i = 0; i < branches.size(); i++){
@@ -181,6 +182,7 @@ void draw(){
     Cloud c = clouds.get(w);
     c.update();
   }
+
 }
 
 void controlEvent(ControlEvent theEvent) {
@@ -260,6 +262,7 @@ void controlEvent(ControlEvent theEvent) {
       }
     }
     else {
+      dibujarSol();
       emissionMusic(0);
     }
   };
@@ -457,7 +460,10 @@ class Raindrop {
     y+=ySpeed;
   }
 }
-///***********///
+///**************///
+
+
+///*** MUSICA ***///
 void emissionMusic(double emission) {  
   if (emission <= 0) {
     musicPlayer("birds.mp3");
@@ -482,5 +488,33 @@ void musicPlayer(String fileName) {
   input = minim.getLineIn();
   player.play();
 }
+///***********///
 
+
+///*** SOL ***///
+void dibujarSol() {
+  println("entreeeeeee");
+  //Sol
+  fill(255, 255, 255);
+  //noStroke();
+  translate(displayWidth/2, 300);
+  for (int i = -180; i < 180; i+=12) {
+    float x = sin(radians(i)) * 15;
+    float y = cos(radians(i)) * 15;
+       
+    //float x = i;
+    //float y = 0;
+    pushMatrix();
+    translate(x, y);
+    rotate(radians(-i));
+    for(int q = 0; q < 200; q+=5){
+      float d = map(q, 0, 200, 40, 0);
+      float a = sin(-i+q+num) * 2;
+      ellipse(a, q, d, d);
+    }
+    popMatrix();
+  }
+   
+  num += 0.2;
+}
 
