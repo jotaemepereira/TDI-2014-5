@@ -133,9 +133,9 @@ void draw(){
   }
   
   Double emissions = co2.get(actualCountry);
-  if (emissions != null){
+  if (emissions != null && emissions != 0){
     
-    if (emissions > 0 && emissions <= 1 && dropsCount % 10 == 0){
+    if (emissions <= 1 && dropsCount % 10 == 0){
       addDrop();
     }
     else if (emissions > 1 && emissions <= 3 && dropsCount % 5 == 0){
@@ -169,6 +169,9 @@ void draw(){
       addDrop();
       addDrop();
     };
+  }
+  else {
+    dibujarSol(); 
   }
   
   dropsCount++;
@@ -493,11 +496,9 @@ void musicPlayer(String fileName) {
 
 ///*** SOL ***///
 void dibujarSol() {
-  println("entreeeeeee");
   //Sol
-  fill(255, 255, 255);
-  //noStroke();
-  translate(displayWidth/2, 300);
+  noStroke();
+  translate(width/2, 0);
   for (int i = -180; i < 180; i+=12) {
     float x = sin(radians(i)) * 15;
     float y = cos(radians(i)) * 15;
@@ -510,11 +511,13 @@ void dibujarSol() {
     for(int q = 0; q < 200; q+=5){
       float d = map(q, 0, 200, 40, 0);
       float a = sin(-i+q+num) * 2;
+      fill(15, 52, 150, 20);
       ellipse(a, q, d, d);
     }
     popMatrix();
   }
    
   num += 0.2;
+  translate(-displayWidth/2, 0);
 }
 
