@@ -20,5 +20,10 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
         float mouseXPercent, mouseYPercent;
+        void processOpenFileSelection(ofFileDialogResult openFileResult);
+        vector<ofImage>loadedImages;
+        vector<ofImage>processedImages;
+        string originalFileExtension;
+        ofImage image;
 		
 };
