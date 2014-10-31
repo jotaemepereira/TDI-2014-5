@@ -24,6 +24,6 @@ class ofApp : public ofBaseApp{
         vector<ofImage>loadedImages;
         vector<ofImage>processedImages;
         string originalFileExtension;
-        ofImage image;
+        ofImage image, imgTmp;
 		
 };

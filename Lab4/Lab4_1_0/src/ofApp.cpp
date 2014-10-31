@@ -14,8 +14,8 @@ void ofApp::setup(){
     ofSetFrameRate(60); // if vertical sync is off, we can go a bit fast... this caps the framerate at 60fps.
     
     // initialise member variables to the centre of the screen
-    //mouseXPercent = 0.5f;
-    //mouseYPercent = 0.5f;
+    mouseXPercent = 0.5f;
+    mouseYPercent = 0.5f;
 }
 
 //--------------------------------------------------------------
@@ -26,28 +26,20 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     
-    ofDrawBitmapString("Press spacebar to open an image", 20, 15);
-    
-    //float hue = fmodf(ofGetElapsedTimef()*10,255);
-        
-    image.draw(0, 0);
-        
-    // now we will draw a larger rectangle taking the color under the mouse
-    // calculate the color under the mouse, using the same calculations as when drawing the grid,
-    // using mouseX and mouseY in place of i and j; draw a rectangle with this color. here we use
-    // ofColor::fromHsb which allows us to set the HSB color in a single line of code.
-    /*ofColor color = ofColor::fromHsb(hue,
-        ofMap( mouseX, 0,ofGetWidth(), 0,255 ),
-        ofMap( mouseY, ofGetHeight(),0, 0,255 ) );*/
-        
-    if (image.getWidth() > 0 && image.getHeight() > 0)
+    if (image.getWidth() == 0 && image.getHeight() == 0)
     {
-        unsigned char *pixels=image.getPixels();
-        int index = mouseY*image.width*3 + mouseX*3;
+        ofDrawBitmapString("Press spacebar to open an image", 20, 15);
+    }
+    else
+    {
+        image.draw(ofGetWidth()/2 - image.getWidth()/2, ofGetHeight()/2 - image.getHeight()/2);
+    
+        imgTmp.grabScreen(mouseX,mouseY,1,1);
+        unsigned char *pixels = imgTmp.getPixels();
         
-        int red = pixels[index];
-        int green = pixels[index+1];
-        int blue = pixels[index+2];
+        int red = pixels[0];
+        int green = pixels[1];
+        int blue = pixels[2];
         
         ofSetColor(red, green, blue);
         ofFill();
@@ -103,8 +95,8 @@ void ofApp::keyReleased(int key){
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
-    //mouseXPercent = float(x) / ofGetWidth();
-    //mouseYPercent = float(y) / ofGetHeight();
+    mouseXPercent = float(x) / ofGetWidth();
+    mouseYPercent = float(y) / ofGetHeight();
 }
 
 //--------------------------------------------------------------
