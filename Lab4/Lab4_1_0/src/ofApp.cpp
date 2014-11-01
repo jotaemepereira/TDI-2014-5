@@ -8,19 +8,21 @@ void ofApp::setup(){
     ofEnableSmoothing();
     ofEnableAlphaBlending();
     ofSetWindowTitle("Image Sounds");
-    
-    //ofSetRectMode(OF_RECTMODE_CENTER);
-    
-    ofSetFrameRate(60); // if vertical sync is off, we can go a bit fast... this caps the framerate at 60fps.
-    
-    // initialise member variables to the centre of the screen
-    mouseXPercent = 0.5f;
-    mouseYPercent = 0.5f;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    /*if (image.getWidth() >= 0 && image.getHeight() >= 0)
+    {
+        ofColor c;
+        for (int i=0; i<128; i++) {
+            for (int j=0; j<128; j++) {
+                c = image.getColor(i, j);
+                image.setColor(i, j, ofColor(c.r+10, c.g+10, c.b+10));
+            }
+        }
+        image.update();
+    }*/
 }
 
 //--------------------------------------------------------------
@@ -61,7 +63,7 @@ void ofApp::draw(){
         ofDrawBitmapString("RGB: "+ofToString(int(red))+
                            " "+ofToString(int(green))+
                            " "+ofToString(int(blue)),
-                           200, ofGetHeight()-13 );
+                           10, ofGetHeight()-13 );
     }
 }
 
@@ -72,31 +74,48 @@ void ofApp::keyPressed(int key){
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-
+    
     if (key == ' ')
     {
-        //Open the Open File Dialog
         ofFileDialogResult openFileResult= ofSystemLoadDialog("Select a jpg or png");
         
-        //Check if the user opened a file
         if (openFileResult.bSuccess)
         {
             ofLogVerbose("User selected a file");
             
             //We have a file, check it and process it
             processOpenFileSelection(openFileResult);
-            
-        }
-        else {
-            ofLogVerbose("User hit cancel");
         }
     }
+    
+    if (key == OF_KEY_UP)
+    {
+        ofColor c;
+        for (int i=0; i<image.getWidth(); i++) {
+            for (int j=0; j<image.getHeight(); j++) {
+                c = image.getColor(i, j);
+                image.setColor(i, j, ofColor(c.r+10, c.g, c.b));
+            }
+        }
+        image.update();
+    }
+    if (key == OF_KEY_DOWN)
+    {
+        ofColor c;
+        for (int i=0; i<image.getWidth(); i++) {
+            for (int j=0; j<image.getHeight(); j++) {
+                c = image.getColor(i, j);
+                image.setColor(i, j, ofColor(c.r-10, c.g, c.b));
+            }
+        }
+        image.update();
+    }
+
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
-    mouseXPercent = float(x) / ofGetWidth();
-    mouseYPercent = float(y) / ofGetHeight();
+
 }
 
 //--------------------------------------------------------------
@@ -129,12 +148,15 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 
 }
 
+
+//--------------------------------------------------------------
 //Sort function for stl::sort http://www.cplusplus.com/reference/algorithm/sort/
 bool sortColorFunction (ofColor i,ofColor j) {
     return (i.getBrightness()<j.getBrightness());
 }
 
 
+//--------------------------------------------------------------
 void ofApp::processOpenFileSelection(ofFileDialogResult openFileResult){
     
     ofLogVerbose("getName(): "  + openFileResult.getName());
@@ -155,12 +177,11 @@ void ofApp::processOpenFileSelection(ofFileDialogResult openFileResult){
             
             //Load the selected image
             image.loadImage(openFileResult.getPath());
-            if (image.getWidth()>ofGetWidth() || image.getHeight() > ofGetHeight())
+            /*if (image.getWidth()>ofGetWidth() || image.getHeight() > ofGetHeight())
             {
                 image.resize(image.getWidth()/2, image.getHeight()/2);
-            }
+            }*/
         }
     }
     
 }
-
