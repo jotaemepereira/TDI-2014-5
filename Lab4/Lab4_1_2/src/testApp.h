@@ -32,6 +32,7 @@ public:
     //**** IMAGE & COLORS
     
     void processOpenFileSelection(ofFileDialogResult openFileResult);
+    int mapNote(int note);
     
     vector<ofImage>loadedImages;
     vector<ofImage>processedImages;
@@ -47,4 +48,9 @@ public:
     int note, velocity;
     int pan, bend, touch, polytouch, altura;
     bool port1, port2, port3;
+    int noteRed = -1;
+    int noteGreen = -1;
+    int noteBlue = -1;
+    int red, green, blue;
+    
 };

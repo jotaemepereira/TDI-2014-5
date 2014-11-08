@@ -9,6 +9,8 @@
  *
  */
 #include "testApp.h"
+#include "stdlib.h"
+
 
 //--------------------------------------------------------------
 void testApp::setup() {
@@ -63,28 +65,9 @@ void testApp::draw() {
         imgTmp.grabScreen(mouseX,mouseY,1,1);
         unsigned char *pixels = imgTmp.getPixels();
         
-        int red = pixels[0];
-        int green = pixels[1];
-        int blue = pixels[2];
-
-        if (port1)
-        {
-            int noteRed = ofMap(red, 48, 122, 0, 127);
-            midiOut.sendNoteOn(1, noteRed,  velocity);
-        }
-        
-        if (port2)
-        {
-            int noteGreen = ofMap(green, 48, 122, 0, 127);
-            midiOut.sendNoteOn(2, noteGreen,  velocity);
-        }
-        
-        if (port3)
-        {
-            int noteBlue = ofMap(blue, 48, 122, 0, 127);
-            midiOut.sendNoteOn(3, noteBlue,  velocity);
-        }
-        
+        red = pixels[0];
+        green = pixels[1];
+        blue = pixels[2];
         
         ofSetColor(red, green, blue);
         ofFill();
@@ -102,18 +85,27 @@ void testApp::draw() {
                            10, ofGetHeight()-13 );
     }
 
+    string canales;
+    
+    if (port1)
+        canales += "1,";
+    
+    if (port2)
+        canales += " 2,";
+    
+    if (port3)
+        canales += " 3";
+    
 	stringstream text;
-	text << "connected to port " << midiOut.getPort() 
+	text << "connected to port " << midiOut.getPort()
 		 << " \"" << midiOut.getName() << "\"" << endl
-		 << "is virtual?: " << midiOut.isVirtual() << endl << endl
-		 << "sending to channel " << channel << endl << endl
-		 << "current program: " << currentPgm << endl << endl
-		 << "note: " << note << endl
-		 << "velocity: " << velocity << endl
-		 << "pan: " << pan << endl
-		 << "bend: " << bend << endl
-		 << "touch: " << touch << endl
-         << "polytouch: " << polytouch;
+		 << "Red Note: " << noteRed << endl
+         << "Green Note: " << noteGreen << endl
+         << "Blue Note: " << noteBlue << endl
+         << "Velocidad: " << velocity << endl
+         << "Altura: " << altura << endl
+         << "Enviando a Canales: " << canales << endl;
+    
 	ofDrawBitmapString(text.str(), 20, 50);
 }
 
@@ -160,7 +152,7 @@ void testApp::keyPressed(int key) {
     }
     if (key == OF_KEY_DOWN)
     {
-        altura -+ 12 % 128;
+        altura -= 12 % 128;
     }
     if(key == '+')
     {
@@ -386,22 +378,43 @@ void testApp::keyReleased(int key) {
 
 //--------------------------------------------------------------
 void testApp::mouseMoved(int x, int y ) {
+    
+    if (image.getWidth() != 0 && image.getHeight() != 0)
+    {
+        if (port1)
+        {
+            noteRed = mapNote(red/2); //ofMap(red, 48, 122, 0, 127);
+            midiOut.sendNoteOn(1, altura+noteRed,  velocity);
+        }
+    
+        if (port2)
+        {
+            noteGreen = mapNote(green/2); //ofMap(green, 48, 122, 0, 127);
+            midiOut.sendNoteOn(2, altura+noteGreen,  velocity);
+        }
+    
+        if (port3)
+        {
+            noteBlue = mapNote(blue/2); //ofMap(blue, 48, 122, 0, 127);
+            midiOut.sendNoteOn(3, altura+noteBlue,  velocity);
+        }
+    }
 }
 
 //--------------------------------------------------------------
 void testApp::mouseDragged(int x, int y, int button) {
-
-	// x pos controls the pan (ctl = 10)
-	pan = ofMap(x, 0, ofGetWidth(), 0, 127);
-	midiOut.sendControlChange(channel, 10, pan);
-	
-	// y pos controls the pitch bend
-	bend = ofMap(y, 0, ofGetHeight(), 0, MIDI_MAX_BEND);
-	midiOut.sendPitchBend(channel, bend);
+    
+    // x pos controls the pan (ctl = 10)
+    pan = ofMap(x, 0, ofGetWidth(), 0, 127);
+    midiOut.sendControlChange(channel, 10, pan);
+    
+    // y pos controls the pitch bend
+    bend = ofMap(y, 0, ofGetHeight(), 0, MIDI_MAX_BEND);
+    midiOut.sendPitchBend(channel, bend);
 }
 
 //--------------------------------------------------------------
-void testApp::mousePressed(int x, int y, int button) {	
+void testApp::mousePressed(int x, int y, int button) {
 }
 
 //--------------------------------------------------------------
@@ -446,32 +459,42 @@ void testApp::processOpenFileSelection(ofFileDialogResult openFileResult){
     
 }
 
-int mapNote(int note){
+
+int testApp::mapNote(int note){
     
     switch(note){
-        
-    case 0 | 12 | 24 |  36 | 48 | 60 | 72 | 84 | 96 | 108| 120 : //do
-        return 48;
+            
+        case 0: case 12: case 24: case  36: case 48: case 60: case 72: case 84: case 96: case 108: case 120:
+        case 1: case 13: case 25: case  37: case 49: case 61: case 73: case 85: case 97: case 109: case 121://do
+            return 48;
+        break;
+
+        case 2: case 14: case 26: case 38: case 50: case 62: case 74: case 86: case 98: case 110: case 122:
+        case 3: case 15: case 27: case 39: case 51: case 63: case 75: case 87: case 99: case 111: case 123://re
+            return 50;
+        break;
+            
+        case 4: case 16: case 28: case 40: case 52: case 64: case 76: case 88: case 100: case 112: //mi
+            return 52;
         break;
         
-    case 2 | 14 | 26 | 38 | 50 | 62 | 74 | 86 | 98 | 110 | 122 : //re
-        return 50;
+        case 5: case 17: case 29: case 41: case 53: case 65: case 77: case 89: case 101: case 113: case 125: // fa
+        case 6: case 18: case 30: case 42: case 54: case 66: case 78: case 90: case 102: case 114: case 126: // fa
+            return 53;
+        break;
+            
+        case 7: case 19: case 31: case 43: case 55: case 67: case 79: case 91: case 103: case 115: case 127: // sol
+        case 8: case 20: case 32: case 44: case 56: case 68: case 80: case 92: case 104: case 116: case 128: // sol
+            return 55;
         break;
         
-    case 5 | 17 | 29 | 41 | 53 | 65 | 77 | 89 | 101 | 113 | 125 : // fa
-        return 53;
+        case 9: case 21: case 33: case 45: case 57: case 69: case 81: case 93: case 105: case 117: case 129: // la
+        case 10: case 22: case 34: case 46: case 58: case 70: case 82: case 94: case 106: case 118: case 130: // la
+            return 57;
         break;
-        
-    case 7 | 19 | 31 | 43 | 55 | 67 | 79 | 91 | 103 | 115 | 127 : // sol
-        return 55;
-        break;
-        
-    case 9 | 21 | 33 | 45 | 57 | 69 | 81 | 93 | 105 | 117 | 129 : // la
-        return 57;
-        break;
-        
-    case 11 | 23 | 35 | 47 | 59 | 71 | 83 | 95 | 107 | 119 | 131 : // si
-        return 59;
+            
+        case 11: case 23: case 35: case 47: case 59: case 71: case 83: case 95: case 107: case 119: case 131: // si
+            return 59;
         break;
         
     }
