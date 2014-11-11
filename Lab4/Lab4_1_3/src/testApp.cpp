@@ -104,6 +104,8 @@ void testApp::draw() {
     if (port3)
         canales += " 3";
     
+    int h = (altura / 12) + 4;
+    
 	stringstream text;
 	text << "connected to port " << midiOut.getPort()
 		 << " \"" << midiOut.getName() << "\"" << endl
@@ -111,7 +113,7 @@ void testApp::draw() {
          << "Green Note: " << noteGreen << endl
          << "Blue Note: " << noteBlue << endl
          << "Velocidad: " << velocity << endl
-         << "Altura: " << altura << endl
+         << "Altura: " << h << endl
          << "Enviando a Canales: " << canales << endl;
     
 	ofDrawBitmapString(text.str(), 20, ofGetHeight() - 100);
@@ -128,14 +130,14 @@ void testApp::exit() {
 void testApp::keyPressed(int key) {
 
 	// send a note on if the key is a letter or a number
-	if(isalnum((unsigned char) key)) {
+	/*if(isalnum((unsigned char) key)) {
 	
 		// scale the ascii values to midi velocity range 0-127
 		// see an ascii table: http://www.asciitable.com/
 		note = ofMap(key, 48, 122, 0, 127);
 		velocity = 64;
 		midiOut.sendNoteOn(channel, note,  velocity);
-	}
+	}*/
 	
 	if(key == 'l') {
 		ofxMidiOut::listPorts();
@@ -291,20 +293,20 @@ void testApp::mouseMoved(int x, int y ) {
         {
             if (port1)
             {
-                noteRed = mapNote(red/2); //ofMap(red, 48, 122, 0, 127);
-                midiOut.sendNoteOn(1, altura+noteRed,  velocity);
+                noteRed = mapNote(red/2) + altura; //ofMap(red, 48, 122, 0, 127);
+                midiOut.sendNoteOn(1, noteRed,  velocity);
             }
     
             if (port2)
             {
-                noteGreen = mapNote(green/2); //ofMap(green, 48, 122, 0, 127);
-                midiOut.sendNoteOn(2, altura+noteGreen,  velocity);
+                noteGreen = mapNote(green/2) + altura; //ofMap(green, 48, 122, 0, 127);
+                midiOut.sendNoteOn(2, noteGreen,  velocity);
             }
     
             if (port3)
             {
-                noteBlue = mapNote(blue/2); //ofMap(blue, 48, 122, 0, 127);
-                midiOut.sendNoteOn(3, altura+noteBlue,  velocity);
+                noteBlue = mapNote(blue/2) + altura; //ofMap(blue, 48, 122, 0, 127);
+                midiOut.sendNoteOn(3, noteBlue,  velocity);
             }
         }
     }
