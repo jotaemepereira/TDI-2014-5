@@ -41,7 +41,7 @@ Decidimos hacer un juego que reconozca a donde esta mirando el jugador y le vaya
 
 Imagen del juego:
 <pre>
-<a href="#"><img src="http://i62.tinypic.com/2501lrm.png" align="center" height="350" width="500"></a>
+<a href="#"><img src="http://i62.tinypic.com/2501lrm.png" align="center" height="350" width="590"></a>
 </pre>
 
 
@@ -54,7 +54,7 @@ Datos de la deforestación: [Link](http://data.un.org/Data.aspx?q=FOREST&d=MDG&f
 
 Imagen de la aplicación:
 <pre>
-<a href="#"><img src="http://i60.tinypic.com/et8f83.png" align="center" height="350" width="500"></a>
+<a href="#"><img src="http://i60.tinypic.com/et8f83.png" align="center" height="350" width="590"></a>
 </pre>
 
 ## Laborotario 4 - Instrumento Musical
