@@ -47,16 +47,23 @@ Imagen del juego:
 
 ## Laboratorio 3 - Datos Abiertos
 
-En este labortario decidimos tomar los datos de la deforestación mundial para mostrarlos de una manera particular usando Processing. Hicimos el cruce de datos entre la deforestación de los países sumado a la emisión de CO2.
+En este labortario decidimos tomar los datos de la deforestación mundial para mostrarlos de una manera particular usando Processing. 
+Hicimos el cruce de datos entre la deforestación de los países sumado a la emisión de CO2, la emisión de CO2 es representada por la cantidad de lluvia que cae sobre los árboles, cuanto más lluvia también más fuerte es el ruido de la misma.
 
 Datos de la deforestación: [Link](http://data.un.org/Data.aspx?q=FOREST&d=MDG&f=seriesRowID%3a567)
 
-Imagen del juego:
+Imagen de la aplicación:
 <pre>
-<a href="#"><img src="http://i60.tinypic.com/et8f83.png" align="center"></a>
+<a href="#"><img src="http://i60.tinypic.com/et8f83.png" align="center" height="350" width="500"></a>
 </pre>
 
 ## Laborotario 4 - Instrumento Musical
+
+El laboratorio cuatro se trató sobre crear un instrumento musical. Nostros tuvimos la idea de hacer un instrumento musical que reproduzca música según el RGB de una imagen. Por lo que el usuario podría cargar una imagen y reproducir música con tan solo moverse por la imagen.
+
+El proyecto lo realizamos sobre OpenFrameworks (usamos el addon ofxMidi), y utilizamos Live Ableton para reproducir la música que pasaba por el contorlador MIDI.
+
+El usuario luego de cargada la imagen tiene la posiblidad de cambiar los tonos de RGB apretando las teclas 'r', 'g' y 'b' para dismunir los tonos o 'R', 'G' y 'B' para aumentar los tonos. También se puede cambiar la altura de los tonos y los puertos por los cuales pueden salir las notas (usamos tres puertos, numerados del 1 al 3).
 
 
 
