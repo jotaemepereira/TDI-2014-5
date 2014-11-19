@@ -47,6 +47,16 @@ Imagen del juego:
 
 ## Laboratorio 3 - Datos Abiertos
 
-En este labortario decidimos tomar los datos de la deforestación mundial para mostrarlos de una manera particular usando Processing.
+En este labortario decidimos tomar los datos de la deforestación mundial para mostrarlos de una manera particular usando Processing. Hicimos el cruce de datos entre la deforestación de los países sumado a la emisión de CO2.
+
 Datos de la deforestación: [Link](http://data.un.org/Data.aspx?q=FOREST&d=MDG&f=seriesRowID%3a567)
+
+Imagen del juego:
+<pre>
+<a href="#"><img src="http://i60.tinypic.com/et8f83.png" align="center"></a>
+</pre>
+
+## Laborotario 4 - Instrumento Musical
+
+
 
